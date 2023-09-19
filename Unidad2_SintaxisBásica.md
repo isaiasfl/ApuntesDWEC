@@ -1,2 +1,0 @@
-# Sintaxis Básica de JavaScript
-
