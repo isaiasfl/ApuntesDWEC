@@ -1,4 +1,57 @@
-# Sintaxis Básica de JavaScript
+# **Sintaxis Básica de JavaScript**
+
+## Declaración de Variables en JavaScript
+
+JavaScript ofrece tres formas de declarar variables: `var`, `let` y `const`. Cada una de ellas tiene características específicas:
+
+### `var`
+
+- Declaración global o de función.
+- No respeta el bloque de alcance (`block scope`).
+- Puede ser reasignada y redeclarada.
+
+Ejemplo:
+
+```javascript
+var numero = 5;
+numero = 10; // Se puede reasignar
+```
+
+### `let`
+
+- Declaración con alcance de bloque (`block scope`).
+- Puede ser reasignada, pero no redeclarada en el mismo ámbito.
+
+Ejemplo:
+
+```javascript
+let edad = 25;
+edad = 30; // Se puede reasignar
+```
+
+### `const`
+
+- Declaración con alcance de bloque (`block scope`).
+- No puede ser reasignada ni redeclarada en el mismo ámbito.
+- Debe ser inicializada en el momento de la declaración.
+
+Ejemplo:
+
+```javascript
+const pi = 3.1416;
+```
+
+El uso de `let` y `const` es preferido en ECMAScript 6 (ES6) para evitar problemas relacionados con el ámbito y proporcionar mayor inmutabilidad en las variables cuando sea necesario.
+
+En resumen: 
+
+| Tipo   | Scope | Volver a Declarar | Reasignar | Hoisted  | Binds this |
+|:------:|:-----:|:-----------------:|:---------:|:--------:|:----------:|
+| var    |   No  |       Sí          |     Sí    |    Sí    |     Sí     |
+| let    |   Sí  |       No          |     Sí    |    No    |     No     |
+| const  |   No  |       No          |     No    |    No    |     No     |
+
+
 
 ## Tipos de datos primitivos.💎
 
