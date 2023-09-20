@@ -1,10 +1,10 @@
-# **Sintaxis Básica de JavaScript**
+# Capítulo 1: **Sintaxis Básica de JavaScript**
 
-## Declaración de Variables en JavaScript
+## 1.1 Declaración de Variables en JavaScript
 
 JavaScript ofrece tres formas de declarar variables: `var`, `let` y `const`. Cada una de ellas tiene características específicas:
 
-### `var`
+### i. `var`
 
 - Declaración global o de función.
 - No respeta el bloque de alcance (`block scope`).
@@ -17,7 +17,7 @@ var numero = 5;
 numero = 10; // Se puede reasignar
 ```
 
-### `let`
+### ii. `let`
 
 - Declaración con alcance de bloque (`block scope`).
 - Puede ser reasignada, pero no redeclarada en el mismo ámbito.
@@ -29,7 +29,7 @@ let edad = 25;
 edad = 30; // Se puede reasignar
 ```
 
-### `const`
+### iii. `const`
 
 - Declaración con alcance de bloque (`block scope`).
 - No puede ser reasignada ni redeclarada en el mismo ámbito.
@@ -43,59 +43,68 @@ const pi = 3.1416;
 
 El uso de `let` y `const` es preferido en ECMAScript 6 (ES6) para evitar problemas relacionados con el ámbito y proporcionar mayor inmutabilidad en las variables cuando sea necesario.
 
-En resumen: 
+En resumen:
 
-| Tipo   | Scope | Volver a Declarar | Reasignar | Hoisted  | Binds this |
-|:------:|:-----:|:-----------------:|:---------:|:--------:|:----------:|
-| var    |   No  |       Sí          |     Sí    |    Sí    |     Sí     |
-| let    |   Sí  |       No          |     Sí    |    No    |     No     |
-| const  |   No  |       No          |     No    |    No    |     No     |
+| Tipo  | Scope | Volver a Declarar | Reasignar | Hoisted | Binds this |
+| :---: | :---: | :---------------: | :-------: | :-----: | :--------: |
+|  var  |  No   |        Sí         |    Sí     |   Sí    |     Sí     |
+|  let  |  Sí   |        No         |    Sí     |   No    |     No     |
+| const |  No   |        No         |    No     |   No    |     No     |
 
+A partir de ECMAScript 2015, `let y const`` se elevan (hoisting) pero no se inician lo que no provoca problemas con el hoisting o elevación.
 
+## 1.2 Tipos de datos primitivos.💎
 
-## Tipos de datos primitivos.💎
+<ol style="list-style-type: lower-roman;">
+<li> Números enteros y flotantes:</li>
 
-- Números enteros y flotantes:
-  - `let edad = 25;`
-  - `let cantidad = -10;`
-  - `let precio = 99.99;`
-  - `const pi = 3.1416;`
+- `let edad = 25;`
+- `let cantidad = -10;`
+- `let precio = 99.99;`
+- `const pi = 3.1416;`
 
-- BigInt:
-  - `const numeroGrande = 1234567890123456789012345678901234567890n;`
+<li> BigInt:</li>
 
-- Cadenas de texto:
-  - `let nombre = "Juan";`
-  - `let mensaje = 'Hola, mundo';`
+- `const numeroGrande = 1234567890123456789012345678901234567890n;`
 
-- Valores booleanos:
-  - `let esVerdadero = true;`
-  - `let esFalso = false;`
+<li> Cadenas de texto:</li>
 
-- Valores nulos y indefinidos:
-  - `let valorNulo = null;`
-  - `let valorIndefinido = undefined;`
+- `let nombre = "Juan";`
+- `let mensaje = 'Hola, mundo';`
 
-- Símbolos: (Introducidos en ECMAScript 6)
-  - `const simbolo = Symbol('descripcion');`
+<li> Valores booleanos: </li>
 
-  Algunos ejemplos de symbol:
+- `let esVerdadero = true;`
+- `let esFalso = false;`
 
-  ```javascript
-  // Creación de un símbolo con una descripción
-  const simbolo1 = Symbol('Este es un símbolo');
-  const simbolo2 = Symbol('Otro símbolo');
+<li> Valores nulos y indefinidos: </li>
 
-  // Los símbolos son únicos, incluso si tienen la misma descripción
-  console.log(simbolo1 === simbolo2); // false
+- `let valorNulo = null;`
+- `let valorIndefinido = undefined;`
 
-  // Los símbolos se pueden utilizar como propiedades de objetos
-  const objeto = {
-    [simbolo1]: 'Valor del símbolo 1',
-    [simbolo2]: 'Valor del símbolo 2'
-  };
+<li> Símbolos: (Introducidos en ECMAScript 6) </li>
 
-  // Acceso a los valores a través de los símbolos
-  console.log(objeto[simbolo1]); // 'Valor del símbolo 1'
-  console.log(objeto[simbolo2]); // 'Valor del símbolo 2'
+- `const simbolo = Symbol('descripcion');`
 
+Algunos ejemplos de symbol:
+
+```javascript
+// Creación de un símbolo con una descripción
+const simbolo1 = Symbol("Este es un símbolo");
+const simbolo2 = Symbol("Otro símbolo");
+
+// Los símbolos son únicos, incluso si tienen la misma descripción
+console.log(simbolo1 === simbolo2); // false
+
+// Los símbolos se pueden utilizar como propiedades de objetos
+const objeto = {
+  [simbolo1]: "Valor del símbolo 1",
+  [simbolo2]: "Valor del símbolo 2",
+};
+
+// Acceso a los valores a través de los símbolos
+console.log(objeto[simbolo1]); // 'Valor del símbolo 1'
+console.log(objeto[simbolo2]); // 'Valor del símbolo 2'
+```
+
+</ol>
