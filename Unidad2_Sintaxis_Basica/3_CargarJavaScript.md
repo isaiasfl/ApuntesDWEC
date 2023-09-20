@@ -1,54 +1,54 @@
-# Inserción de Código `JavaScript` en HTML
+# Capítulo 3: Inserción de Código `JavaScript` en HTML
 
 En HTML, puedes incluir código JavaScript de varias maneras:
 
-## 1. Etiqueta `<script>` en el Cuerpo del Documento
+## 3.1. Etiqueta `<script>` en el Cuerpo del Documento
 
 Puedes incluir código JavaScript en la sección `<body>` de tu documento HTML utilizando la etiqueta `<script>`.
 
 ```html
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Mi Página</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Ejemplo de código JavaScript en el cuerpo del documento</h1>
     <script>
-        function saludar() {
-            alert('¡Hola, mundo!');
-        }
-        saludar();
+      function saludar() {
+        alert("¡Hola, mundo!");
+      }
+      saludar();
     </script>
-</body>
+  </body>
 </html>
 ```
 
-## 2. Etiqueta `<script>` en el Encabezado
+## 3.2. Etiqueta `<script>` en el Encabezado
 
 También puedes incluir código JavaScript en la sección `<head>` de tu documento HTML. En este caso, generalmente se coloca en un evento como `DOMContentLoaded` para asegurarse de que el DOM esté completamente cargado antes de ejecutar el código.
 
 ```html
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Mi Página</title>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            function saludar() {
-                alert('¡Hola, mundo!');
-            }
-            saludar();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        function saludar() {
+          alert("¡Hola, mundo!");
+        }
+        saludar();
+      });
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Ejemplo de código JavaScript en el encabezado</h1>
-</body>
+  </body>
 </html>
 ```
 
-## 3. Archivo Externo JavaScript 📏 
+## 3.3. Archivo Externo JavaScript 📏
 
 Para mantener tu código organizado, es una buena práctica incluir código JavaScript en archivos externos y luego enlazar esos archivos en tu HTML utilizando la etiqueta `<script>`.
 Para ello y como he comentado podríamos hacerlo desde la cabecera o Head o desde el Body, teniendo prensente en este caso que se debe de insertar la llamada al script antes de cerrar la etiqueta `</body>`.
@@ -58,14 +58,13 @@ Para ello y como he comentado podríamos hacerlo desde la cabecera o Head o desd
 ```html
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Mi Página</title>
-    
-</head>
-<body>
+  </head>
+  <body>
     <h1>Ejemplo de archivo externo JavaScript</h1>
-    <script src="mi_script.js"></script> 
-</body>
+    <script src="mi_script.js"></script>
+  </body>
 </html>
 ```
 
@@ -74,18 +73,18 @@ El contenido de `mi_script.js`:
 ```javascript
 // mi_script.js
 function saludar() {
-    alert('¡Hola, mundo!');
+  alert("¡Hola, mundo!");
 }
 saludar();
 ```
 
 ### Ejemplo de llamada en el `<head> `:
 
-La llamada de un fichero con código JavaScript en la cabecera es algo más delicada. 
+La llamada de un fichero con código JavaScript en la cabecera es algo más delicada.
 
 La etiqueta `<script>` en HTML tiene varios atributos que pueden afectar cómo se carga y ejecuta el código JavaScript en la página. Muestro algunos ejemplos, junto con los atributos que se pueden utilizar:
 
-1. **`src` (Source)**: Este atributo se utiliza para especificar la fuente (URL) de un archivo JavaScript externo que se va a cargar y ejecutar en la página. 
+1. **`src` (Source)**: Este atributo se utiliza para especificar la fuente (URL) de un archivo JavaScript externo que se va a cargar y ejecutar en la página.
 
    ```html
    <script src="mi_script.js"></script>
@@ -98,7 +97,7 @@ La etiqueta `<script>` en HTML tiene varios atributos que pueden afectar cómo s
    ```
 
 3. **`defer`**: Al agregar el atributo `defer` a la etiqueta `<script>`, se le dice al navegador que el archivo JavaScript se debe cargar de forma asíncrona, pero la ejecución del script se pospone hasta que se complete el análisis del documento HTML. Esto es útil cuando el orden de ejecución del script es importante y debe ser relativo al orden en que aparece en el documento.
-Además La ejecución de todos los scripts diferidos se realiza en el mismo orden en el que aparecen en el documento.
+   Además La ejecución de todos los scripts diferidos se realiza en el mismo orden en el que aparecen en el documento.
 
    ```html
    <script src="mi_script.js" defer></script>
