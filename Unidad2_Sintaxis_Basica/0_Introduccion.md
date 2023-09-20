@@ -5,7 +5,7 @@ lang: es-ES
 toc: TRUE
 ---
 
-# Capítulo 0. Introducción a `JavaScript`.
+# Capítulo 0. Introducción a `JavaScript`. 📖
 
 ## 0.1 Historia de JavaScript
 
