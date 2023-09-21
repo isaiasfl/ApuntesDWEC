@@ -1,4 +1,4 @@
-#Capítulo 4: Manual de Operadores Lógicos y de Comparación en JavaScript.
+# Capítulo 4: Manual de Operadores Lógicos y de Comparación en JavaScript.
 
 Los operadores lógicos y de comparación son fundamentales en JavaScript para realizar evaluaciones y tomar decisiones lógicas en tus programas. En ECMAScript 6, se introducen varios operadores nuevos que amplían las capacidades de comparación. A continuación, se presentan los operadores más comunes junto con ejemplos de uso.
 
