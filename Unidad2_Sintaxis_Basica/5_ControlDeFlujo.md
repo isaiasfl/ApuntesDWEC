@@ -46,6 +46,12 @@ if (puntuacion >= 90) {
 }
 ```
 
+_**Recordemos:​**_
+
+`El número 0, un string vacío "", null, undefined, y NaN se convierte en false. Por esto son llamados valores “falso”.​`
+
+`El resto de los valores se convierten en true, entonces los llamaremos valores “verdadero”.`
+
 ## 5.2. Bucles
 
 ### 5.2.1. `for` Loop
