@@ -116,3 +116,47 @@ if (edad >= 18 && !esEstudiante) {
   );
 }
 ```
+
+## 4.3. Operador Ternario (`?`)
+
+El operador ternario, representado por `condición ? expresión1 : expresión2`, es una forma concisa de realizar una evaluación condicional en JavaScript. Si la condición es verdadera, se ejecuta `expresión1`; de lo contrario, se ejecuta `expresión2`. Es útil para asignar valores basados en una condición.
+
+### Ejemplo:
+
+```javascript
+const edad = 18;
+const esMayor = edad >= 18 ? 'Sí' : 'No';
+console.log(`¿Es mayor de edad? ${esMayor}`); // Imprime "¿Es mayor de edad? Sí"
+```
+
+## 4.4. Operador Nullish Coalescing  (`??`)
+
+El operador nullish coalescing (`??`) se utiliza para proporcionar un valor predeterminado en caso de que una expresión sea `null` o `undefined`. Es útil para manejar valores nulos o indefinidos de manera segura.
+
+### Ejemplo:
+
+```javascript
+const valor = null;
+const valorPredeterminado = valor ?? 'Valor predeterminado';
+console.log(valorPredeterminado); // Imprime "Valor predeterminado"
+```
+
+## 4.5. Combinación de Operadores (`?`) y (`??`)
+
+Puedes combinar el operador ternario y el operador de nullish coalescing para crear lógica condicional más compleja.
+
+### Ejemplo:
+
+```javascript
+const nombre = null;
+const mensaje = nombre ? `Hola, ${nombre}` : 'Hola, usuario';
+console.log(mensaje); // Imprime "Hola, usuario"
+
+const edad = undefined;
+const mensajeEdad = edad ?? 'Edad no especificada';
+console.log(mensajeEdad); // Imprime "Edad no especificada"
+```
+
+>En este ejemplo, `nombre` se evalúa como falso debido a que es `null`, por lo que se utiliza el valor predeterminado "Hola, usuario". En el segundo caso, `edad` se evalúa como `undefined`, por lo que se utiliza "Edad no especificada" como valor predeterminado.
+
+>Estos operadores son herramientas poderosas para realizar evaluaciones condicionales y manejar valores nulos o indefinidos de manera efectiva en JavaScript.
