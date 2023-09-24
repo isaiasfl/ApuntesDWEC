@@ -6,7 +6,12 @@
   - [3. Funciones de flecha](#3-funciones-de-flecha)
     - [3.1. Funciones de Flecha como Argumentos](#31-funciones-de-flecha-como-argumentos)
     - [3.2. Funciones de Flecha Multilínea](#32-funciones-de-flecha-multil%C3%ADnea)
-  - [4. Parámetros en las funciones](#4-par%C3%A1metros-en-las-funciones)
+  - [4.Diferencia Entre Parámetros y Argumentos en JavaScript](#4diferencia-entre-par%C3%A1metros-y-argumentos-en-javascript)
+    - [4.1 Parámetros](#41-par%C3%A1metros)
+      - [Ejemplo de Declaración de Función con Parámetros](#ejemplo-de-declaraci%C3%B3n-de-funci%C3%B3n-con-par%C3%A1metros)
+    - [4.2 Argumentos](#42-argumentos)
+      - [Ejemplo de Llamada de Función con Argumentos](#ejemplo-de-llamada-de-funci%C3%B3n-con-argumentos)
+    - [Resumen](#resumen)
   - [5. Valores predeterminados de parámetros](#5-valores-predeterminados-de-par%C3%A1metros)
   - [6. Rest parameters y operador spread](#6-rest-parameters-y-operador-spread)
   - [7. Funciones como expresiones](#7-funciones-como-expresiones)
@@ -120,17 +125,45 @@ En este ejemplo, la función `operacionCompleja` toma dos parámetros `a` y `b`,
 
 La ventaja de usar una función de flecha multilínea aquí es que nos permite escribir un código más limpio y legible al agrupar todas las operaciones relacionadas en un solo bloque de código.
 
-## 4. Parámetros en las funciones
+## 4.Diferencia Entre Parámetros y Argumentos en JavaScript
 
-Puedes pasar parámetros a funciones para que realicen acciones específicas. Por ejemplo:
+En JavaScript, los términos "parámetros" y "argumentos" se utilizan en el contexto de las funciones, pero se refieren a conceptos diferentes. Es importante comprender la diferencia entre ellos para escribir funciones efectivas y comprender cómo funcionan. A continuación, se proporciona una explicación de cada uno con ejemplos.
+
+### 4.1 Parámetros
+
+Los parámetros son nombres de variables que se definen en la declaración de una función. Estos actúan como marcadores de posición para los valores que se pasarán a la función cuando se invoque. Los parámetros se encuentran en la definición de la función y actúan como variables locales dentro de la función.
+
+#### Ejemplo de Declaración de Función con Parámetros
 
 ```javascript
 function saludar(nombre) {
-  console.log(`¡Hola, ${nombre}!`);
+  console.log(`Hola, ${nombre}!`);
 }
 
-saludar("Isaías"); // Imprime: ¡Hola, Isaías!
+saludar(Isaías); // imprime Hola, Isaías!
 ```
+
+En este ejemplo, `nombre` es un parámetro de la función `saludar`. Es un marcador de posición para el valor que se pasará cuando se llame a la función.
+
+### 4.2 Argumentos
+
+Los argumentos son los valores reales que se pasan a una función cuando se la llama. Los argumentos se utilizan para proporcionar valores concretos a los parámetros de la función. Los argumentos se encuentran en la llamada de la función.
+
+#### Ejemplo de Llamada de Función con Argumentos
+
+```javascript
+saludar("Isaías");
+```
+
+En este ejemplo, `"Isaías"` es un argumento que se pasa a la función `saludar`. Cuando se llama a la función, el valor del argumento se asigna al parámetro `nombre` dentro de la función.
+
+### Resumen
+
+En resumen, la diferencia clave entre parámetros y argumentos es la siguiente:
+
+- **Parámetros:** Son nombres de variables en la definición de la función y actúan como marcadores de posición para los valores que se pasarán.
+
+- **Argumentos:** Son los valores reales que se pasan a la función cuando se la llama y se asignan a los parámetros correspondientes.
 
 ## 5. Valores predeterminados de parámetros
 
