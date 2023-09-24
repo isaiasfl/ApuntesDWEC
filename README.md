@@ -38,4 +38,4 @@ _Profesor de Informática del IES Hermenegildo Lanz (Granada)_
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+Este proyecto está bajo la Licencia (GPL V3 - MIT) - mira el archivo [LICENSE](LICENSE) para detalles
