@@ -178,6 +178,16 @@ saludar(); // Imprime: ¡Hola, Usuario!
 saludar("Lorena"); // Imprime: ¡Hola, Lorena!
 ```
 
+Otra forma interesante sería con `||`.
+
+```javascript
+function mensaje(text) {
+  // si text es indefinida o falsa, la establece a 'vacío'
+  text = text || 'Bienvenido!!';
+  ...
+}
+```
+
 ## 6. Rest parameters y operador spread
 
 Los rest parameters y el operador spread (`...`) permiten trabajar con un número variable de argumentos en una función:
