@@ -1,4 +1,26 @@
-# Capítulo 4: Manual de Operadores Lógicos y de Comparación en JavaScript.
+# **Capítulo 4. Contenido 📝** 🖥️
+
+- [4. Operadores Lógicos y de Comparación en JavaScript.](#4-operadores-l%C3%B3gicos-y-de-comparaci%C3%B3n-en-javascript)
+  - [4.1. Operadores de Comparación](#41-operadores-de-comparaci%C3%B3n)
+    - [i. Igualdad (`==`) y Desigualdad (`!=`)](#i-igualdad--y-desigualdad-)
+    - [ii. Igualdad Estricta (`===`) y Desigualdad Estricta (`!==`)](#ii-igualdad-estricta--y-desigualdad-estricta-)
+    - [iii. Mayor que (`>`) y Menor que (`<`)](#iii-mayor-que--y-menor-que-)
+    - [iv. Mayor o Igual que (`>=`) y Menor o Igual que (`<=`)](#iv-mayor-o-igual-que--y-menor-o-igual-que-)
+  - [4.2. Operadores Lógicos](#42-operadores-l%C3%B3gicos)
+    - [i. AND Lógico (`&&`)](#i-and-l%C3%B3gico-)
+    - [ii. OR Lógico (`||`)](#ii-or-l%C3%B3gico-)
+    - [iii. NOT Lógico (`!`)](#iii-not-l%C3%B3gico-)
+    - [iv. Ejemplo Completo](#iv-ejemplo-completo)
+  - [4.3. Operador Ternario (`?`)](#43-operador-ternario-)
+    - [Ejemplo:](#ejemplo)
+  - [4.4. Operador Nullish Coalescing (`??`)](#44-operador-nullish-coalescing-)
+    - [Ejemplo:](#ejemplo-1)
+  - [4.5. Combinación de Operadores (`?`) y (`??`)](#45-combinaci%C3%B3n-de-operadores--y-)
+    - [Ejemplo:](#ejemplo-2)
+
+---
+
+# 4. Operadores Lógicos y de Comparación en JavaScript.
 
 Los operadores lógicos y de comparación son fundamentales en JavaScript para realizar evaluaciones y tomar decisiones lógicas en tus programas. En ECMAScript 6, se introducen varios operadores nuevos que amplían las capacidades de comparación. A continuación, se presentan los operadores más comunes junto con ejemplos de uso.
 
@@ -125,11 +147,11 @@ El operador ternario, representado por `condición ? expresión1 : expresión2`,
 
 ```javascript
 const edad = 18;
-const esMayor = edad >= 18 ? 'Sí' : 'No';
+const esMayor = edad >= 18 ? "Sí" : "No";
 console.log(`¿Es mayor de edad? ${esMayor}`); // Imprime "¿Es mayor de edad? Sí"
 ```
 
-## 4.4. Operador Nullish Coalescing  (`??`)
+## 4.4. Operador Nullish Coalescing (`??`)
 
 El operador nullish coalescing (`??`) se utiliza para proporcionar un valor predeterminado en caso de que una expresión sea `null` o `undefined`. Es útil para manejar valores nulos o indefinidos de manera segura.
 
@@ -137,7 +159,7 @@ El operador nullish coalescing (`??`) se utiliza para proporcionar un valor pred
 
 ```javascript
 const valor = null;
-const valorPredeterminado = valor ?? 'Valor predeterminado';
+const valorPredeterminado = valor ?? "Valor predeterminado";
 console.log(valorPredeterminado); // Imprime "Valor predeterminado"
 ```
 
@@ -149,14 +171,14 @@ Puedes combinar el operador ternario y el operador de nullish coalescing para cr
 
 ```javascript
 const nombre = null;
-const mensaje = nombre ? `Hola, ${nombre}` : 'Hola, usuario';
+const mensaje = nombre ? `Hola, ${nombre}` : "Hola, usuario";
 console.log(mensaje); // Imprime "Hola, usuario"
 
 const edad = undefined;
-const mensajeEdad = edad ?? 'Edad no especificada';
+const mensajeEdad = edad ?? "Edad no especificada";
 console.log(mensajeEdad); // Imprime "Edad no especificada"
 ```
 
->En este ejemplo, `nombre` se evalúa como falso debido a que es `null`, por lo que se utiliza el valor predeterminado "Hola, usuario". En el segundo caso, `edad` se evalúa como `undefined`, por lo que se utiliza "Edad no especificada" como valor predeterminado.
+> En este ejemplo, `nombre` se evalúa como falso debido a que es `null`, por lo que se utiliza el valor predeterminado "Hola, usuario". En el segundo caso, `edad` se evalúa como `undefined`, por lo que se utiliza "Edad no especificada" como valor predeterminado.
 
->Estos operadores son herramientas poderosas para realizar evaluaciones condicionales y manejar valores nulos o indefinidos de manera efectiva en JavaScript.
+> Estos operadores son herramientas poderosas para realizar evaluaciones condicionales y manejar valores nulos o indefinidos de manera efectiva en JavaScript.

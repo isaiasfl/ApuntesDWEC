@@ -1,4 +1,13 @@
-# Capítulo 1: **Sintaxis Básica de JavaScript**
+# **Capítulo 1. Contenido 📝**🖥️
+
+- [1. **Sintaxis Básica de JavaScript**](#1-sintaxis-b%C3%A1sica-de-javascript)
+  - [1.1 Declaración de Variables en JavaScript](#11-declaraci%C3%B3n-de-variables-en-javascript)
+    - [i. `var`](#i-var)
+    - [ii. `let`](#ii-let)
+    - [iii. `const`](#iii-const)
+  - [1.2 Tipos de datos primitivos.💎](#12-tipos-de-datos-primitivos)
+
+# 1. **Sintaxis Básica de JavaScript**
 
 ## 1.1 Declaración de Variables en JavaScript
 

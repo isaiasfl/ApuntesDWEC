@@ -1,11 +1,17 @@
----
-title: "Introducción a JavaScript"
-autor: "Isaías FL."
-lang: es-ES
-toc: TRUE
+# **Capítulo 0. Contenido 📝**💻
+
+- [0. Introducción a `JavaScript`. 📖](#0-introducci%C3%B3n-a-javascript-)
+  - [0.1 Historia de JavaScript](#01-historia-de-javascript)
+    - [Los Primeros Días](#los-primeros-d%C3%ADas)
+    - [La Guerra de Navegadores](#la-guerra-de-navegadores)
+    - [Estándares y Evolución](#est%C3%A1ndares-y-evoluci%C3%B3n)
+    - [JavaScript en la Actualidad](#javascript-en-la-actualidad)
+  - [0.2 Características.](#02-caracter%C3%ADsticas)
+  - [0.3 Palabras Reservadas.](#03-palabras-reservadas)
+
 ---
 
-# Capítulo 0. Introducción a `JavaScript`. 📖
+# 0. Introducción a `JavaScript`. 📖
 
 ## 0.1 Historia de JavaScript
 

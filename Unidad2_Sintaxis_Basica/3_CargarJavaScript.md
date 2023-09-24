@@ -1,4 +1,15 @@
-# Capítulo 3: Inserción de Código `JavaScript` en HTML
+# **Capítulo 3. Contenido 📝**🖥️
+
+- [3: Inserción de Código `JavaScript` en HTML](#3-inserci%C3%B3n-de-c%C3%B3digo-javascript-en-html)
+  - [3.1. Etiqueta `<script>` en el Cuerpo del Documento](#31-etiqueta-script-en-el-cuerpo-del-documento)
+  - [3.2. Etiqueta `<script>` en el Encabezado](#32-etiqueta-script-en-el-encabezado)
+  - [3.3. Archivo Externo JavaScript 📏](#33-archivo-externo-javascript-)
+    - [Ejemplo de llamada en el `<body> `:](#ejemplo-de-llamada-en-el-body-)
+    - [Ejemplo de llamada en el `<head> `:](#ejemplo-de-llamada-en-el-head-)
+
+---
+
+# 3. Inserción de Código `JavaScript` en HTML
 
 En HTML, puedes incluir código JavaScript de varias maneras:
 

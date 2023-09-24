@@ -1,10 +1,28 @@
-# Capítulo 5: Estructuras de Control de Flujo en JavaScript (ES6)
+# **Capítulo 6. Contenido 📝** 🖥️
+
+- [6. Estructuras de Control de Flujo en JavaScript (ES6)](#6-estructuras-de-control-de-flujo-en-javascript-es6)
+  - [6.1. Estructuras Condicionales](#61-estructuras-condicionales)
+    - [6.1.1. Declaración `if`](#611-declaraci%C3%B3n-if)
+    - [6.1.2. Declaración `else`](#612-declaraci%C3%B3n-else)
+    - [6.1.3. `else if`](#613-else-if)
+  - [6.2. Bucles](#62-bucles)
+    - [6.2.1. `for` Loop](#621-for-loop)
+    - [6.2.2. `while` Loop](#622-while-loop)
+    - [6.2.3. `do...while` Loop](#623-dowhile-loop)
+  - [6.3. Estructuras de Control Avanzadas](#63-estructuras-de-control-avanzadas)
+    - [6.3.1. `switch` Statement](#631-switch-statement)
+    - [6.3.2. `break` y `continue`](#632-break-y-continue)
+  - [6.4 Ejercicios 😑 📖:](#64-ejercicios--)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# 6. Estructuras de Control de Flujo en JavaScript (ES6)
 
 Las estructuras de control de flujo en JavaScript permiten tomar decisiones y repetir acciones según sea necesario en un programa. Estas estructuras son fundamentales para el flujo de ejecución de un programa.
 
-## 5.1. Estructuras Condicionales
+## 6.1. Estructuras Condicionales
 
-### 5.1.1. Declaración `if`
+### 6.1.1. Declaración `if`
 
 La estructura `if` se utiliza para ejecutar un bloque de código si una condición es verdadera.
 
@@ -16,7 +34,7 @@ if (edad >= 18) {
 }
 ```
 
-### 5.1.2. Declaración `else`
+### 6.1.2. Declaración `else`
 
 El bloque `else` se ejecuta si la condición en `if` es falsa.
 
@@ -30,7 +48,7 @@ if (edad >= 18) {
 }
 ```
 
-### 5.1.3. `else if`
+### 6.1.3. `else if`
 
 `else if` se utiliza para evaluar múltiples condiciones secuencialmente.
 
@@ -52,9 +70,9 @@ _**Recordemos:​**_
 
 `El resto de los valores se convierten en true, entonces los llamaremos valores “verdadero”.`
 
-## 5.2. Bucles
+## 6.2. Bucles
 
-### 5.2.1. `for` Loop
+### 6.2.1. `for` Loop
 
 El bucle `for` permite ejecutar un bloque de código un número específico de veces.
 
@@ -64,7 +82,7 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
-### 5.2.2. `while` Loop
+### 6.2.2. `while` Loop
 
 El bucle `while` se ejecuta mientras una condición sea verdadera.
 
@@ -77,7 +95,7 @@ while (contador < 5) {
 }
 ```
 
-### 5.2.3. `do...while` Loop
+### 6.2.3. `do...while` Loop
 
 `do...while` es similar a `while`, pero garantiza que el bloque se ejecute al menos una vez.
 
@@ -90,9 +108,9 @@ do {
 } while (x > 0);
 ```
 
-## 5.3. Estructuras de Control Avanzadas
+## 6.3. Estructuras de Control Avanzadas
 
-### 5.3.1. `switch` Statement
+### 6.3.1. `switch` Statement
 
 `switch` se utiliza para evaluar múltiples casos y ejecutar código según el caso que coincida.
 
@@ -111,7 +129,7 @@ switch (diaSemana) {
 }
 ```
 
-### 5.3.2. `break` y `continue`
+### 6.3.2. `break` y `continue`
 
 `break` se utiliza para salir de un bucle o `switch`, mientras que `continue` se utiliza para saltar a la siguiente iteración en un bucle.
 
@@ -124,7 +142,7 @@ for (let i = 0; i < 5; i++) {
 }
 ```
 
-## 5.4 Ejercicios 😑 📖:
+## 6.4 Ejercicios 😑 📖:
 
 **Ejercicio 1:**
 
