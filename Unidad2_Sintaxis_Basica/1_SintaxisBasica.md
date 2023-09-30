@@ -86,7 +86,7 @@ A partir de ECMAScript 2015, `let` y `const` se elevan (hoisting) pero no se ini
 - `let esVerdadero = true;`
 - `let esFalso = false;`
 
-<li> Valores nulos y indefinidos: </li>
+<li> Valores nulos e indefinidos: </li>
 
 - `let valorNulo = null;`
 - `let valorIndefinido = undefined;`
