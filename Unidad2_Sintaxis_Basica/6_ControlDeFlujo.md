@@ -153,7 +153,7 @@ El array de letras es el siguiente:
 
 letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 
-Se debe validar que el número que se pretende calcular su Letra es entero y de la longitud correcta.
+Se debe validar que el número que se pretende calcular su letra es entero y de la longitud correcta.
 ```
 
 **Ejercicio 2:**
