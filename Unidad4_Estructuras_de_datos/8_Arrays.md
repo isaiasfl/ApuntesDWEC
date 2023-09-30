@@ -175,11 +175,17 @@ const mayoresDeEdad = edades.filter((edad) => edad >= 18); // [25, 18, 30, 40]
 
 ### viii. `reduce()`
 
-`reduce(función, valorInicial)`: Aplica una función acumulativa a los elementos del array, retornando un único valor acumulado.
+`reduce(función, valorInicial)`: Aplica una función acumulativa a los elementos del array, retornando un único valor acumulado. Si no se especifica un valor inicial éste será el del primer elemento, y la función comenzará con el segundo elemento.
 
 ```javascript
 const numeros = [1, 2, 3, 4, 5];
 const suma = numeros.reduce((acumulador, numero) => acumulador + numero, 0); // 15
+```
+
+```javascript
+const numeros = [5, 10, 15];
+const suma = numeros.reduce((acumulador, numero) => acumulador + numero, 10); // 40
+const suma = numeros.reduce((acumulador, numero) => acumulador + numero); // 30
 ```
 
 ### ix. `sort()`
