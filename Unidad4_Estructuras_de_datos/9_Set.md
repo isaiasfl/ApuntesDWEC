@@ -104,7 +104,7 @@ Aunque hay otra forma más rápida:
 const arrayDeanimales = [ ...animales ];
 ```
 
-> Esto se debe a que los tres puntos (...) en este contexto se conocen como el operador de propagación (spread operator), y se utiliza para descomponer los elementos de un objeto iterable (como un conjunto) en elementos individuales, que luego se pueden utilizar para construir un nuevo array.
+> Esto se debe a que los tres puntos (`...`) en este contexto se conocen como el operador de propagación (spread operator), y se utiliza para descomponer los elementos de un objeto iterable (como un conjunto) en elementos individuales, que luego se pueden utilizar para construir un nuevo array.
 
 ## 9.8 Eliminar Duplicados de un Array
 
