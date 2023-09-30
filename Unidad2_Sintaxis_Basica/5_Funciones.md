@@ -38,7 +38,7 @@ function saludar() {
 }
 
 // Llamada a la función
-saludar(); // Imprime: ¡Hola, mundo, Bienvenido Isaías!
+saludar(); // Imprime: ¡Hola, mundo!, Bienvenido Isaías
 ```
 
 ## 2. Expresiones de funciones o expresiones funcionales.
