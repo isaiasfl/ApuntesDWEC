@@ -60,7 +60,7 @@ animales.delete("gato");
 
 ## 9.4 Verificar la Existencia y Acceder a los Elementos
 
-No podemos usar un índice dado que el set no tiene indices por tanto sólo podemos usar el método has que comprueba si existe el elemento en el Set
+No podemos usar un índice dado que el set no tiene índices por tanto sólo podemos usar el método `has()` que comprueba si existe el elemento en el Set.
 Puedes verificar si un elemento existe en un conjunto utilizando el método `has()`:
 
 ```javascript
