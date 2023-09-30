@@ -140,7 +140,7 @@ function saludar(nombre) {
   console.log(`Hola, ${nombre}!`);
 }
 
-saludar(Isaías); // imprime Hola, Isaías!
+saludar("Isaías"); // imprime Hola, Isaías!
 ```
 
 En este ejemplo, `nombre` es un parámetro de la función `saludar`. Es un marcador de posición para el valor que se pasará cuando se llame a la función.
