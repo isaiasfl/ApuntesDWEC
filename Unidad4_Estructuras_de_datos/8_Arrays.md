@@ -475,3 +475,26 @@ Puedes clonar (copiar) un array en JavaScript de varias maneras, las más comune
    ```
 
    Esto generará una copia de `arrayOriginal` en `arrayClonado`.
+
+**Nota:** Hay que tener en cuenta que los métodos 1 y 2 crean un espacio undefined en los huecos que hubiera en el array original, mientras que el 3 y el 4 conservan dichos huecos.
+```javascript
+const arrayOriginal = [1, 2, , 3, 4]; // En el array original no existe el elemento de índice 2
+console.log(arrayOriginal);             // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayOriginal);        // false
+
+const arrayClonadoSpread = [...arrayOriginal];
+console.log(arrayClonadoSpread);        // [ 1, 2, undefined, 3, 4 ]
+console.log(2 in arrayClonadoSpread);   // true
+
+const arrayClonadoArrayFrom = Array.from(arrayOriginal);
+console.log(arrayClonadoArrayFrom);     // [ 1, 2, undefined, 3, 4 ]
+console.log(2 in arrayClonadoArrayFrom);// true
+
+const arrayClonadoSlice = arrayOriginal.slice();
+console.log(arrayClonadoSlice);        // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayClonadoSlice);   // false
+
+const arrayClonadoConcat = [].concat(arrayOriginal);
+console.log(arrayClonadoConcat);       // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayClonadoConcat);  // false
+```
