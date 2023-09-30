@@ -201,7 +201,7 @@ const resultado = sumar(1, 2, 3, 4, 5);
 console.log(resultado); // Imprime: 15
 ```
 
-> Reduce lo veremos más adelante.
+> `reduce()` lo veremos más adelante.
 
 ## 7. Funciones como expresiones
 
