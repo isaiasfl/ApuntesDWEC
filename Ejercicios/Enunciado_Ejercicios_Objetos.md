@@ -28,11 +28,7 @@ Escribe una función que tome una cadena como argumento. Cree un objeto que teng
 
 Escribe una función que tome dos cadenas (a y b) como argumentos. Cree un objeto que tenga una propiedad con la clave 'a' y un valor de 'b'. Devuelve el objeto.
 
-<br>
-
->
-
-<br>
+<div class="page"/>
 
 ## Ejercicio 6
 

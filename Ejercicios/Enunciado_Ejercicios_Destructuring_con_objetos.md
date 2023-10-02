@@ -4,11 +4,9 @@
 
 ---
 
-<Br>
-
 ### Ejercicio 1
 
-**Enunciado:** Dado el siguiente objeto, utiliza la desestructuración para extraer las propiedades `nombre` y `edad` en variables separadas. Después crear un objeto con dichas propiedades y los valores obtenidos.
+Dado el siguiente objeto, utiliza la desestructuración para extraer las propiedades `nombre` y `edad` en variables separadas. Después crear un objeto con dichas propiedades y los valores obtenidos.
 
 ```javascript
 const persona = {
@@ -19,7 +17,7 @@ const persona = {
 
 ### Ejercicio 2
 
-**Enunciado:** Dado el siguiente objeto, utiliza la desestructuración para extraer la propiedad `ciudad` en una variable llamada `lugar`.
+Dado el siguiente objeto, utiliza la desestructuración para extraer la propiedad `ciudad` en una variable llamada `lugar`.
 
 ```javascript
 const direccion = {
@@ -31,9 +29,7 @@ const direccion = {
 
 ### Ejercicio 3
 
-**Enunciado:** Dado el siguiente objeto, utiliza la desestructuración para extraer las propiedades `primerNumero` y `segundoNumero` en variables separadas. Además a la vez, la variable segundoNumero se debe llamar `secondNumber`
-
-<br>
+Dado el siguiente objeto, utiliza la desestructuración para extraer las propiedades `primerNumero` y `segundoNumero` en variables separadas. Además a la vez, la variable segundoNumero se debe llamar `secondNumber`
 
 ```javascript
 const numeros = {
@@ -46,7 +42,7 @@ const numeros = {
 
 ### Ejercicio 4
 
-**Enunciado:** Dado el siguiente objeto, utiliza la desestructuración para extraer la propiedad `nombre` y `apellidos` en una variable llamada `nombre` y `apellidoPersona` respectivamente. Si la propiedad apellidos no existe en el objeto, asigna un valor predeterminado de 'Desconocido'.
+Dado el siguiente objeto, utiliza la desestructuración para extraer la propiedad `nombre` y `apellidos` en una variable llamada `nombre` y `apellidoPersona` respectivamente. Si la propiedad apellidos no existe en el objeto, asigna un valor predeterminado de 'Desconocido'.
 
 ```javascript
 const persona = {
@@ -61,7 +57,7 @@ const persona = {
 
 ### Ejercicio 5
 
-**Enunciado:** Dado el siguiente objeto, utiliza la desestructuración para extraer las propiedades `nombre` y `edad`. Luego, crea un nuevo objeto llamado `datosPersona` y asigna las propiedades extraídas a este nuevo objeto.
+Dado el siguiente objeto, utiliza la desestructuración para extraer las propiedades `nombre` y `edad`. Luego, crea un nuevo objeto llamado `datosPersona` y asigna las propiedades extraídas a este nuevo objeto.
 
 ```javascript
 const persona = {
@@ -73,17 +69,20 @@ const persona = {
 
 ### Ejercicio 6
 
-**Enunciado:** Dado el siguiente objeto que representa un punto en coordenadas, utiliza la desestructuración para extraer las propiedades `x` y `y` en variables separadas y calcula la distancia euclidiana desde el origen (0,0).
+Dado el siguiente objeto que representa un punto en coordenadas, utiliza la desestructuración para extraer las propiedades `x` y `y` en variables separadas y calcula la distancia euclidiana desde el origen (0,0).
 
-<br>
+<div class="page"/>
 
->
-
-<br>
+```javascript
+const punto = {
+  x: 3,
+  y: 4,
+};
+```
 
 ### Ejercicio 7
 
-**Enunciado:** Dado el siguiente objeto que representa una persona con un nombre y una lista de amigos, utiliza la desestructuración para extraer el nombre de la persona y el primer amigo de la lista.
+Dado el siguiente objeto que representa una persona con un nombre y una lista de amigos, utiliza la desestructuración para extraer el nombre de la persona y el primer amigo de la lista.
 
 ```javascript
 const persona = {
