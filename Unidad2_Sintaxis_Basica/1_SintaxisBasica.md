@@ -60,7 +60,7 @@ En resumen:
 | let   | Sí    | No                | Sí        | No      | No         |
 | const | No    | No                | No        | No      | No         |
 
-A partir de ECMAScript 2015, `let y const`` se elevan (hoisting) pero no se inician lo que no provoca problemas con el hoisting o elevación.
+A partir de ECMAScript 2015, `let` y `const` se elevan (hoisting) pero no se inician lo que no provoca problemas con el hoisting o elevación.
 
 ## 1.2 Tipos de datos primitivos.💎
 
@@ -86,7 +86,7 @@ A partir de ECMAScript 2015, `let y const`` se elevan (hoisting) pero no se inic
 - `let esVerdadero = true;`
 - `let esFalso = false;`
 
-<li> Valores nulos y indefinidos: </li>
+<li> Valores nulos e indefinidos: </li>
 
 - `let valorNulo = null;`
 - `let valorIndefinido = undefined;`

@@ -175,16 +175,22 @@ const mayoresDeEdad = edades.filter((edad) => edad >= 18); // [25, 18, 30, 40]
 
 ### viii. `reduce()`
 
-`reduce(función, valorInicial)`: Aplica una función acumulativa a los elementos del array, retornando un único valor acumulado.
+`reduce(función, valorInicial)`: Aplica una función acumulativa a los elementos del array, retornando un único valor acumulado. Si no se especifica un valor inicial éste será el del primer elemento, y la función comenzará con el segundo elemento.
 
 ```javascript
 const numeros = [1, 2, 3, 4, 5];
 const suma = numeros.reduce((acumulador, numero) => acumulador + numero, 0); // 15
 ```
 
+```javascript
+const numeros = [5, 10, 15];
+const suma = numeros.reduce((acumulador, numero) => acumulador + numero, 10); // 40
+const suma = numeros.reduce((acumulador, numero) => acumulador + numero); // 30
+```
+
 ### ix. `sort()`
 
-El método `sort()` en JavaScript se utiliza para ordenar los elementos de un array en su lugar (sin crear un nuevo array). Por defecto, `sort()` ordena los elementos como cadenas de texto y los compara en orden lexicográfico. Sin embargo, puedes proporcionar una función de comparación personalizada para ordenar elementos de acuerdo a criterios específicos.
+El método `sort()` en JavaScript se utiliza para ordenar los elementos de un array en su lugar (sin crear un nuevo array). Por defecto, `sort()` ordena los elementos como cadenas de texto y los compara en orden lexicográfico. Sin embargo, puedes proporcionar una función de comparación personalizada para ordenar elementos de acuerdo a criterios específicos. El valor de retorno de esta función debe ser un número cuyo signo indique el orden relativo de los dos elementos: negativo si a es menor que b, positivo si a es mayor que b, y cero si son iguales.
 
 ```javascript
 array.sort([comparador]);
@@ -469,3 +475,26 @@ Puedes clonar (copiar) un array en JavaScript de varias maneras, las más comune
    ```
 
    Esto generará una copia de `arrayOriginal` en `arrayClonado`.
+
+**Nota:** Hay que tener en cuenta que los métodos 1 y 2 crean un espacio undefined en los huecos que hubiera en el array original, mientras que el 3 y el 4 conservan dichos huecos.
+```javascript
+const arrayOriginal = [1, 2, , 3, 4]; // En el array original no existe el elemento de índice 2
+console.log(arrayOriginal);             // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayOriginal);        // false
+
+const arrayClonadoSpread = [...arrayOriginal];
+console.log(arrayClonadoSpread);        // [ 1, 2, undefined, 3, 4 ]
+console.log(2 in arrayClonadoSpread);   // true
+
+const arrayClonadoArrayFrom = Array.from(arrayOriginal);
+console.log(arrayClonadoArrayFrom);     // [ 1, 2, undefined, 3, 4 ]
+console.log(2 in arrayClonadoArrayFrom);// true
+
+const arrayClonadoSlice = arrayOriginal.slice();
+console.log(arrayClonadoSlice);        // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayClonadoSlice);   // false
+
+const arrayClonadoConcat = [].concat(arrayOriginal);
+console.log(arrayClonadoConcat);       // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayClonadoConcat);  // false
+```
