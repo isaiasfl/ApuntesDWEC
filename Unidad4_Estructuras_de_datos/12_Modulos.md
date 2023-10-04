@@ -38,6 +38,11 @@ console.log(edad); // Imprime 30
 console.log(saludar()); // Imprime "Hola, soy Juan y tengo 30 años."
 ```
 
+> **NOTA:**
+>
+> > Para que los módulos funcionen hay que colocar en la llamada del script de html la propiedad: `type="module"` o dará error en el import 😧
+> > `<script src="app.js" type="module"></script>`
+
 ## 12.3. Exportar e Importar Funciones
 
 Las funciones también pueden exportarse e importarse de manera avanzada. Aquí se exporta una función y se importa con un alias:
