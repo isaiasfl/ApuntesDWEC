@@ -69,7 +69,7 @@ Reemplazar cadenas vacías en el objeto con valores nulos. Escriba una función 
 
 ## Ejercicio 15
 
-Extraer información de objetos. Escriba una función que tome un objeto como argumento que contenga propiedades con información personal. Extraiga el nombre, el apellido, el tamaño y el peso, si están disponibles. Si se proporciona el tamaño o el peso, transforme el valor en una cadena. Adjunte la unidad cm al tamaño. Adjunte la unidad kg al peso Devuelve un nuevo objeto con todas las propiedades disponibles que nos interesan y sus modificaciones correspondientes.
+Extraer información de objetos. Escriba una función que tome un objeto como argumento que contenga propiedades con información personal. Extraiga el nombre, el apellido, el tamaño y el peso, si están disponibles. Si se proporciona el tamaño o el peso, transforme el valor en una cadena. Adjunte la unidad cm al tamaño. Adjunte la unidad kg al peso. Devuelve un nuevo objeto con todas las propiedades disponibles que nos interesan y sus modificaciones correspondientes.
 
 ## Ejercicio 16
 
