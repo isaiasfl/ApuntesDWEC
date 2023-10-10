@@ -1,7 +1,7 @@
-# **Capítulo 8. Contenido 📝** 🖥️
+# 8. Estructuras de Datos. Arrays en JavaScript 📝\*\* 🖥️
 
-- [**Capítulo 8. Contenido 📝** 🖥️](#capítulo-8-contenido--️)
-- [Capítulo 8. Estructuras de Datos: Arrays en JavaScript (ECMAScript 6+)](#capítulo-8-estructuras-de-datos-arrays-en-javascript-ecmascript-6)
+- [8. Estructuras de Datos. Arrays en JavaScript 📝\*\* 🖥️](#8-estructuras-de-datos-arrays-en-javascript--️)
+- [Introducción](#introducción)
   - [8.1 Creación de Arrays](#81-creación-de-arrays)
     - [8.1.1 Arrays Literales](#811-arrays-literales)
     - [8.1.2 Constructor `Array`](#812-constructor-array)
@@ -35,10 +35,15 @@
     - [8.6.3 Diferencias entre `for...in` y `for...of`](#863-diferencias-entre-forin-y-forof)
     - [8.6.4 Método `forEach`.](#864-método-foreach)
   - [8.7 Clonar un Array.](#87-clonar-un-array)
+  - [8.8 Destructuring con Arrays](#88-destructuring-con-arrays)
+    - [a. Destructuring Básico](#a-destructuring-básico)
+    - [b. Asignación por Defecto](#b-asignación-por-defecto)
+    - [c. Destructuring Anidado](#c-destructuring-anidado)
+    - [d. Rest Parameters](#d-rest-parameters)
 
 ---
 
-# Capítulo 8. Estructuras de Datos: Arrays en JavaScript (ECMAScript 6+)
+# Introducción
 
 Los arrays son una de las estructuras de datos fundamentales en JavaScript. Permiten almacenar y organizar colecciones de elementos de manera ordenada. En este documento, exploraremos en profundidad cómo trabajar con arrays en JavaScript utilizando ECMAScript 6 o versiones superiores.
 
@@ -477,24 +482,69 @@ Puedes clonar (copiar) un array en JavaScript de varias maneras, las más comune
    Esto generará una copia de `arrayOriginal` en `arrayClonado`.
 
 **Nota:** Hay que tener en cuenta que los métodos 1 y 2 crean un espacio undefined en los huecos que hubiera en el array original, mientras que el 3 y el 4 conservan dichos huecos.
+
 ```javascript
 const arrayOriginal = [1, 2, , 3, 4]; // En el array original no existe el elemento de índice 2
-console.log(arrayOriginal);             // [ 1, 2, <1 empty item>, 3, 4 ]
-console.log(2 in arrayOriginal);        // false
+console.log(arrayOriginal); // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayOriginal); // false
 
 const arrayClonadoSpread = [...arrayOriginal];
-console.log(arrayClonadoSpread);        // [ 1, 2, undefined, 3, 4 ]
-console.log(2 in arrayClonadoSpread);   // true
+console.log(arrayClonadoSpread); // [ 1, 2, undefined, 3, 4 ]
+console.log(2 in arrayClonadoSpread); // true
 
 const arrayClonadoArrayFrom = Array.from(arrayOriginal);
-console.log(arrayClonadoArrayFrom);     // [ 1, 2, undefined, 3, 4 ]
-console.log(2 in arrayClonadoArrayFrom);// true
+console.log(arrayClonadoArrayFrom); // [ 1, 2, undefined, 3, 4 ]
+console.log(2 in arrayClonadoArrayFrom); // true
 
 const arrayClonadoSlice = arrayOriginal.slice();
-console.log(arrayClonadoSlice);        // [ 1, 2, <1 empty item>, 3, 4 ]
-console.log(2 in arrayClonadoSlice);   // false
+console.log(arrayClonadoSlice); // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayClonadoSlice); // false
 
 const arrayClonadoConcat = [].concat(arrayOriginal);
-console.log(arrayClonadoConcat);       // [ 1, 2, <1 empty item>, 3, 4 ]
-console.log(2 in arrayClonadoConcat);  // false
+console.log(arrayClonadoConcat); // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayClonadoConcat); // false
+```
+
+## 8.8 Destructuring con Arrays
+
+El destructuring es una técnica que permite extraer valores de un array y asignarlos a variables en una sola línea de código. Esto simplifica la extracción de datos de arrays y mejora la legibilidad del código.
+
+### a. Destructuring Básico
+
+```javascript
+// Sintaxis básica de destructuring con arrays
+const [valor1, valor2] = ["Manzana", "Banana"];
+console.log(valor1); // Imprimirá 'Manzana'
+console.log(valor2); // Imprimirá 'Banana'
+```
+
+### b. Asignación por Defecto
+
+Puedes proporcionar valores por defecto en caso de que un elemento no exista en el array.
+
+```javascript
+const [fruta1, fruta2, fruta3 = "Naranja"] = ["Manzana", "Banana"];
+console.log(fruta1); // Imprimirá 'Manzana'
+console.log(fruta3); // Imprimirá 'Naranja' (valor por defecto)
+```
+
+### c. Destructuring Anidado
+
+El destructuring también se puede utilizar para descomponer arrays anidados.
+
+```javascript
+const [usuario, [hobby1, hobby2]] = ["Alice", ["Pintura", "Música"]];
+console.log(usuario); // Imprimirá 'Alice'
+console.log(hobby1); // Imprimirá 'Pintura'
+```
+
+### d. Rest Parameters
+
+El operador de propagación `...` (rest) se puede utilizar para capturar elementos restantes en un nuevo array.
+
+```javascript
+const [a, b, ...resto] = [1, 2, 3, 4, 5];
+console.log(a); // Imprimirá 1
+console.log(b); // Imprimirá 2
+console.log(resto); // Imprimirá [3, 4, 5]
 ```
