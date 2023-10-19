@@ -1,14 +1,14 @@
-# **Capítulo 8. Contenido 📝** 🖥️
+# 8. Estructuras de Datos. Arrays en JavaScript 📝\*\* 🖥️
 
-- [**Capítulo 8. Contenido 📝** 🖥️](#capítulo-8-contenido--️)
-- [Capítulo 8. Estructuras de Datos: Arrays en JavaScript (ECMAScript 6+)](#capítulo-8-estructuras-de-datos-arrays-en-javascript-ecmascript-6)
-  - [8.1 Creación de Arrays](#81-creación-de-arrays)
-    - [8.1.1 Arrays Literales](#811-arrays-literales)
-    - [8.1.2 Constructor `Array`](#812-constructor-array)
-  - [8.2 Acceso y Modificación de Elementos](#82-acceso-y-modificación-de-elementos)
-    - [8.2.1 Índices y Elementos](#821-índices-y-elementos)
-    - [8.2.2 Modificación de Elementos](#822-modificación-de-elementos)
-  - [8.3 Métodos Importantes de Arrays](#83-métodos-importantes-de-arrays)
+- [8. Estructuras de Datos. Arrays en JavaScript 📝\*\* 🖥️](#8-estructuras-de-datos-arrays-en-javascript--️)
+  - [8.1 Introducción](#81-introducción)
+  - [8.2 Creación de Arrays](#82-creación-de-arrays)
+    - [8.2.1 Arrays Literales](#821-arrays-literales)
+    - [8.2.2 Constructor `Array`](#822-constructor-array)
+  - [8.3 Acceso y Modificación de Elementos](#83-acceso-y-modificación-de-elementos)
+    - [8.3.1 Índices y Elementos](#831-índices-y-elementos)
+    - [8.3.2 Modificación de Elementos](#832-modificación-de-elementos)
+  - [8.4 Métodos Importantes de Arrays](#84-métodos-importantes-de-arrays)
     - [i. `push()` y `pop()`](#i-push-y-pop)
     - [ii. `shift()` y `unshift()`](#ii-shift-y-unshift)
     - [iii. `Slice()`](#iii-slice)
@@ -19,32 +19,37 @@
     - [viii. `reduce()`](#viii-reduce)
     - [ix. `sort()`](#ix-sort)
     - [x. `forEach()`](#x-foreach)
-  - [8.4 Arrays Multidimensionales](#84-arrays-multidimensionales)
-  - [Ejemplos de Dificultad Media](#ejemplos-de-dificultad-media)
-    - [Ejemplo 1: Filtrar Números Pares](#ejemplo-1-filtrar-números-pares)
-    - [Ejemplo 2: Suma de Matrices](#ejemplo-2-suma-de-matrices)
-  - [Ejemplos de Dificultad Alta](#ejemplos-de-dificultad-alta)
-    - [Ejemplo 3: Rotación de Matrices](#ejemplo-3-rotación-de-matrices)
-    - [Ejemplo 4: Búsqueda Binaria](#ejemplo-4-búsqueda-binaria)
-  - [8.5 Metodos que modifican o no el Array original.](#85-metodos-que-modifican-o-no-el-array-original)
-    - [8.5.1 Modificar el Array Original:](#851-modificar-el-array-original)
-    - [8.5.2 Crear una Copia:](#852-crear-una-copia)
-  - [8.6 Recorrer Arrays en JavaScript](#86-recorrer-arrays-en-javascript)
-    - [8.6.1 Usando `for...in`](#861-usando-forin)
-    - [8.6.2 Usando `for...of`](#862-usando-forof)
-    - [8.6.3 Diferencias entre `for...in` y `for...of`](#863-diferencias-entre-forin-y-forof)
-    - [8.6.4 Método `forEach`.](#864-método-foreach)
-  - [8.7 Clonar un Array.](#87-clonar-un-array)
+  - [8.5 Arrays Multidimensionales](#85-arrays-multidimensionales)
+    - [Ejemplos de Dificultad Media](#ejemplos-de-dificultad-media)
+      - [Ejemplo 1: Filtrar Números Pares](#ejemplo-1-filtrar-números-pares)
+      - [Ejemplo 2: Suma de Matrices](#ejemplo-2-suma-de-matrices)
+    - [Ejemplos de Dificultad Alta](#ejemplos-de-dificultad-alta)
+      - [Ejemplo 3: Rotación de Matrices](#ejemplo-3-rotación-de-matrices)
+      - [Ejemplo 4: Búsqueda Binaria](#ejemplo-4-búsqueda-binaria)
+  - [8.6 Metodos que modifican o no el Array original](#86-metodos-que-modifican-o-no-el-array-original)
+    - [8.6.1 Modificar el Array Original](#861-modificar-el-array-original)
+    - [8.6.2 Crear una Copia](#862-crear-una-copia)
+  - [8.7 Recorrer Arrays en JavaScript](#87-recorrer-arrays-en-javascript)
+    - [8.7.1 Usando `for...in`](#871-usando-forin)
+    - [8.7.2 Usando `for...of`](#872-usando-forof)
+    - [8.7.3 Diferencias entre `for...in` y `for...of`](#873-diferencias-entre-forin-y-forof)
+    - [8.7.4 Método `forEach`](#874-método-foreach)
+  - [8.8 Clonar un Array](#88-clonar-un-array)
+  - [8.9 Destructuring con Arrays](#89-destructuring-con-arrays)
+    - [a. Destructuring Básico](#a-destructuring-básico)
+    - [b. Asignación por Defecto](#b-asignación-por-defecto)
+    - [c. Destructuring Anidado](#c-destructuring-anidado)
+    - [d. Rest Parameters](#d-rest-parameters)
 
 ---
 
-# Capítulo 8. Estructuras de Datos: Arrays en JavaScript (ECMAScript 6+)
+## 8.1 Introducción
 
 Los arrays son una de las estructuras de datos fundamentales en JavaScript. Permiten almacenar y organizar colecciones de elementos de manera ordenada. En este documento, exploraremos en profundidad cómo trabajar con arrays en JavaScript utilizando ECMAScript 6 o versiones superiores.
 
-## 8.1 Creación de Arrays
+## 8.2 Creación de Arrays
 
-### 8.1.1 Arrays Literales
+### 8.2.1 Arrays Literales
 
 Puedes crear un array literalmente encerrando elementos entre corchetes `[]` y separándolos por comas.
 
@@ -52,7 +57,7 @@ Puedes crear un array literalmente encerrando elementos entre corchetes `[]` y s
 const frutas = ["manzana", "plátano", "naranja"];
 ```
 
-### 8.1.2 Constructor `Array`
+### 8.2.2 Constructor `Array`
 
 También puedes utilizar el constructor `Array` para crear un array vacío o con elementos predeterminados.
 
@@ -61,9 +66,9 @@ const miArrayVacio = new Array();
 const numeros = new Array(1, 2, 3, 4, 5);
 ```
 
-## 8.2 Acceso y Modificación de Elementos
+## 8.3 Acceso y Modificación de Elementos
 
-### 8.2.1 Índices y Elementos
+### 8.3.1 Índices y Elementos
 
 Los elementos en un array se numeran con índices comenzando desde 0. Puedes acceder a un elemento utilizando su índice.
 
@@ -71,7 +76,7 @@ Los elementos en un array se numeran con índices comenzando desde 0. Puedes acc
 const fruta = frutas[0]; // Acceder a la primera fruta (manzana)
 ```
 
-### 8.2.2 Modificación de Elementos
+### 8.3.2 Modificación de Elementos
 
 Puedes modificar elementos en un array asignando un nuevo valor a través de su índice.
 
@@ -79,7 +84,7 @@ Puedes modificar elementos en un array asignando un nuevo valor a través de su 
 frutas[1] = "pera"; // Modificar la segunda fruta (plátano a pera)
 ```
 
-## 8.3 Métodos Importantes de Arrays
+## 8.4 Métodos Importantes de Arrays
 
 ### i. `push()` y `pop()`
 
@@ -192,9 +197,15 @@ const suma = numeros.reduce(
 ); // 15
 ```
 
+```javascript
+const numeros = [5, 10, 15];
+const suma = numeros.reduce((acumulador, numero) => acumulador + numero, 10); // 40
+const suma = numeros.reduce((acumulador, numero) => acumulador + numero); // 30
+```
+
 ### ix. `sort()`
 
-El método `sort()` en JavaScript se utiliza para ordenar los elementos de un array en su lugar (sin crear un nuevo array). Por defecto, `sort()` ordena los elementos como cadenas de texto y los compara en orden lexicográfico. Sin embargo, puedes proporcionar una función de comparación personalizada para ordenar elementos de acuerdo a criterios específicos.
+El método `sort()` en JavaScript se utiliza para ordenar los elementos de un array en su lugar (sin crear un nuevo array). Por defecto, `sort()` ordena los elementos como cadenas de texto y los compara en orden lexicográfico. Sin embargo, puedes proporcionar una función de comparación personalizada para ordenar elementos de acuerdo a criterios específicos. El valor de retorno de esta función debe ser un número cuyo signo indique el orden relativo de los dos elementos: negativo si a es menor que b, positivo si a es mayor que b, y cero si son iguales.
 
 ```javascript
 array.sort([comparador]);
@@ -226,7 +237,7 @@ const frutas = ["manzana", "plátano", "naranja"];
 frutas.forEach((fruta) => console.log(fruta));
 ```
 
-## 8.4 Arrays Multidimensionales
+## 8.5 Arrays Multidimensionales
 
 Los arrays multidimensionales son arrays que contienen otros arrays como elementos. Pueden utilizarse para representar matrices y estructuras de datos más complejas.
 
@@ -239,16 +250,16 @@ const matriz = [
 const primerElemento = matriz[0][0]; // 1
 ```
 
-## Ejemplos de Dificultad Media
+### Ejemplos de Dificultad Media
 
-### Ejemplo 1: Filtrar Números Pares
+#### Ejemplo 1: Filtrar Números Pares
 
 ```javascript
 const numeros = [1, 2, 3, 4, 5, 6];
 const pares = numeros.filter((numero) => numero % 2 === 0); // [2, 4, 6]
 ```
 
-### Ejemplo 2: Suma de Matrices
+#### Ejemplo 2: Suma de Matrices
 
 ```javascript
 const matriz = [
@@ -260,9 +271,9 @@ const suma = matriz
   .reduce((a, b) => a + b); // 10
 ```
 
-## Ejemplos de Dificultad Alta
+### Ejemplos de Dificultad Alta
 
-### Ejemplo 3: Rotación de Matrices
+#### Ejemplo 3: Rotación de Matrices
 
 ```javascript
 function rotarMatriz(matriz) {
@@ -286,7 +297,7 @@ const matrizOriginal = [
 const matrizRotada = rotarMatriz(matrizOriginal);
 ```
 
-### Ejemplo 4: Búsqueda Binaria
+#### Ejemplo 4: Búsqueda Binaria
 
 ```javascript
 function busquedaBinaria(array, elemento) {
@@ -312,13 +323,11 @@ const numerosOrdenados = [1, 3, 5, 7, 9, 11, 13];
 const indice = busquedaBinaria(numerosOrdenados, 7); // 3
 ```
 
----
-
-## 8.5 Metodos que modifican o no el Array original.
+## 8.6 Metodos que modifican o no el Array original
 
 Aquí están los métodos de arrays que pueden modificar el array original y los que crean una copia:
 
-### 8.5.1 Modificar el Array Original:
+### 8.6.1 Modificar el Array Original
 
 1. `push(elemento)`: Agrega un elemento al final del array. Modifica el array original al agregar un nuevo elemento al final.
 
@@ -333,7 +342,7 @@ Aquí están los métodos de arrays que pueden modificar el array original y los
 6. `forEach(función)`: Ejecuta una función en cada elemento del array sin crear un nuevo array. No crea una copia; en su lugar, permite realizar modificaciones en el lugar.
 7. `sort([comparador])`: Ordena los elementos de un array, modificando dicho array y aplicando el comparador para establecer el orden.
 
-### 8.5.2 Crear una Copia:
+### 8.6.2 Crear una Copia
 
 1. `concat(array1, array2, ...)`: Combina dos o más arrays creando uno nuevo sin modificar los arrays originales. El método `concat` no modifica los arrays originales y crea una nueva copia.
 
@@ -343,11 +352,11 @@ Aquí están los métodos de arrays que pueden modificar el array original y los
 
 4. `reduce(función, valorInicial)`: Aplica una función acumulativa a los elementos del array, retornando un único valor acumulado sin modificar el array original. No crea una copia, sino que produce un resultado acumulado.
 
-## 8.6 Recorrer Arrays en JavaScript
+## 8.7 Recorrer Arrays en JavaScript
 
 En JavaScript, hay varias formas de recorrer un array. Las dos más comunes son utilizando `for...in` y `for...of`. Cada uno tiene sus propias características y diferencias.
 
-### 8.6.1 Usando `for...in`
+### 8.7.1 Usando `for...in`
 
 El bucle `for...in` se utiliza para iterar sobre las propiedades enumerables de un objeto. Aunque es posible utilizarlo para recorrer arrays, no es la forma más recomendada debido a algunas limitaciones.
 
@@ -365,7 +374,7 @@ for (const indice in frutas) {
 2. Los índices del array se manejan como cadenas en lugar de números.
 3. No garantiza un orden específico en la iteración.
 
-### 8.6.2 Usando `for...of`
+### 8.7.2 Usando `for...of`
 
 El bucle `for...of` se introdujo en ECMAScript 6 y es la forma más recomendada de recorrer arrays en JavaScript. Proporciona una forma más limpia y sencilla de acceder a los elementos de un array.
 
@@ -383,7 +392,7 @@ for (const fruta of frutas) {
 2. Ofrece un código más limpio y legible.
 3. Garantiza un orden específico en la iteración.
 
-### 8.6.3 Diferencias entre `for...in` y `for...of`
+### 8.7.3 Diferencias entre `for...in` y `for...of`
 
 - `for...in` itera sobre las propiedades enumerables de un objeto, mientras que `for...of` itera sobre los valores de los elementos de un iterable (como un array).
 - `for...in` se utiliza principalmente para objetos, y puede no comportarse de la manera esperada con arrays debido a las limitaciones mencionadas.
@@ -391,7 +400,7 @@ for (const fruta of frutas) {
 
 En resumen, al recorrer arrays en JavaScript, se recomienda utilizar el bucle `for...of` debido a su simplicidad y claridad, así como a su capacidad para garantizar un orden específico en la iteración.
 
-### 8.6.4 Método `forEach`.
+### 8.7.4 Método `forEach`
 
 El método `forEach()` en JavaScript se utiliza para iterar sobre los elementos de un array y ejecutar una función proporcionada una vez por cada elemento. Es una forma de recorrer el array y realizar operaciones en cada elemento sin necesidad de utilizar bucles `for` o `while`.
 
@@ -432,7 +441,7 @@ numeros.forEach(function (numero) {
 console.log(`La suma de los números es: ${suma}`);
 ```
 
-## 8.7 Clonar un Array.
+## 8.8 Clonar un Array
 
 Puedes clonar (copiar) un array en JavaScript de varias maneras, las más comunes:
 
@@ -479,3 +488,71 @@ Puedes clonar (copiar) un array en JavaScript de varias maneras, las más comune
    ```
 
    Esto generará una copia de `arrayOriginal` en `arrayClonado`.
+
+**Nota:** Hay que tener en cuenta que los métodos 1 y 2 crean un espacio undefined en los huecos que hubiera en el array original, mientras que el 3 y el 4 conservan dichos huecos.
+
+```javascript
+const arrayOriginal = [1, 2, , 3, 4]; // En el array original no existe el elemento de índice 2
+console.log(arrayOriginal); // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayOriginal); // false
+
+const arrayClonadoSpread = [...arrayOriginal];
+console.log(arrayClonadoSpread); // [ 1, 2, undefined, 3, 4 ]
+console.log(2 in arrayClonadoSpread); // true
+
+const arrayClonadoArrayFrom = Array.from(arrayOriginal);
+console.log(arrayClonadoArrayFrom); // [ 1, 2, undefined, 3, 4 ]
+console.log(2 in arrayClonadoArrayFrom); // true
+
+const arrayClonadoSlice = arrayOriginal.slice();
+console.log(arrayClonadoSlice); // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayClonadoSlice); // false
+
+const arrayClonadoConcat = [].concat(arrayOriginal);
+console.log(arrayClonadoConcat); // [ 1, 2, <1 empty item>, 3, 4 ]
+console.log(2 in arrayClonadoConcat); // false
+```
+
+## 8.9 Destructuring con Arrays
+
+El destructuring es una técnica que permite extraer valores de un array y asignarlos a variables en una sola línea de código. Esto simplifica la extracción de datos de arrays y mejora la legibilidad del código.
+
+### a. Destructuring Básico
+
+```javascript
+// Sintaxis básica de destructuring con arrays
+const [valor1, valor2] = ["Manzana", "Banana"];
+console.log(valor1); // Imprimirá 'Manzana'
+console.log(valor2); // Imprimirá 'Banana'
+```
+
+### b. Asignación por Defecto
+
+Puedes proporcionar valores por defecto en caso de que un elemento no exista en el array.
+
+```javascript
+const [fruta1, fruta2, fruta3 = "Naranja"] = ["Manzana", "Banana"];
+console.log(fruta1); // Imprimirá 'Manzana'
+console.log(fruta3); // Imprimirá 'Naranja' (valor por defecto)
+```
+
+### c. Destructuring Anidado
+
+El destructuring también se puede utilizar para descomponer arrays anidados.
+
+```javascript
+const [usuario, [hobby1, hobby2]] = ["Alice", ["Pintura", "Música"]];
+console.log(usuario); // Imprimirá 'Alice'
+console.log(hobby1); // Imprimirá 'Pintura'
+```
+
+### d. Rest Parameters
+
+El operador de propagación `...` (rest) se puede utilizar para capturar elementos restantes en un nuevo array.
+
+```javascript
+const [a, b, ...resto] = [1, 2, 3, 4, 5];
+console.log(a); // Imprimirá 1
+console.log(b); // Imprimirá 2
+console.log(resto); // Imprimirá [3, 4, 5]
+```

@@ -38,7 +38,7 @@ function saludar() {
 }
 
 // Llamada a la función
-saludar(); // Imprime: ¡Hola, mundo, Bienvenido Isaías!
+saludar(); // Imprime: ¡Hola, mundo!, Bienvenido Isaías
 ```
 
 ## 2. Expresiones de funciones o expresiones funcionales.
@@ -140,7 +140,7 @@ function saludar(nombre) {
   console.log(`Hola, ${nombre}!`);
 }
 
-saludar(Isaías); // imprime Hola, Isaías!
+saludar("Isaías"); // imprime Hola, Isaías!
 ```
 
 En este ejemplo, `nombre` es un parámetro de la función `saludar`. Es un marcador de posición para el valor que se pasará cuando se llame a la función.
@@ -201,7 +201,7 @@ const resultado = sumar(1, 2, 3, 4, 5);
 console.log(resultado); // Imprime: 15
 ```
 
-> Reduce lo veremos más adelante.
+> `reduce()` lo veremos más adelante.
 
 ## 7. Funciones como expresiones
 

@@ -108,7 +108,7 @@ La etiqueta `<script>` en HTML tiene varios atributos que pueden afectar cómo s
    ```
 
 3. **`defer`**: Al agregar el atributo `defer` a la etiqueta `<script>`, se le dice al navegador que el archivo JavaScript se debe cargar de forma asíncrona, pero la ejecución del script se pospone hasta que se complete el análisis del documento HTML. Esto es útil cuando el orden de ejecución del script es importante y debe ser relativo al orden en que aparece en el documento.
-   Además La ejecución de todos los scripts diferidos se realiza en el mismo orden en el que aparecen en el documento.
+   Además la ejecución de todos los scripts diferidos se realiza en el mismo orden en el que aparecen en el documento.
    
    ```html
    <script src="mi_script.js" defer></script>

@@ -60,7 +60,7 @@ animales.delete("gato");
 
 ## 9.4 Verificar la Existencia y Acceder a los Elementos
 
-No podemos usar un índice dado que el set no tiene indices por tanto sólo podemos usar el método has que comprueba si existe el elemento en el Set
+No podemos usar un índice dado que el set no tiene índices por tanto sólo podemos usar el método `has()` que comprueba si existe el elemento en el Set.
 Puedes verificar si un elemento existe en un conjunto utilizando el método `has()`:
 
 ```javascript
@@ -100,9 +100,11 @@ const arrayDeanimales = Array.from(animales);
 
 Aunque hay otra forma más rápida:
 
+```javascript
 const arrayDeanimales = [ ...animales ];
+```
 
-> Esto se debe a que los tres puntos (...) en este contexto se conocen como el operador de propagación (spread operator), y se utiliza para descomponer los elementos de un objeto iterable (como un conjunto) en elementos individuales, que luego se pueden utilizar para construir un nuevo array.
+> Esto se debe a que los tres puntos (`...`) en este contexto se conocen como el operador de propagación (spread operator), y se utiliza para descomponer los elementos de un objeto iterable (como un conjunto) en elementos individuales, que luego se pueden utilizar para construir un nuevo array.
 
 ## 9.8 Eliminar Duplicados de un Array
 
