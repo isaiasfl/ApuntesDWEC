@@ -162,16 +162,22 @@ const todasLasFrutas = frutas1.concat(frutas2); // ["manzana", "plátano", "nara
 
 ### vi. `map()`
 
-`map(función)`: Crea un nuevo array aplicando una función a cada elemento del array original.
+`map(función)`: Crea un nuevo array aplicando una función a cada elemento del array original. En el callback (los paréntesis) de esta función, podemos utilizar hasta 3 parámetros: el valor de cada elemento, el índice de la iteración, y a sí mismo.
 
 ```javascript
 const numeros = [1, 2, 3];
 const duplicados = numeros.map((numero) => numero * 2); // [2, 4, 6]
 ```
 
+```javascript
+const numeros1 = [2, 2, 2];
+const numeros2 = [2, 2, 2];
+const numerosSumados = numeros1.map((el, i) => el + numeros2[i]); // [4, 4, 4]
+```
+
 ### vii. `filter()`
 
-`filter(función)`: Crea un nuevo array con todos los elementos que cumplan una condición dada por la función.
+`filter(función)`: Crea un nuevo array con todos los elementos que cumplan una condición dada por la función. Igual que en map(), podemos utilizar el valor, el índice, y a sí mismo.
 
 ```javascript
 const edades = [25, 18, 30, 15, 40];
@@ -180,11 +186,15 @@ const mayoresDeEdad = edades.filter((edad) => edad >= 18); // [25, 18, 30, 40]
 
 ### viii. `reduce()`
 
-`reduce(función, valorInicial)`: Aplica una función acumulativa a los elementos del array, retornando un único valor acumulado. Si no se especifica un valor inicial éste será el del primer elemento, y la función comenzará con el segundo elemento.
+`reduce(función, valorInicial)`: Aplica una función acumulativa a los elementos del array, retornando un único valor acumulado. Aquí, además del índice y de la referencia a sí mismo, tenemos un acumulador (prevValue), el valor actual (currValue) y el valor inicial (initialValue).
 
 ```javascript
+const initialValue = 0;
 const numeros = [1, 2, 3, 4, 5];
-const suma = numeros.reduce((acumulador, numero) => acumulador + numero, 0); // 15
+const suma = numeros.reduce(
+  (acumulador, numero) => acumulador + numero,
+  initialValue
+); // 15
 ```
 
 ```javascript
