@@ -14,6 +14,8 @@
     - [d. `propertyIsEnumerable(key)`](#d-propertyisenumerablekey)
   - [6. Usos de `localStorage`](#6-usos-de-localstorage)
 
+---
+
 ## 1. Introducción a `localStorage`
 
 `localStorage` es un almacén de clave-valor que permite almacenar datos en el navegador de forma persistente. Los datos almacenados en `localStorage` no se eliminan después de cerrar el navegador y están disponibles incluso en sesiones posteriores.
