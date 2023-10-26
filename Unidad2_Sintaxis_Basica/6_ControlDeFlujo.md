@@ -64,6 +64,14 @@ if (puntuacion >= 90) {
 }
 ```
 
+### 6.1.4 Cortocircuito `&&`
+
+El operador `&&` se puede usar como estructura de control de flujo en lo que se llama 'cortocircuito'. Si al evaluar la primera opción esta nos devuelve verdadero, se ejecutará la segunda.
+
+```javascript
+edad >= 18 && console.log("Es mayor de edad");
+```
+
 _**Recordemos:​**_
 
 `El número 0, un string vacío "", null, undefined, y NaN se convierte en false. Por esto son llamados valores “falso”.​`
