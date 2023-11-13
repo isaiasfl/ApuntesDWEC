@@ -15,6 +15,7 @@
     - [Ejecutar a pantalla completa](#ejecutar-a-pantalla-completa)
     - [Verificar si estoy viendo una página web](#verificar-si-estoy-viendo-una-página-web)
     - [Fetch API](#fetch-api)
+      - [Etapas de una petición Fetch](#etapas-de-una-petición-fetch)
       - [Método](#método)
       - [URL](#url)
       - [Cabeceras](#cabeceras)
@@ -28,11 +29,11 @@
       - [Ejemplo 5: Asyc/Await](#ejemplo-5-asycawait)
       - [Ejemplo 6: Manejo de errores con respuesta no satisfactoria](#ejemplo-6-manejo-de-errores-con-respuesta-no-satisfactoria)
       - [Ejemplo 7: Especificar el modo de CORS](#ejemplo-7-especificar-el-modo-de-cors)
-        - [Orígenes](#orígenes)
-        - [Flujo de una solicitud CORS](#flujo-de-una-solicitud-cors)
-        - [Encabezados CORS Comunes](#encabezados-cors-comunes)
-        - [Ejemplo de Encabezados CORS en una Respuesta](#ejemplo-de-encabezados-cors-en-una-respuesta)
-        - [Ejemplo de Solicitud CORS desde JavaScript](#ejemplo-de-solicitud-cors-desde-javascript)
+          - [Orígenes](#orígenes)
+          - [Flujo de una solicitud CORS](#flujo-de-una-solicitud-cors)
+          - [Encabezados CORS Comunes](#encabezados-cors-comunes)
+          - [Ejemplo de Encabezados CORS en una Respuesta](#ejemplo-de-encabezados-cors-en-una-respuesta)
+          - [Ejemplo de Solicitud CORS desde JavaScript](#ejemplo-de-solicitud-cors-desde-javascript)
         - [Ventajas de la Fetch API](#ventajas-de-la-fetch-api)
         - [Desventajas de la Fetch API](#desventajas-de-la-fetch-api)
     - [LocalStorage y SessionStorage API](#localstorage-y-sessionstorage-api)
@@ -183,7 +184,44 @@ document.addEventListener("visibilitychange", () => {
 
 La Fetch API es una API relativamente nueva que proporciona una forma sencilla de realizar solicitudes HTTP. La Fetch API se puede utilizar para realizar solicitudes GET, POST, PUT y DELETE.
 
-La Fetch API admite una gran variedad de opciones, entre las que se incluyen:
+La sintaxis básica es:
+
+```javascript
+let promise = fetch(url, [options]);
+```
+
+- url – la URL para acceder.
+- options – parámetros opcionales: método, encabezados, etc.
+
+`El navegador inicia la solicitud de inmediato y devuelve una promesa que el código de llamada debería utilizar para obtener el resultado.`
+
+#### Etapas de una petición Fetch
+
+Obtener una respuesta suele ser un proceso de dos etapas.
+
+- Primero, el `promise`, devuelto por fetch, se resuelve con un objeto de la clase Response que fetch incorporada tan pronto como el servidor responde con encabezados.
+
+  En esta etapa podemos verificar el estado de HTTP, para ver si es exitoso o no, verificar los encabezados, pero aún no tenemos el cuerpo.
+
+  La promesa se rechaza si fetch no se pudo realizar la solicitud HTTP, por ejemplo, problemas de red, o si no existe dicho sitio. Los estados HTTP anormales, como 404 o 500, no provocan un error.
+
+  Podemos ver el estado HTTP en las propiedades de respuesta:
+
+  - status – Código de estado HTTP, por ejemplo 200.
+  - ok – booleano, true si el código de estado HTTP es 200-299.
+
+- En segundo lugar, para obtener el cuerpo de la respuesta, necesitamos utilizar una llamada a un método adicional.
+
+  Response proporciona múltiples métodos basados ​​en promesas para acceder al cuerpo en varios formatos:
+
+  - response.text() – leer la respuesta y la devuelve como texto.
+  - response.json() – analiza la respuesta como JSON.
+  - response.formData() – devuelve la respuesta como FormDataobject.
+  - response.blob() – devuelve la respuesta como Blob (datos binarios con tipo).
+  - response.arrayBuffer() – devuelve la respuesta como ArrayBuffer (representación de bajo nivel de datos binarios).
+  - Además, `response.body` es un objeto ReadableStream , que le permite leer el body fragmento por fragmento.
+
+Además, Fetch API admite una gran variedad de opciones, entre las que se incluyen:
 
 - Método: El método de la solicitud HTTP.
 - URL: La URL de la solicitud HTTP.
@@ -229,8 +267,8 @@ Por ejemplo, para especificar un cuerpo de solicitud con el valor `{"name": "Isa
 
 ```JavaScript
 const options = {
-body: {
-name: "Isaías FL"
+  body: {
+  name: "Isaías FL"
 }
 };
 
