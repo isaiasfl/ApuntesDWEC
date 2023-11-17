@@ -14,11 +14,16 @@ Para simular asincronía, la imagen se cargará transcurridos 2 segundos. Mientr
 
 Crea una función que realice operaciones matemáticas de forma asíncrona. Debe aceptar dos números y una cadena que indique la operación ('sumar', 'restar', 'multiplicar', 'dividir'). La función debe devolver una promesa que se resuelva con el resultado de la operación o se rechace si ocurre un error, como la división por cero.
 
-### Ejercicio 3: Llamadas Asíncronas
+### Ejercicio 3: Animación con Promesas
+
+Crea una función que realice una animación de desvanecimiento de un elemento HTML. La función debe aceptar el elemento y la duración de la animación, y devolver una promesa que se resuelva cuando la animación haya terminado.
+
+
+### Ejercicio 4: Llamadas Asíncronas
 
 Crea una secuencia de tres funciones asíncronas de 1 segundo cada una(paso1, paso2, paso3) que deben ejecutarse en orden. La primera función crea una etiqueta spam, la segunda le cambia el color al texto de dicho spam y la tercera muestra un Hola mundo dentro de dicho spam.
 
-### Ejercicio 4: Simulación de Autenticación
+### Ejercicio 5: Simulación de Autenticación
 
 Crea una función que simule un proceso de inicio de sesión. A través de un formulario debe de aceptar un nombre de usuario y una contraseña(aparece no visible), y devolver una promesa que se resuelva si las credenciales son correctas y se rechace si son incorrectas.
 
@@ -34,7 +39,7 @@ Si la validación es correcta no se visualizará el formulario de inicio de sesi
 _Ampliación:
 Crear una función que genere una cookie persistente, con el inicio de sesión y que posibilite no tener que introducir de nuevo las credenciales mientras la cookie esté guardada en el navegador._
 
-### Ejercicio 5: Gestión del tiempo en una ciudad
+### Ejercicio 6: Gestión del tiempo en una ciudad
 
 Crear un proyecto en vite que permita gestionar el estado meteorológico de una ciudad a través de la api [OpenWeatherMap](https://openweathermap.org/api)
 
