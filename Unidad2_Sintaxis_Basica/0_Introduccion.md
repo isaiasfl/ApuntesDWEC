@@ -45,15 +45,55 @@ Javascript es un lenguaje de programación, o lo que es lo mismo, un mecanismo c
 
 Así `Javascript` es:
 
-- **Lenguaje de programación del lado del cliente:** JavaScript es un lenguaje de programación que se ejecuta en el navegador web del cliente (es decir, en la máquina del usuario). Se utiliza para mejorar la interactividad y la funcionalidad de las páginas web al permitir que los desarrolladores web agreguen scripts que se ejecutan en el navegador del usuario.​
+#### 1. **Lenguaje de programación del lado del cliente y del servidor**
+JavaScript originalmente fue diseñado para ejecutarse en el **navegador del cliente** (en la máquina del usuario) y mejorar la interactividad y funcionalidad de las páginas web. Sin embargo, desde la aparición de **Node.js**, JavaScript también se ejecuta **del lado del servidor**, permitiendo a los desarrolladores crear aplicaciones completas (frontend y backend) en JavaScript.
 
-- **Interpretado, no compilado:** JavaScript es un lenguaje interpretado, lo que significa que el código fuente se ejecuta directamente en el navegador sin necesidad de una etapa de compilación previa. El navegador interpreta y ejecuta el código JavaScript línea por línea.​
+#### 2. **Interpretado, no compilado**
+JavaScript es un lenguaje **interpretado**, lo que significa que el código fuente se ejecuta directamente en el entorno de ejecución, como el navegador o Node.js, sin necesidad de una etapa de compilación previa. El entorno de ejecución **interpreta y ejecuta** el código línea por línea, aunque **motores modernos** como **V8** (Chrome) utilizan técnicas de compilación JIT (Just-In-Time) para mejorar el rendimiento.
 
-- **Imperativo y estructurado:** JavaScript es un lenguaje de programación imperativo, lo que significa que se centra en la descripción de los pasos y las acciones que debe realizar el programa. También sigue una estructura de programación estructurada, que organiza el código en bloques lógicos, como funciones y bucles.​
+#### 3. **Imperativo, estructurado y funcional**
+JavaScript es un lenguaje **imperativo**, lo que implica que el código define pasos concretos que debe seguir el programa. También soporta **programación estructurada**, organizando el código en bloques como funciones y bucles.
 
-- **Con tipificación débil y dinámica:** Tiene tipificación débil, lo que permite una mayor flexibilidad en la asignación de tipos de datos a las variables. Además, es de tipado dinámico, lo que significa que el tipo de una variable puede cambiar durante la ejecución del programa.​
+Además, JavaScript admite el paradigma **funcional**, lo que permite tratar funciones como ciudadanos de primera clase (pueden asignarse a variables, pasarse como argumentos y retornarse desde otras funciones). Con características como **funciones de orden superior**, **closures** y **inmutabilidad**, JavaScript facilita la programación funcional.
 
-- **Orientado a objetos y basado en prototipos:** JavaScript es un lenguaje orientado a objetos, pero a diferencia de algunos lenguajes que utilizan clases para definir objetos, JavaScript se basa en prototipos. Esto significa que los objetos pueden heredar propiedades y métodos de otros objetos, lo que permite una flexibilidad única en la programación orientada a objetos en JavaScript.​
+#### 4. **Tipificación débil y dinámica**
+JavaScript tiene **tipificación débil**, lo que significa que permite la conversión implícita entre tipos de datos (coerción). Por ejemplo, se puede sumar un número y una cadena sin errores, lo que puede conducir a resultados inesperados si no se maneja correctamente.
+
+Además, JavaScript tiene un **tipado dinámico**, lo que significa que el tipo de una variable se determina en tiempo de ejecución y puede cambiar durante la ejecución del programa:
+```javascript
+let variable = 42;  // Tipo número
+variable = "Ahora es una cadena";  // Cambia a cadena
+```
+
+#### 5. **Orientado a objetos y basado en prototipos**
+JavaScript es un lenguaje **orientado a objetos**, pero en lugar de basarse en clases tradicionales (como C++ o Java), usa un sistema de **prototipos**. Los objetos en JavaScript pueden heredar propiedades y métodos de otros objetos a través de la herencia basada en prototipos. 
+
+Sin embargo, desde **ES6** (ECMAScript 2015), se introdujeron las **clases**, que proporcionan una sintaxis más familiar para la orientación a objetos, aunque internamente JavaScript sigue utilizando prototipos:
+```javascript
+class Persona {
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
+    saludar() {
+        console.log(`Hola, soy ${this.nombre}`);
+    }
+}
+```
+Esta sintaxis de clases es un "azúcar sintáctico" sobre el modelo basado en prototipos.
+
+#### 6. **Event-driven y asíncrono**
+JavaScript es conocido por su enfoque **asíncrono** y su capacidad para manejar operaciones basadas en eventos, como las interacciones del usuario o solicitudes HTTP. JavaScript usa **callbacks**, **promesas** y, desde **ES8 (2017)**, **async/await** para manejar la programación asíncrona de manera más legible y ordenada:
+```javascript
+async function obtenerDatos() {
+    const respuesta = await fetch('https://api.profesor.isaias.com/datos');
+    const datos = await respuesta.json();
+    console.log(datos);
+}
+```
+Este enfoque asíncrono es esencial en entornos como los navegadores, donde las operaciones pueden tardar en completarse y JavaScript debe continuar ejecutándose sin bloquear el hilo principal.
+
+#### 7. **Multiplataforma**
+JavaScript es **multiplataforma**. Se ejecuta no solo en navegadores y servidores (con Node.js), sino también en entornos como aplicaciones móviles (con frameworks como **React Native**), aplicaciones de escritorio (con **Electron**), y dispositivos IoT. Esto lo convierte en uno de los lenguajes más versátiles disponibles.
 
 ## 0.3 Palabras Reservadas.
 
