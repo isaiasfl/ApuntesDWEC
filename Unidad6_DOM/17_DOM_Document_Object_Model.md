@@ -401,7 +401,7 @@ console.log(primerHijo.textContent); // Contenido del primer hijo
 console.log(ultimoHijo.textContent); // Contenido del último hijo
 ```
 
-Claro, aquí tienes el punto 5 sobre "Estilos y Medición" en el formato de Markdown con ejemplos detallados en JavaScript ES6 o posterior:
+Claro, aquí tienes el punto 4 sobre "Estilos y Medición" en el formato de Markdown con ejemplos detallados en JavaScript ES6 o posterior:
 
 ### 4. Estilos y Medición
 
@@ -476,7 +476,7 @@ const tamañoFuente = estilos.fontSize;
 console.log(`Color de texto: ${colorTexto}, Tamaño de fuente: ${tamañoFuente}`);
 ```
 
-Por supuesto, aquí están los puntos 6 y 7, "Manipulación de Formularios" y "Manipulación de Atributos de Datos", con ejemplos más extensos:
+Por supuesto, aquí están los puntos 5 y 6, "Manipulación de Formularios" y "Manipulación de Atributos de Datos", con ejemplos más extensos:
 
 ### 5. Manipulación de Formularios
 
@@ -562,6 +562,10 @@ Puedes acceder a los atributos de datos personalizados utilizando `getAttribute`
 
 **Ejemplo: Acceder a atributos de datos personalizados**
 
+```html
+<div id="miElemento" data-usuario="ejemplo" data-rol="admin"></div>
+```
+
 ```javascript
 const elemento = document.getElementById("miElemento");
 const usuario = elemento.getAttribute("data-usuario");
@@ -574,6 +578,10 @@ console.log(`Usuario: ${usuario}, Rol: ${rol}`);
 Puedes modificar atributos de datos personalizados utilizando `setAttribute`. Aquí hay un ejemplo:
 
 **Ejemplo: Modificar atributos de datos personalizados**
+
+```html
+<div id="miElemento" data-usuario="ejemplo" data-rol="admin"></div>
+```
 
 ```javascript
 const elemento = document.getElementById("miElemento");
@@ -598,7 +606,7 @@ const rol = elemento.dataset.rol;
 console.log(`Usuario: ${usuario}, Rol: ${rol}`);
 ```
 
-Por supuesto, aquí tienes el punto 8, "Trabajo con Imágenes", con detalles, explicaciones y ejemplos adicionales:
+Por supuesto, aquí tienes el punto 7, "Trabajo con Imágenes", con detalles, explicaciones y ejemplos adicionales:
 
 ### 7. Trabajo con Imágenes
 
