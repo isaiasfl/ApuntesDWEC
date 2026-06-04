@@ -26,7 +26,7 @@
       - [Ejemplo 2: Realizar una solicitud POST](#ejemplo-2-realizar-una-solicitud-post)
       - [Ejemplo 3: Realizar una solicitud PUT](#ejemplo-3-realizar-una-solicitud-put)
       - [Ejemplo 4: Realizar una solicitud DELETE](#ejemplo-4-realizar-una-solicitud-delete)
-      - [Ejemplo 5: Asyc/Await](#ejemplo-5-asycawait)
+      - [Ejemplo 5: Async/Await](#ejemplo-5-asyncawait)
       - [Ejemplo 6: Manejo de errores con respuesta no satisfactoria](#ejemplo-6-manejo-de-errores-con-respuesta-no-satisfactoria)
       - [Ejemplo 7: Especificar el modo de CORS](#ejemplo-7-especificar-el-modo-de-cors)
           - [Orígenes](#orígenes)
@@ -349,7 +349,7 @@ fetch('https://api.example.com/delete/1', {
 
 ```
 
-#### Ejemplo 5: Asyc/Await
+#### Ejemplo 5: Async/Await
 
 También podemos hacer uso de `async/await` :
 

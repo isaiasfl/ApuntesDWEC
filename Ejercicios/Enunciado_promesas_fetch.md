@@ -21,7 +21,7 @@ Crea una función que realice una animación de desvanecimiento de un elemento H
 
 ### Ejercicio 4: Llamadas Asíncronas
 
-Crea una secuencia de tres funciones asíncronas de 1 segundo cada una(paso1, paso2, paso3) que deben ejecutarse en orden. La primera función crea una etiqueta spam, la segunda le cambia el color al texto de dicho spam y la tercera muestra un Hola mundo dentro de dicho spam.
+Crea una secuencia de tres funciones asíncronas de 1 segundo cada una (`paso1`, `paso2`, `paso3`) que deben ejecutarse en orden. La primera función crea una etiqueta `span`, la segunda le cambia el color al texto de dicho `span` y la tercera muestra un `Hola mundo` dentro de dicho `span`.
 
 ### Ejercicio 5: Simulación de Autenticación
 
@@ -48,7 +48,7 @@ El proyecto debe de cumplir las siguientes características:
 1. Dispondremos de un input en la pantalla centrado horizontalmente y un botón de buscar ciudad. Al introducir el nombre de una ciudad, si existe, mostrará los siguientes datos en una tarjeta o "card":
    - El icono del tiempo(sol, nublado, lluvia…)
    - nombre de la Ciudad y pais.
-   - Los iconos más relevantes(viento, presión atmosfética,...).
+   - Los iconos más relevantes (viento, presión atmosférica, humedad, etc.).
 2. La búsqueda de la ciudad se realizará por la tecla enter o haciendo click en el botón de buscar.
 3. Los iconos del tiempo han de estar almacenados en nuestra carpeta `assets/images/`
 4. El icono del tiempo aparece con un retardo de 1,5 segundos y con transición en la `opacity`.
