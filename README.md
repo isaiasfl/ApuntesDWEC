@@ -35,6 +35,7 @@ Este repositorio sirve como ruta de aprendizaje para dominar JavaScript moderno 
 - [Progreso por competencias](#progreso-por-competencias)
 - [Entorno recomendado: Node, nvm, npm y pnpm](#entorno-recomendado-node-nvm-npm-y-pnpm)
 - [Diagramas de aprendizaje](#diagramas-de-aprendizaje)
+- [Clean Code aplicado a JavaScript](#clean-code-aplicado-a-javascript)
 - [Ejercicios](#ejercicios)
 - [Puente a React y Angular](#puente-a-react-y-angular)
 - [Estructura del repositorio](#estructura-del-repositorio)
@@ -294,6 +295,29 @@ Más diagramas:
 
 - [Diagramas explicativos](docs/DIAGRAMAS.md)
 - [Ruta JS -> React / Angular](docs/RUTA_JS_REACT_ANGULAR.md)
+
+---
+
+## Clean Code aplicado a JavaScript
+
+Antes de empezar con React o Angular, conviene que el alumno no solo “haga que funcione”, sino que escriba código fácil de leer, probar y mantener.
+
+Guía específica:
+
+- [Clean Code aplicado a JavaScript](docs/CLEAN_CODE_JAVASCRIPT.md)
+
+Reglas mínimas para las prácticas:
+
+- funciones pequeñas con una responsabilidad;
+- nombres claros (`calcularTotal`, `filtrarPendientes`, `renderTareas`);
+- separación entre datos, eventos, renderizado y API;
+- evitar mutaciones accidentales de arrays y objetos;
+- manejar errores de `fetch`;
+- no esconder lógica importante dentro de `innerHTML`;
+- validar entradas antes de modificar el estado.
+
+> [!IMPORTANT]
+> Clean Code no significa escribir más código. Significa escribir código que otro alumno pueda leer, probar y modificar sin romperlo.
 
 ---
 
