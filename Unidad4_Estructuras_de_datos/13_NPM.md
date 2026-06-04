@@ -1,10 +1,10 @@
-# 13. Uso de npm e Instalación de Elementos en JavaScript Vanilla 📝 🖥️
+# 13. Node.js, npm, pnpm y Vite en JavaScript Vanilla 📝 🖥️
 
-- [13. Uso de npm e Instalación de Elementos en JavaScript Vanilla 📝 🖥️](#13-uso-de-npm-e-instalación-de-elementos-en-javascript-vanilla--️)
-  - [13.1. Instalación de Node.js y npm](#131-instalación-de-nodejs-y-npm)
+- [13. Node.js, npm, pnpm y Vite en JavaScript Vanilla 📝 🖥️](#13-nodejs-npm-pnpm-y-vite-en-javascript-vanilla--️)
+  - [13.1. Instalación de Node.js con nvm](#131-instalación-de-nodejs-con-nvm)
   - [13.2. Creación de un Proyecto de JavaScript Vanilla](#132-creación-de-un-proyecto-de-javascript-vanilla)
   - [13.3. Uso Básico de npm](#133-uso-básico-de-npm)
-  - [13.4. Instalación de Paquetes con npm](#134-instalación-de-paquetes-con-npm)
+  - [13.4. pnpm y Corepack](#134-pnpm-y-corepack)
   - [13.5. Uso de Paquetes en un Proyecto de JavaScript Vanilla](#135-uso-de-paquetes-en-un-proyecto-de-javascript-vanilla)
   - [13.6. Scripts Personalizados](#136-scripts-personalizados)
   - [13.7. Creación de un Proyecto con Vite](#137-creación-de-un-proyecto-con-vite)
@@ -15,19 +15,42 @@
 
 ---
 
-## 13.1. Instalación de Node.js y npm
+## 13.1. Instalación de Node.js con nvm
 
-npm (Node Package Manager) es una herramienta esencial en el mundo de JavaScript que permite gestionar paquetes y dependencias de proyectos.
-Antes de comenzar, debemos de tener Node.js y [npm](https://www.npmjs.com/) instalados en tu sistema. Se puede descargar desde el sitio web oficial de Node.js [https://nodejs.org/](https://nodejs.org/).
+Node.js permite ejecutar JavaScript fuera del navegador. En desarrollo frontend se usa para ejecutar herramientas como Vite, npm, pnpm, linters, tests y procesos de build.
 
-Verificamos la instalación ejecutando los siguientes comandos en tu terminal:
+Para clase se recomienda usar **Node.js 24 LTS**. Una versión LTS es una versión estable con soporte a largo plazo.
+
+La forma más cómoda de instalar y cambiar versiones de Node es usar `nvm`:
+
+```bash
+# Instalar la versión LTS recomendada para el curso
+nvm install 24
+
+# Activar esa versión en la terminal actual
+nvm use 24
+
+# Dejar Node 24 como versión por defecto
+nvm alias default 24
+```
+
+Comprobamos la instalación:
 
 ```bash
 node -v
 npm -v
 ```
 
-Estos comandos deberían mostrar las versiones instaladas de Node.js y npm.
+También se pueden tener varias versiones instaladas:
+
+```bash
+nvm install 22
+nvm install 24
+nvm use 22
+nvm use 24
+```
+
+Esto es útil cuando un proyecto antiguo necesita una versión y un proyecto moderno necesita otra.
 
 ## 13.2. Creación de un Proyecto de JavaScript Vanilla
 
@@ -48,22 +71,48 @@ npm init -y
 
 Esto creará un archivo `package.json` que almacena información sobre el proyecto y sus dependencias.
 
-## 13.4. Instalación de Paquetes con npm
+## 13.4. pnpm y Corepack
 
-Para instalar un paquete, utiliza el siguiente comando:
+`npm` viene instalado con Node. `pnpm` es otro gestor de paquetes moderno, rápido y eficiente con el espacio en disco. En proyectos actuales es habitual usar `pnpm` para instalar dependencias y ejecutar scripts.
+
+Node incluye Corepack, una herramienta que permite activar gestores como pnpm:
 
 ```bash
-npm install nombre-del-paquete
-// si lo hacemos así, el paquete se instalará para el proyecto que estamos trabajando.
-npm install -g nombre-del-paquete
-// si lo hacemos así, el paquete estará disponible para cualquier proyecto que creemos
+corepack enable
+corepack prepare pnpm@latest --activate
+pnpm -v
 ```
 
-Esto descargará el paquete y lo agregará como una dependencia en tu `package.json`.
+Instalar dependencias en un proyecto:
+
+```bash
+pnpm install
+```
+
+Instalar un paquete:
+
+```bash
+pnpm add nombre-del-paquete
+```
+
+Instalar una dependencia solo para desarrollo:
+
+```bash
+pnpm add -D nombre-del-paquete
+```
+
+Equivalencias básicas:
+
+| npm | pnpm | Uso |
+| --- | --- | --- |
+| `npm install` | `pnpm install` | Instalar dependencias |
+| `npm install paquete` | `pnpm add paquete` | Añadir dependencia |
+| `npm run dev` | `pnpm dev` | Ejecutar script |
+| `npm run build` | `pnpm build` | Crear build |
 
 ## 13.5. Uso de Paquetes en un Proyecto de JavaScript Vanilla
 
-Puedes usar paquetes instalados en tu proyecto JavaScript Vanilla incluyéndolos en tu archivo HTML. Aquí hay un ejemplo:
+Puedes usar paquetes instalados en tu proyecto JavaScript Vanilla mediante módulos ES. Aquí hay un ejemplo:
 
 ```html
 <!DOCTYPE html>
@@ -76,7 +125,7 @@ Puedes usar paquetes instalados en tu proyecto JavaScript Vanilla incluyéndolos
   <body>
     <button id="paquetes">Haciendo prueba del uso de paquetes</button>
 
-    <script src="app.js"></script>
+    <script src="app.js" type="module"></script>
   </body>
 </html>
 ```
@@ -84,10 +133,11 @@ Puedes usar paquetes instalados en tu proyecto JavaScript Vanilla incluyéndolos
 En tu archivo JavaScript `app.js`, puedes importar y usar el paquete `nombre-del-paquete` de la siguiente manera:
 
 ```javascript
-// Importamos el paquete nombre-del-paquete
-import funcionalidad_que_deseo_del_paquete from 'nombre-del-paquete';
-....
+// Importamos una funcionalidad desde un paquete instalado.
+import utilidad from "nombre-del-paquete";
 
+// Usamos la funcionalidad dentro de nuestro código.
+utilidad();
 ```
 
 ## 13.6. Scripts Personalizados
@@ -108,38 +158,42 @@ npm start
 
 ## 13.7. Creación de un Proyecto con Vite
 
-[Vite](https://www.npmjs.com/package/vite) es una herramienta de desarrollo que facilita la creación de proyectos JavaScript modernos. Puedes crear un nuevo proyecto con Vite usando el siguiente comando:
+[Vite](https://vite.dev/) es una herramienta de desarrollo que facilita la creación de proyectos JavaScript modernos. Puedes crear un nuevo proyecto con Vite usando npm:
 
 ```bash
-npm init vite@latest nombre_del_proyecto -- --template vanilla
+npm create vite@latest nombre-del-proyecto -- --template vanilla
 ```
 
-Esto creará un proyecto de JavaScript Vanilla llamado `nombre_del_proyecto` con una estructura y configuración predefinidas.
+O usando pnpm:
+
+```bash
+pnpm create vite nombre-del-proyecto --template vanilla
+```
+
+Esto creará un proyecto de JavaScript Vanilla con una estructura y configuración predefinidas.
 
 ### 13.7.1. Estructura del Proyecto
 
 Una vez que se ha creado el proyecto, la estructura de directorios se verá así:
 
 ```
-nombre_del_proyecto/
+nombre-del-proyecto/
   ├── node_modules/
   ├── public/
   │   ├── index.html
   │   └── favicon.ico
   ├── src/
   │   ├── main.js
-  │   ├── App.css
-  │   └── App.js
+  │   └── style.css
   ├── package.json
   ├── README.md
-  ├── vite.config.js
   └── .gitignore
 ```
 
 - `public/`: Contiene archivos públicos, como `index.html` y `favicon.ico`.
 - `src/`: Aquí se encuentra tu código fuente JavaScript, CSS y otros recursos.
 - `package.json`: Archivo de configuración del proyecto.
-- `vite.config.js`: Archivo de configuración de Vite.
+- `src/main.js`: Punto de entrada de la aplicación.
 
 ### 13.7.2. Iniciar el Servidor de Desarrollo
 
@@ -149,7 +203,7 @@ Para iniciar el servidor de desarrollo proporcionado por Vite, ejecuta el siguie
 npm run dev
 ```
 
-Esto iniciará un servidor de desarrollo en `http://localhost:3000` por defecto. Puedes ver los cambios en tiempo real en tu aplicación mientras desarrollas.
+Esto iniciará un servidor de desarrollo local. Vite suele usar `http://localhost:5173` por defecto si el puerto está libre. Puedes ver los cambios en tiempo real mientras desarrollas.
 
 ### 13.7.3. Crear un Proyecto de Producción
 
@@ -163,4 +217,4 @@ Esto generará una carpeta `dist/` que contiene los archivos optimizados listos 
 
 ### 13.7.4. Personalizar Configuraciones
 
-Puedes personalizar la configuración de tu proyecto Vite editando el archivo `vite.config.js`. Este archivo te permite ajustar diversas opciones, como configuraciones de rutas, configuración de Babel y más.
+Puedes personalizar la configuración de un proyecto Vite creando o editando `vite.config.js`. Para proyectos iniciales de JavaScript Vanilla normalmente no hace falta tocarlo.

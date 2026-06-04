@@ -1,136 +1,112 @@
-# Apuntes DWEC: JavaScript moderno para llegar a React sin dolor de cabeza
+# Apuntes DWEC: JavaScript moderno para llegar a React y Angular sin dolor de cabeza
 
-Apuntes, ejemplos y ejercicios de **Desarrollo Web en Entorno Cliente** preparados por **Isaías Fernández Lozano (Isaías FL)** para su alumnado.
+Material docente de **Desarrollo Web en Entorno Cliente** creado por **Isaías Fernández Lozano (Isaías FL)** para su alumnado.
 
-Este repositorio está pensado como una ruta completa para dominar las bases importantes de JavaScript moderno antes de pasar a frameworks como **React 19** o **Angular**. El objetivo no es memorizar sintaxis: es aprender a pensar en datos, funciones, módulos, estado, eventos, asincronía y componentes.
+Este repositorio sirve como ruta de aprendizaje para dominar JavaScript moderno antes de entrar en frameworks como **React 19** o **Angular**. La idea central es sencilla: si el alumno entiende datos, funciones, módulos, DOM, eventos, asincronía, APIs y estado, React y Angular dejan de parecer un salto brusco.
 
-> Documentación revisada y actualizada a **junio de 2026**. Para la parte de React se ha contrastado con documentación oficial de React 19.2 mediante Context7 y fuentes oficiales de React.
+> Revisión documental actualizada a **junio de 2026**. Para tendencias de repositorios se han consultado recomendaciones actuales de GitHub; para React se ha contrastado React 19.2 con Context7; para Node se toma como referencia Node.js 24 LTS.
+
+<p align="center">
+  <a href="https://developer.mozilla.org/es/docs/Web/JavaScript"><img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-ES2026-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111"></a>
+  <a href="https://nodejs.org/"><img alt="Node.js" src="https://img.shields.io/badge/Node.js-24_LTS-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white"></a>
+  <a href="https://www.npmjs.com/"><img alt="npm" src="https://img.shields.io/badge/npm-registry-CB3837?style=for-the-badge&logo=npm&logoColor=white"></a>
+  <a href="https://pnpm.io/"><img alt="pnpm" src="https://img.shields.io/badge/pnpm-recomendado-F69220?style=for-the-badge&logo=pnpm&logoColor=white"></a>
+  <a href="https://vite.dev/"><img alt="Vite" src="https://img.shields.io/badge/Vite-tooling-646CFF?style=for-the-badge&logo=vite&logoColor=white"></a>
+  <a href="https://react.dev/"><img alt="React" src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=111"></a>
+  <a href="https://angular.dev/"><img alt="Angular" src="https://img.shields.io/badge/Angular-framework-DD0031?style=for-the-badge&logo=angular&logoColor=white"></a>
+  <a href="https://developer.mozilla.org/"><img alt="MDN" src="https://img.shields.io/badge/MDN-Web_Docs-000000?style=for-the-badge&logo=mdnwebdocs&logoColor=white"></a>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="Licencia CC BY 4.0" src="https://img.shields.io/badge/licencia-CC_BY_4.0-ef9421?style=flat-square"></a>
+  <img alt="Estado" src="https://img.shields.io/badge/estado-en_revision_docente-2563eb?style=flat-square">
+  <img alt="Nivel" src="https://img.shields.io/badge/nivel-inicial_a_avanzado-16a34a?style=flat-square">
+</p>
 
 ---
 
 ## Índice
 
-- [Objetivo del repo](#objetivo-del-repo)
-- [Stack de tecnologías](#stack-de-tecnologías)
-- [Roadmap del alumno hacia React](#roadmap-del-alumno-hacia-react)
-- [Estructura real del repositorio](#estructura-real-del-repositorio)
+- [Objetivo](#objetivo)
+- [Stack de aprendizaje](#stack-de-aprendizaje)
+- [Roadmap del alumno](#roadmap-del-alumno)
 - [Ruta recomendada de estudio](#ruta-recomendada-de-estudio)
-- [Mapa de competencias](#mapa-de-competencias)
-- [JavaScript moderno antes de React 19](#javascript-moderno-antes-de-react-19)
-- [Primer contacto con React 19](#primer-contacto-con-react-19)
-- [Ejercicios y práctica](#ejercicios-y-práctica)
-- [Cómo trabajar con el repo](#cómo-trabajar-con-el-repo)
-- [Fuentes actualizadas](#fuentes-actualizadas)
+- [Progreso por competencias](#progreso-por-competencias)
+- [Entorno recomendado: Node, nvm, npm y pnpm](#entorno-recomendado-node-nvm-npm-y-pnpm)
+- [Diagramas de aprendizaje](#diagramas-de-aprendizaje)
+- [Ejercicios](#ejercicios)
+- [Puente a React y Angular](#puente-a-react-y-angular)
+- [Estructura del repositorio](#estructura-del-repositorio)
+- [Tendencias aplicadas al repo](#tendencias-aplicadas-al-repo)
+- [Licencia y atribución](#licencia-y-atribución)
 - [Autor](#autor)
-- [Licencia](#licencia)
+- [Fuentes](#fuentes)
 
 ---
 
-## Objetivo del repo
+## Objetivo
 
-Este repositorio guía al alumno desde los fundamentos de JavaScript hasta una base suficientemente sólida para empezar con React o Angular sin atascarse en conceptos previos.
+El objetivo de estos apuntes es que el alumnado aprenda **JavaScript moderno con profundidad suficiente para construir interfaces reales** y pueda pasar después a React o Angular con una base técnica sólida.
 
-Al terminar esta ruta, el alumno debería saber:
+Al finalizar la ruta, el alumno debería poder:
 
 - Escribir JavaScript moderno con `let`, `const`, funciones, objetos, arrays, destructuring, módulos y clases.
-- Entender la diferencia entre código imperativo, declarativo, funcional y orientado a objetos.
+- Razonar sobre scope, closures, `this`, referencias, mutabilidad e inmutabilidad.
+- Usar arrays, objetos, `Set`, `Map` y JSON para modelar datos.
 - Manipular el DOM con criterio: selección, creación de nodos, eventos, formularios y clases CSS.
-- Trabajar con asincronía real: callbacks, promesas, `async/await`, `fetch`, errores y APIs externas.
-- Separar datos, lógica y vista para preparar la transición a componentes.
-- Comprender por qué React usa estado, props, renderizado declarativo, eventos y efectos.
-- Llegar a React 19 con buena base de formularios, estado, acciones, efectos y mentalidad de componentes.
+- Trabajar con asincronía: callbacks, promesas, `async/await`, `fetch`, errores y APIs externas.
+- Separar estado, lógica, renderizado y persistencia local.
+- Entender la transición natural desde JavaScript vanilla hacia componentes, props, estado, efectos y servicios.
 
 ---
 
-## Stack de tecnologías
+## Stack de aprendizaje
 
-| Área | Tecnología | Para qué se aprende |
+| Área | Tecnología | Qué aporta al alumno |
 | --- | --- | --- |
-| Lenguaje | JavaScript moderno ES6+ | Base principal del desarrollo frontend actual. |
-| Plataforma | Navegador Web | Ejecución, DOM, eventos, formularios, storage y APIs del navegador. |
-| Runtime | Node.js | Ejecutar herramientas modernas, scripts y gestores de paquetes. |
-| Paquetes | npm / pnpm | Instalar dependencias, lanzar scripts y preparar proyectos reales. |
-| Build tool | Vite | Crear proyectos vanilla y después proyectos React modernos. |
-| Datos | Arrays, Set, Map, Object, JSON | Modelar información antes de pintarla en pantalla. |
-| Modularidad | ES Modules | Dividir código con `import`, `export` e importaciones dinámicas. |
-| Persistencia local | `localStorage` / `sessionStorage` | Guardar preferencias, estado simple y datos de usuario. |
-| Asincronía | Promises, `async/await`, Fetch API | Consumir APIs y controlar errores de red. |
-| UI Vanilla | DOM, eventos, formularios | Entender que resuelve React por debajo. |
-| Framework destino | React 19 | Componentes, JSX, props, estado, hooks, acciones y efectos. |
-| Framework alternativo | Angular | Componentes, servicios, templates, estado y comunicación con APIs. |
+| Lenguaje | JavaScript moderno ES6+ / ES2026 | Base del desarrollo frontend actual. |
+| Documentación | MDN Web Docs | Referencia principal para JavaScript, DOM y Web APIs. |
+| Runtime | Node.js 24 LTS | Herramientas modernas, scripts y entorno de desarrollo. |
+| Versiones | nvm | Cambiar entre varias versiones de Node sin romper proyectos. |
+| Paquetes | npm | Gestor incluido con Node, útil para entender el ecosistema. |
+| Paquetes | pnpm | Instalaciones rápidas, eficientes y reproducibles. |
+| Tooling | Vite | Proyectos vanilla, React y builds modernos. |
+| Navegador | DOM / Web APIs | Eventos, formularios, storage, fetch, workers y APIs reales. |
+| Framework destino | React 19 | Componentes, JSX, estado, hooks, Actions y UI declarativa. |
+| Framework destino | Angular | Componentes, templates, servicios, inyección y arquitectura. |
 
 ---
 
-## Roadmap del alumno hacia React
+## Roadmap del alumno
 
 ```mermaid
 flowchart TD
-  A["1. Fundamentos JS<br/>variables, tipos, operadores"] --> B["2. Funciones y scope<br/>closures, this, arrow functions"]
-  B --> C["3. Estructuras de datos<br/>arrays, objetos, Set, Map, JSON"]
-  C --> D["4. Programación declarativa<br/>map, filter, reduce, destructuring"]
-  D --> E["5. Módulos y npm<br/>import/export, Vite, scripts"]
-  E --> F["6. DOM y eventos<br/>formularios, delegación, renderizado"]
-  F --> G["7. Asincronía y APIs<br/>promesas, async/await, fetch"]
-  G --> H["8. Arquitectura Vanilla<br/>estado, render, acciones, storage"]
-  H --> I["9. Mentalidad React<br/>componentes, props, state, effects"]
-  I --> J["10. React 19<br/>Actions, useActionState, useOptimistic"]
+  A["1. Sintaxis y tipos<br/>variables, operadores, coerción"] --> B["2. Funciones<br/>parámetros, retorno, closures"]
+  B --> C["3. Control de flujo<br/>condiciones, bucles, errores"]
+  C --> D["4. Datos<br/>arrays, objetos, Set, Map, JSON"]
+  D --> E["5. JavaScript moderno<br/>destructuring, spread, módulos"]
+  E --> F["6. Navegador<br/>DOM, eventos, formularios"]
+  F --> G["7. Asincronía<br/>promesas, async/await, fetch"]
+  G --> H["8. Arquitectura vanilla<br/>estado, render, storage, APIs"]
+  H --> I["9. Componentes<br/>props, estado, efectos, servicios"]
+  I --> J["10. React 19 / Angular<br/>frameworks sin salto traumático"]
 ```
 
-### Regla práctica
+**Regla práctica:** antes de empezar React o Angular, el alumno debe poder crear una miniaplicación vanilla que mantenga estado, renderice desde datos, gestione eventos, valide formularios, consulte una API, maneje errores y separe el código en módulos.
 
-Antes de empezar React, un alumno debe poder construir en JavaScript vanilla una miniaplicación que:
+> [!TIP]
+> Si una práctica vanilla ya tiene `estado`, `render()`, eventos, validación y `fetch`, ya contiene las piezas mentales que después se transforman en componentes, props, estado, efectos y servicios.
 
-- Mantenga un estado en un objeto o array.
-- Pinte una interfaz a partir de ese estado.
-- Responda a eventos del usuario.
-- Valide un formulario.
-- Consulte una API con `fetch`.
-- Gestione errores y estados de carga.
-- Separe el código en módulos.
+<details>
+<summary>Lectura rápida del roadmap</summary>
 
-Si eso está claro, React deja de parecer magia.
+1. Primero se aprende el lenguaje.
+2. Después se aprende a modelar datos.
+3. Luego se conecta JavaScript con el navegador.
+4. Más tarde se trabaja asincronía y APIs reales.
+5. Finalmente se reorganiza todo con arquitectura de componentes.
 
----
-
-## Estructura real del repositorio
-
-```text
-ApuntesDWEC/
-├── Unidad2_Sintaxis_Basica/
-│   ├── 0_Introduccion.md
-│   ├── 1_SintaxisBasica.md
-│   ├── 2_ConversionTipos.md
-│   ├── 3_CargarJavaScript.md
-│   ├── 4_Operadores.md
-│   ├── 5_Funciones.md
-│   ├── 6_ControlDeFlujo.md
-│   └── 7_Ambito_Scope.md
-├── Unidad4_Estructuras_de_datos/
-│   ├── 8_Arrays.md
-│   ├── 9_Set.md
-│   ├── 10_Map.md
-│   ├── 11_Objetos.md
-│   ├── 12_Modulos.md
-│   ├── 13_NPM.md
-│   ├── 14_LocalStorage.md
-│   └── 15_Usos_del_this.md
-├── Unidad5_POO_basada_en_Prototipos/
-│   └── 16_POO_basado_en_Prototipos.md
-├── Unidad6_DOM/
-│   ├── 17_DOM_Document_Object_Model.md
-│   ├── 18_Asincronismo.Callback_Promesas_Async_Await.md
-│   └── 19_APIS_JavaScript.md
-├── Ejercicios/
-│   ├── Enunciado_I_Ejercicios_Arrays.md
-│   ├── Enunciado_II_Ejercicios_Arrays.md
-│   ├── Enunciado_Ejercicios_Objetos.md
-│   ├── Enunciado_Ejercicios_Destructuring_con_objetos.md
-│   ├── Enunciado_promesas_fetch.md
-│   └── Practica_Puente_React_19.md
-├── assets/
-├── LICENSE
-└── README.md
-```
+</details>
 
 ---
 
@@ -138,246 +114,179 @@ ApuntesDWEC/
 
 ### Fase 1: base del lenguaje
 
-1. [Introducción a JavaScript moderno](Unidad2_Sintaxis_Basica/0_Introduccion.md)
-2. [Sintaxis básica](Unidad2_Sintaxis_Basica/1_SintaxisBasica.md)
-3. [Conversiones de tipos](Unidad2_Sintaxis_Basica/2_ConversionTipos.md)
-4. [Carga de JavaScript en HTML](Unidad2_Sintaxis_Basica/3_CargarJavaScript.md)
-5. [Operadores](Unidad2_Sintaxis_Basica/4_Operadores.md)
-6. [Funciones](Unidad2_Sintaxis_Basica/5_Funciones.md)
-7. [Control de flujo](Unidad2_Sintaxis_Basica/6_ControlDeFlujo.md)
-8. [Ámbito, scope y `this`](Unidad2_Sintaxis_Basica/7_Ambito_Scope.md)
+| Orden | Tema | Archivo |
+| --- | --- | --- |
+| 0 | Introducción a JavaScript moderno | [0_Introduccion.md](Unidad2_Sintaxis_Basica/0_Introduccion.md) |
+| 1 | Sintaxis básica | [1_SintaxisBasica.md](Unidad2_Sintaxis_Basica/1_SintaxisBasica.md) |
+| 2 | Conversión de tipos | [2_ConversionTipos.md](Unidad2_Sintaxis_Basica/2_ConversionTipos.md) |
+| 3 | Carga de JavaScript en HTML | [3_CargarJavaScript.md](Unidad2_Sintaxis_Basica/3_CargarJavaScript.md) |
+| 4 | Operadores | [4_Operadores.md](Unidad2_Sintaxis_Basica/4_Operadores.md) |
+| 5 | Funciones | [5_Funciones.md](Unidad2_Sintaxis_Basica/5_Funciones.md) |
+| 6 | Control de flujo | [6_ControlDeFlujo.md](Unidad2_Sintaxis_Basica/6_ControlDeFlujo.md) |
+| 7 | Ámbito, scope y `this` | [7_Ambito_Scope.md](Unidad2_Sintaxis_Basica/7_Ambito_Scope.md) |
 
-### Fase 2: datos y organización
+### Fase 2: datos, módulos y tooling
 
-1. [Arrays](Unidad4_Estructuras_de_datos/8_Arrays.md)
-2. [Set](Unidad4_Estructuras_de_datos/9_Set.md)
-3. [Map](Unidad4_Estructuras_de_datos/10_Map.md)
-4. [Objetos](Unidad4_Estructuras_de_datos/11_Objetos.md)
-5. [Módulos ES](Unidad4_Estructuras_de_datos/12_Modulos.md)
-6. [npm y Vite](Unidad4_Estructuras_de_datos/13_NPM.md)
-7. [localStorage](Unidad4_Estructuras_de_datos/14_LocalStorage.md)
-8. [`this` en profundidad](Unidad4_Estructuras_de_datos/15_Usos_del_this.md)
+| Orden | Tema | Archivo |
+| --- | --- | --- |
+| 8 | Arrays | [8_Arrays.md](Unidad4_Estructuras_de_datos/8_Arrays.md) |
+| 9 | Set | [9_Set.md](Unidad4_Estructuras_de_datos/9_Set.md) |
+| 10 | Map | [10_Map.md](Unidad4_Estructuras_de_datos/10_Map.md) |
+| 11 | Objetos | [11_Objetos.md](Unidad4_Estructuras_de_datos/11_Objetos.md) |
+| 12 | Módulos ES | [12_Modulos.md](Unidad4_Estructuras_de_datos/12_Modulos.md) |
+| 13 | npm, pnpm, Node y Vite | [13_NPM.md](Unidad4_Estructuras_de_datos/13_NPM.md) |
+| 14 | localStorage | [14_LocalStorage.md](Unidad4_Estructuras_de_datos/14_LocalStorage.md) |
+| 15 | `this` en profundidad | [15_Usos_del_this.md](Unidad4_Estructuras_de_datos/15_Usos_del_this.md) |
 
 ### Fase 3: programación orientada a objetos
 
-1. [POO basada en prototipos](Unidad5_POO_basada_en_Prototipos/16_POO_basado_en_Prototipos.md)
-
-Esta fase es importante porque React y Angular no obligan a programar con clases, pero sí exigen entender objetos, referencias, métodos, encapsulación y reutilización de comportamiento.
-
-### Fase 4: navegador, DOM y APIs
-
-1. [DOM](Unidad6_DOM/17_DOM_Document_Object_Model.md)
-2. [Asincronismo, promesas y async/await](Unidad6_DOM/18_Asincronismo.Callback_Promesas_Async_Await.md)
-3. [APIs de JavaScript](Unidad6_DOM/19_APIS_JavaScript.md)
-
-Esta fase es la antesala real de React: eventos, formularios, renderizado, peticiones HTTP, errores y estado visual.
-
-### Fase 5: puente a React 19
-
-1. [Práctica puente hacia React 19](Ejercicios/Practica_Puente_React_19.md)
-
-Aquí se trabaja la misma idea primero en JavaScript vanilla y después con mentalidad React: estado, render, acciones, formularios y componentes.
-
----
-
-## Mapa de competencias
-
-| Competencia | En JavaScript vanilla | Cómo se traduce en React |
+| Orden | Tema | Archivo |
 | --- | --- | --- |
-| Pintar datos | `createElement`, `innerHTML`, templates | JSX y componentes |
-| Estado | Variables, objetos, arrays | `useState`, `useReducer` |
-| Eventos | `addEventListener` | `onClick`, `onChange`, `onSubmit` |
-| Formularios | `FormData`, validación manual | Inputs controlados, Actions, `useActionState` |
-| Efectos | Código tras eventos/carga | `useEffect`, `useEffectEvent` |
-| APIs | `fetch`, `async/await` | Fetch en efectos, loaders o frameworks |
-| Renderizado | Función `render()` propia | Renderizado declarativo de React |
-| Componentización | Funciones que devuelven HTML/nodos | Componentes reutilizables |
-| Persistencia | `localStorage` | Estado + efectos + storage |
-| Modularidad | `import` / `export` | Componentes, hooks y servicios separados |
+| 16 | Prototipos, constructores y clases | [16_POO_basado_en_Prototipos.md](Unidad5_POO_basada_en_Prototipos/16_POO_basado_en_Prototipos.md) |
+
+### Fase 4: navegador, DOM, asincronía y APIs
+
+| Orden | Tema | Archivo |
+| --- | --- | --- |
+| 17 | DOM | [17_DOM_Document_Object_Model.md](Unidad6_DOM/17_DOM_Document_Object_Model.md) |
+| 18 | Callbacks, promesas y async/await | [18_Asincronismo.Callback_Promesas_Async_Await.md](Unidad6_DOM/18_Asincronismo.Callback_Promesas_Async_Await.md) |
+| 19 | Web APIs y Fetch API | [19_APIS_JavaScript.md](Unidad6_DOM/19_APIS_JavaScript.md) |
+
+### Fase 5: puente a frameworks
+
+| Orden | Tema | Archivo |
+| --- | --- | --- |
+| 20 | Práctica puente hacia React 19 | [Practica_Puente_React_19.md](Ejercicios/Practica_Puente_React_19.md) |
+| 21 | Guía JS -> React / Angular | [RUTA_JS_REACT_ANGULAR.md](docs/RUTA_JS_REACT_ANGULAR.md) |
+
+Esta fase solo marca el camino. El desarrollo completo está separado en la guía específica para no cargar esta ruta principal.
 
 ---
 
-## JavaScript moderno antes de React 19
+## Progreso por competencias
 
-Estos conceptos deben quedar especialmente claros:
+| Competencia | Estado esperado | Evidencia |
+| --- | --- | --- |
+| Sintaxis y tipos | Comprende valores, operadores y coerción | Ejercicios de tipos y operadores |
+| Funciones | Usa funciones puras, callbacks y closures | Ejercicios de funciones |
+| Datos | Transforma arrays y objetos sin mutaciones innecesarias | Banco de arrays/objetos |
+| Módulos | Divide código con `import` y `export` | Miniapp con Vite |
+| DOM | Crea y actualiza UI desde datos | Prácticas DOM |
+| Eventos | Maneja clicks, inputs, submit y delegación | Formularios interactivos |
+| Asincronía | Usa promesas, `async/await` y errores | Ejercicios Fetch |
+| APIs | Consume endpoints y gestiona estados visuales | Proyecto de clima/API |
+| Arquitectura | Separa estado, render, eventos y storage | Proyecto final vanilla |
+| Frameworks | Entiende componentes, props, estado y efectos | Puente React/Angular |
 
-### 1. Inmutabilidad básica
+### Checklist de madurez
 
-React funciona mucho mejor cuando se crean nuevos arrays u objetos en lugar de mutar los existentes.
+- [ ] Leo y modifico código JavaScript sin depender de copiar ejemplos completos.
+- [ ] Sé explicar la diferencia entre dato, evento, estado y renderizado.
+- [ ] Sé dividir una práctica en módulos pequeños.
+- [ ] Sé depurar errores mirando consola, red y estado.
+- [ ] Sé pasar de una solución imperativa a una solución declarativa.
+- [ ] Sé justificar cuándo usar `map`, `filter`, `reduce`, `Set` o `Map`.
+- [ ] Sé reconocer qué parte de una app vanilla será componente en React o Angular.
 
-```javascript
-const alumnos = ["Ana", "Luis"];
+---
 
-// Evitamos mutar el array original cuando queremos generar nuevo estado.
-const alumnosActualizados = [...alumnos, "Marta"];
+## Entorno recomendado: Node, nvm, npm y pnpm
 
-console.log(alumnos); // ["Ana", "Luis"]
-console.log(alumnosActualizados); // ["Ana", "Luis", "Marta"]
+### Versión recomendada
+
+Para junio de 2026, la línea recomendada para clase es **Node.js 24 LTS**. Node 26 existe como versión Current, pero para docencia y proyectos estables conviene usar LTS.
+
+Archivo recomendado del repo:
+
+```text
+.nvmrc
+24
 ```
 
-### 2. Renderizado desde datos
+### Instalar Node con nvm
 
-Antes de React, se puede practicar con una función `render()` propia.
+En Linux/macOS:
 
-```javascript
-const tareas = [
-  { id: 1, texto: "Repasar arrays", completada: true },
-  { id: 2, texto: "Practicar fetch", completada: false },
-];
-
-function renderTareas(lista) {
-  return lista
-    .map((tarea) => {
-      const estado = tarea.completada ? "hecha" : "pendiente";
-      return `<li data-id="${tarea.id}">${tarea.texto} - ${estado}</li>`;
-    })
-    .join("");
-}
-
-document.querySelector("#app").innerHTML = `<ul>${renderTareas(tareas)}</ul>`;
+```bash
+# Instalar nvm siguiendo la documentación oficial del proyecto
+# Después, dentro del repo:
+nvm install 24
+nvm use 24
+node -v
+npm -v
 ```
 
-### 3. Eventos como acciones
+Instalar varias versiones:
 
-En React se piensa mucho en acciones de usuario: añadir, borrar, filtrar, guardar.
-
-```javascript
-const estado = {
-  filtro: "todas",
-  tareas: [],
-};
-
-function agregarTarea(texto) {
-  // La función recibe una intención y produce un nuevo estado.
-  estado.tareas = [
-    ...estado.tareas,
-    { id: crypto.randomUUID(), texto, completada: false },
-  ];
-}
+```bash
+nvm install 22
+nvm install 24
+nvm use 24
+nvm alias default 24
 ```
 
-### 4. Asincronía con estados visuales
+### npm y pnpm
 
-Todo fetch real necesita al menos tres estados: carga, éxito y error.
+`npm` viene incluido con Node y es imprescindible conocerlo. `pnpm` es muy recomendable para proyectos modernos porque usa el disco de forma más eficiente y hace instalaciones reproducibles.
 
-```javascript
-async function cargarUsuario(id) {
-  try {
-    mostrarCargando();
+Activar pnpm con Corepack:
 
-    const respuesta = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+```bash
+corepack enable
+corepack prepare pnpm@latest --activate
+pnpm -v
+```
 
-    if (!respuesta.ok) {
-      throw new Error(`Error HTTP: ${respuesta.status}`);
-    }
+Crear proyectos:
 
-    const usuario = await respuesta.json();
-    mostrarUsuario(usuario);
-  } catch (error) {
-    mostrarError(error.message);
-  }
-}
+```bash
+# JavaScript vanilla con Vite
+pnpm create vite practica-js --template vanilla
+
+# React con Vite
+pnpm create vite primer-react --template react
+```
+
+Comandos habituales:
+
+```bash
+pnpm install
+pnpm dev
+pnpm build
+pnpm test
 ```
 
 ---
 
-## Primer contacto con React 19
+## Diagramas de aprendizaje
 
-React permite crear interfaces declarativas a partir de componentes. En lugar de modificar el DOM paso a paso, se describe que debe verse para un estado determinado.
+Este repositorio usa diagramas Mermaid porque GitHub los renderiza directamente en Markdown y ayudan mucho a explicar procesos que suelen costar al alumnado.
 
-### Componente básico
+```mermaid
+sequenceDiagram
+  participant Alumno
+  participant UI as Interfaz
+  participant Estado
+  participant API
 
-```jsx
-function TarjetaAlumno({ nombre, curso }) {
-  return (
-    <article>
-      <h2>{nombre}</h2>
-      <p>{curso}</p>
-    </article>
-  );
-}
+  Alumno->>UI: submit formulario
+  UI->>Estado: estado.cargando = true
+  UI->>API: fetch datos
+  API-->>UI: respuesta JSON
+  UI->>Estado: actualizar datos
+  Estado-->>UI: render desde estado
 ```
 
-### Estado con `useState`
+Más diagramas:
 
-```jsx
-import { useState } from "react";
-
-function Contador() {
-  const [contador, setContador] = useState(0);
-
-  return (
-    <button onClick={() => setContador(contador + 1)}>
-      Clicks: {contador}
-    </button>
-  );
-}
-```
-
-### Formularios y acciones en React 19
-
-React 19 introdujo mejoras importantes en el trabajo con acciones asíncronas, formularios y estado optimista. Conceptos a conocer:
-
-- **Actions**: funciones normalmente asíncronas que gestionan una mutación o envío de datos.
-- **`useActionState`**: ayuda a manejar el resultado de una acción de formulario.
-- **`useOptimistic`**: permite mostrar una actualización inmediata antes de que el servidor confirme.
-- **`useTransition` / `startTransition`**: marcan actualizaciones no urgentes.
-- **`useEffectEvent`** en React 19.2: separa eventos disparados desde efectos para evitar dependencias incorrectas.
-- **`<Activity />`** en React 19.2: permite ocultar/mostrar partes de la UI conservando estado y priorizando trabajo.
-
-Ejemplo conceptual de `useActionState`:
-
-```jsx
-import { useActionState } from "react";
-
-async function guardarAlumno(estadoAnterior, formData) {
-  const nombre = formData.get("nombre")?.trim();
-
-  if (!nombre) {
-    return { ok: false, mensaje: "El nombre es obligatorio" };
-  }
-
-  // Aquí normalmente se llamaría a una API o acción de servidor.
-  return { ok: true, mensaje: `Alumno guardado: ${nombre}` };
-}
-
-function FormularioAlumno() {
-  const [estado, accion, pendiente] = useActionState(guardarAlumno, {
-    ok: null,
-    mensaje: "",
-  });
-
-  return (
-    <form action={accion}>
-      <input name="nombre" placeholder="Nombre del alumno" />
-      <button disabled={pendiente}>
-        {pendiente ? "Guardando..." : "Guardar"}
-      </button>
-      {estado.mensaje && <p>{estado.mensaje}</p>}
-    </form>
-  );
-}
-```
-
-### Importante para alumnos
-
-React no elimina JavaScript. React exige JavaScript mejor escrito.
-
-Antes de usar hooks, conviene dominar:
-
-- Funciones puras.
-- Arrays con `map`, `filter`, `find`, `some`, `every` y `reduce`.
-- Objetos y copia con spread.
-- Destructuring.
-- Promesas y `async/await`.
-- Eventos y formularios.
-- Módulos ES.
+- [Diagramas explicativos](docs/DIAGRAMAS.md)
+- [Ruta JS -> React / Angular](docs/RUTA_JS_REACT_ANGULAR.md)
 
 ---
 
-## Ejercicios y práctica
+## Ejercicios
 
-El repositorio incluye ejercicios de:
+El repo incluye ejercicios por bloques:
 
 - [Arrays I](Ejercicios/Enunciado_I_Ejercicios_Arrays.md)
 - [Arrays II](Ejercicios/Enunciado_II_Ejercicios_Arrays.md)
@@ -385,79 +294,123 @@ El repositorio incluye ejercicios de:
 - [Destructuring con objetos](Ejercicios/Enunciado_Ejercicios_Destructuring_con_objetos.md)
 - [Promesas y Fetch API](Ejercicios/Enunciado_promesas_fetch.md)
 - [Práctica puente hacia React 19](Ejercicios/Practica_Puente_React_19.md)
+- [Banco ampliado de ejercicios](Ejercicios/Banco_Ejercicios_JavaScript_Avanzado.md)
+- [Ejercicios autocorregibles](Ejercicios/autocorregibles/README.md)
 
-### Proyecto recomendado de cierre
-
-Construir una miniaplicación vanilla con Vite:
+Proyecto recomendado de cierre:
 
 **Gestor de tareas para clase**
 
-Requisitos:
-
-- Crear, completar, editar y borrar tareas.
-- Filtrar por todas, pendientes y completadas.
-- Guardar en `localStorage`.
-- Separar en módulos: `state.js`, `render.js`, `events.js`, `storage.js`.
-- Usar un único objeto de estado.
-- Renderizar siempre desde el estado.
-- Añadir una versión posterior en React 19 con componentes.
+- CRUD de tareas.
+- Filtros por estado.
+- Persistencia en `localStorage`.
+- Código modular: `state.js`, `render.js`, `events.js`, `storage.js`, `api.js`.
+- Carga inicial desde API.
+- Estados visuales de carga y error.
+- Versión posterior en React 19 o Angular.
 
 ---
 
-## Cómo trabajar con el repo
+## Puente a React y Angular
 
-Clonar el repositorio:
+La parte de frameworks está separada para que el README siga siendo una portada clara:
 
-```bash
-git clone https://github.com/isaiasfl/ApuntesDWEC.git
-cd ApuntesDWEC
-```
+- [Guía JS -> React / Angular](docs/RUTA_JS_REACT_ANGULAR.md)
+- [Práctica puente hacia React 19](Ejercicios/Practica_Puente_React_19.md)
 
-Para practicar con Vite en un proyecto nuevo:
+Resumen mental:
 
-```bash
-npm create vite@latest practica-js -- --template vanilla
-cd practica-js
-npm install
-npm run dev
-```
+| JavaScript vanilla | React | Angular |
+| --- | --- | --- |
+| Función `render()` | Componente | Componente |
+| Objeto `estado` | `useState` / `useReducer` | Signals / propiedades |
+| `addEventListener` | `onClick`, `onChange` | `(click)`, `(input)` |
+| `FormData` | Actions / formularios | Reactive Forms |
+| `fetch` | efectos / loaders / actions | servicios HTTP |
+| `localStorage` | efecto + estado | servicio + estado |
+| módulos ES | componentes/hooks | módulos/standalone/services |
 
-Para crear el primer proyecto React cuando la base de JavaScript esté asentada:
+---
 
-```bash
-npm create vite@latest primer-react -- --template react
-cd primer-react
-npm install
-npm run dev
+## Estructura del repositorio
+
+```text
+ApuntesDWEC/
+├── Unidad2_Sintaxis_Basica/
+├── Unidad4_Estructuras_de_datos/
+├── Unidad5_POO_basada_en_Prototipos/
+├── Unidad6_DOM/
+├── Ejercicios/
+│   └── autocorregibles/
+├── docs/
+├── .github/
+│   └── ISSUE_TEMPLATE/
+├── assets/
+├── CITATION.cff
+├── CONTRIBUTING.md
+├── LICENSE
+└── README.md
 ```
 
 ---
 
-## Fuentes actualizadas
+## Tendencias aplicadas al repo
 
-Fuentes recomendadas para mantener estos apuntes al día:
+- README con portada clara, badges, stack visual y ruta de entrada rápida.
+- Licencia explícita orientada a material educativo con atribución.
+- Archivo `CITATION.cff` para citar correctamente el repo.
+- Plantillas de issues para erratas, mejoras y ejercicios.
+- Banco de ejercicios ampliado y primera base de autocorrección.
+- Separación entre README, guía de framework y ejercicios.
+- Roadmap visual con Mermaid compatible con GitHub.
+- Diagramas explicativos para procesos complejos: DOM, estado, fetch y frameworks.
+- Bloques desplegables con `details` para no saturar la portada.
+- Callouts nativos de GitHub (`[!TIP]`, `[!NOTE]`) para remarcar ideas docentes.
+- Recomendación de Node LTS, nvm, Corepack y pnpm.
 
-- [MDN JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
-- [MDN Web APIs](https://developer.mozilla.org/es/docs/Web/API)
-- [MDN Fetch API](https://developer.mozilla.org/es/docs/Web/API/Fetch_API)
-- [Documentación oficial de React](https://react.dev/)
-- [React 19](https://react.dev/blog/2024/12/05/react-19)
-- [React 19.2](https://react.dev/blog/2025/10/01/react-19-2)
-- [Vite](https://vite.dev/)
-- [Node.js](https://nodejs.org/)
-- [npm](https://docs.npmjs.com/)
+---
+
+## Licencia y atribución
+
+Este material se publica bajo **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
+
+Puedes consultar, compartir y adaptar el contenido, pero debes atribuir la autoría de forma clara:
+
+```text
+Apuntes DWEC: JavaScript moderno para llegar a React y Angular sin dolor de cabeza
+Autor: Isaías Fernández Lozano (Isaías FL)
+Repositorio: https://github.com/isaiasfl/ApuntesDWEC
+Licencia: CC BY 4.0
+```
+
+La licencia anterior del repositorio era GPLv3, más habitual en software. Para apuntes, ejercicios y material docente, CC BY 4.0 expresa mejor la condición de atribución.
 
 ---
 
 ## Autor
 
-Material desarrollado por **Isaías Fernández Lozano (Isaías FL)**, profesor de Informática en el IES Hermenegildo Lanz (Granada), para su alumnado.
+**Isaías Fernández Lozano (Isaías FL)**
+Profesor de Informática en el IES Hermenegildo Lanz (Granada).
 
 - GitHub: [isaiasfl](https://github.com/isaiasfl)
 - Correo: [ifernandez@ieshlanz.es](mailto:ifernandez@ieshlanz.es)
 
 ---
 
-## Licencia
+## Fuentes
 
-Este proyecto se distribuye bajo la licencia indicada en [LICENSE](LICENSE).
+- [GitHub Docs: About READMEs](https://docs.github.com/articles/about-readmes)
+- [GitHub Docs: workflow status badges](https://docs.github.com/en/actions/how-tos/monitoring-and-troubleshooting-workflows/monitoring-workflows/adding-a-workflow-status-badge)
+- [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [Node.js Release Schedule](https://github.com/nodejs/Release)
+- [Node.js releases](https://nodejs.org/en/about/previous-releases)
+- [Node.js Corepack](https://nodejs.org/api/corepack.html)
+- [npm Docs](https://docs.npmjs.com/)
+- [pnpm Docs](https://pnpm.io/)
+- [MDN JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
+- [MDN Web APIs](https://developer.mozilla.org/es/docs/Web/API)
+- [React Docs](https://react.dev/)
+- [React 19](https://react.dev/blog/2024/12/05/react-19)
+- [React 19.2](https://react.dev/blog/2025/10/01/react-19-2)
+- [Angular Docs](https://angular.dev/)
+- [Vite Docs](https://vite.dev/)

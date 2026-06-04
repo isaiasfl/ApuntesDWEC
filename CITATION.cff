@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "Apuntes DWEC: JavaScript moderno para llegar a React y Angular sin dolor de cabeza"
+message: "Si usas este material, cita a Isaías Fernández Lozano (Isaías FL)."
+type: educational-material
+authors:
+  - family-names: "Fernández Lozano"
+    given-names: "Isaías"
+    alias: "Isaías FL"
+repository-code: "https://github.com/isaiasfl/ApuntesDWEC"
+license: "CC-BY-4.0"
+date-released: "2026-06-05"
+keywords:
+  - JavaScript
+  - DWEC
+  - DOM
+  - React
+  - Angular
+  - Node.js
+  - Vite
+  - educación

@@ -1,0 +1,14 @@
+{
+  "name": "apuntes-dwec",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Apuntes DWEC de JavaScript moderno para preparar React y Angular.",
+  "scripts": {
+    "test:ejercicios": "node Ejercicios/autocorregibles/arrays.test.js"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "license": "CC-BY-4.0"
+}
