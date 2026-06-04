@@ -182,3 +182,7 @@ Requisitos comunes:
 - Guardar en `localStorage`.
 - Cargar datos iniciales desde API.
 - Mostrar estados de carga y error.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

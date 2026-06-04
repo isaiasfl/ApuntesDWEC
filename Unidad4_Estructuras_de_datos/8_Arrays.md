@@ -556,3 +556,7 @@ console.log(a); // Imprimirá 1
 console.log(b); // Imprimirá 2
 console.log(resto); // Imprimirá [3, 4, 5]
 ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

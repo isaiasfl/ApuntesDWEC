@@ -604,3 +604,7 @@ Las APIs en JavaScript Vanilla ES6 o posterior proporcionan una amplia gama de f
 - [Visibility API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)
 - [Fetch API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 - [Axios Documentation](https://axios-http.com/docs/intro)
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

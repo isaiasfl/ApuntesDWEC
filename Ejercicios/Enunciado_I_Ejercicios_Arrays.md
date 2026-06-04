@@ -45,3 +45,7 @@ Crea una función llamada `buscarElemento` que tome un array `arr` y un elemento
 Escribe una función llamada `dividirFragmento` que tome un array `arr` y un número entero `tamano`. La función debe dividir el array en fragmentos de tamaño `tamano` y devolver un nuevo array con los Fragmentos.
 
 ---
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

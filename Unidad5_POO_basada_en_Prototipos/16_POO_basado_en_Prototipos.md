@@ -98,7 +98,7 @@ Para instanciar un objeto literal usamos el método Object.create.
 
 Object.create() se utiliza para crear un nuevo objeto con el prototipo especificado. Puedes utilizarlo para crear objetos con prototipos personalizados.
 
-##### Sintaxis
+##### Sintaxis de `Object.create()`
 
 ```javascript
 Object.create(prototipo, [propiedadesOpcionales]);
@@ -148,7 +148,7 @@ console.log(objetoConPropiedades.y); // 20
 
 En este caso, `Object.assign()` se utiliza para combinar varios objetos en uno solo. El objeto destino contendrá todas las propiedades de los objetos fuente. Si dos objetos tienen propiedades con el mismo nombre, la última propiedad encontrada sobrescribirá las anteriores.
 
-###### Sintaxis
+###### Sintaxis de combinación con `Object.assign()`
 
 ```javascript
 Object.assign(objetoDestino, ...objetosFuente);
@@ -176,7 +176,7 @@ En este ejemplo, las propiedades de `fuente1` y `fuente2` se copian en `objetoDe
 
 `Object.assign()` también se utiliza para clonar un objeto existente, creando una copia independiente del objeto original.
 
-###### Sintaxis
+###### Sintaxis de clonación con `Object.assign()`
 
 ```javascript
 const copia = Object.assign({}, objetoOriginal);
@@ -637,7 +637,7 @@ console.log(Matematicas.cuadrado(5)); // Salida: 25
 
 ### 4.3. Herencia Entre Clases
 
-#### Ejemplo 1:
+#### Ejemplo de herencia entre `Animal` y `Perro`
 
 ```javascript
 class Animal {
@@ -657,7 +657,7 @@ const miPerro = new Perro("Max", "Labrador");
 console.log(miPerro.nombre); // Salida: 'Max'
 ```
 
-#### Ejemplo 2:
+#### Ejemplo de herencia entre `Vehiculo` y `Coche`
 
 ```javascript
 class Vehiculo {
@@ -685,7 +685,7 @@ En JavaScript, las propiedades protegidas y los métodos son una técnica utiliz
 
 Las propiedades protegidas son propiedades que se denotan con una convención de nomenclatura específica para indicar que no deben ser accedidas directamente desde fuera de la clase. La convención típica es usar un guion bajo (`_`) al principio del nombre de la propiedad.
 
-##### Sintaxis
+##### Sintaxis de propiedades protegidas
 
 ```javascript
 class MiClase {
@@ -695,7 +695,7 @@ class MiClase {
 }
 ```
 
-###### Ejemplo
+###### Ejemplo de propiedad protegida
 
 ```javascript
 class Coche {
@@ -713,7 +713,7 @@ class Coche {
 
 Los métodos de clase protegidos son funciones que se denotan de manera similar con una convención de nomenclatura específica utilizando un guion bajo al principio del nombre del método. Esto indica que el método no debe ser llamado directamente desde fuera de la clase.
 
-##### Sintaxis
+##### Sintaxis de método protegido
 
 ```javascript
 class MiClase {
@@ -723,7 +723,7 @@ class MiClase {
 }
 ```
 
-##### Ejemplo
+##### Ejemplo de método protegido
 
 ```javascript
 class Persona {
@@ -741,11 +741,11 @@ class Persona {
 }
 ```
 
-#### Métodos de Clase Privados (ECMAScript 2022 no permitido en todos los navegadores aún)
+#### Métodos de Clase Privados
 
 Los métodos de clase privados son funciones que solo se pueden llamar desde dentro de la clase. Proporcionan una forma de ocultar la implementación de cierta funcionalidad y mejorar la modularidad del código.
 
-##### Sintaxis
+##### Sintaxis de método privado
 
 Para definir un método de clase privado en una clase, se utiliza la siguiente sintaxis:
 
@@ -758,7 +758,7 @@ class MiClase {
 }
 ```
 
-##### Ejemplo
+##### Ejemplo de método privado
 
 ```javascript
 class Persona {
@@ -796,7 +796,7 @@ Aunque JavaScript no admite la visibilidad real de propiedades privadas, las pro
 
 Los métodos de encadenamiento permiten llamar a varios métodos en una sola línea, lo que mejora la legibilidad del código.
 
-#### Ejemplo 1:
+#### Ejemplo de encadenamiento con `Calculadora`
 
 ```javascript
 class Calculadora {
@@ -827,7 +827,7 @@ const resultado = new Calculadora()
 console.log(resultado); // Salida: 12
 ```
 
-#### Ejemplo 2:
+#### Ejemplo de encadenamiento con `Pedido`
 
 ```javascript
 class Pedido {
@@ -859,3 +859,7 @@ const pedido = new Pedido()
 
 console.log(pedido); // Salida: 50
 ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

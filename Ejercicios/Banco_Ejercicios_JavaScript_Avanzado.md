@@ -134,3 +134,7 @@ Cada ejercicio debe resolverse con funciones pequeñas, nombres claros y comenta
 6. Diseña componentes para una app de tareas: `App`, `Formulario`, `Lista`, `Tarea`, `Filtros`.
 7. Diseña servicios para una app Angular: `TareasService`, `StorageService`, `ApiService`.
 8. Explica qué código vanilla se convertiría en `useEffect` o en servicio Angular.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

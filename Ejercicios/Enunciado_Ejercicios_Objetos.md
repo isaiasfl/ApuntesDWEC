@@ -78,3 +78,7 @@ Agregar propiedad a cada objeto en la matriz. Escribe una función que tome un A
 ## Ejercicio 17
 
 Convertir matriz en objeto con contador. Escriba una función que tome una matriz de números como argumento. Convierta la matriz en un objeto. Debe tener una clave para cada valor único de la matriz. El valor del objeto correspondiente debe ser el número de veces que aparece la clave dentro de la matriz.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

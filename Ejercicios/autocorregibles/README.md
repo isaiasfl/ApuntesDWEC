@@ -20,3 +20,7 @@ node Ejercicios/autocorregibles/arrays.test.js
 ## Objetivo docente
 
 Los tests no sustituyen la corrección del profesor. Sirven para que el alumno tenga retroalimentación inmediata sobre casos básicos.
+
+---
+
+[Volver al índice general](../../INDICE_GENERAL.md)

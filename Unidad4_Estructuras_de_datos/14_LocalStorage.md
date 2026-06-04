@@ -145,3 +145,7 @@ localStorage.setItem("token", "mi_token_secreto");
    ```javascript
    localStorage.setItem("preferencias", JSON.stringify(preferenciasUsuario));
    ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

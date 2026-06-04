@@ -218,3 +218,7 @@ Esto generará una carpeta `dist/` que contiene los archivos optimizados listos 
 ### 13.7.4. Personalizar Configuraciones
 
 Puedes personalizar la configuración de un proyecto Vite creando o editando `vite.config.js`. Para proyectos iniciales de JavaScript Vanilla normalmente no hace falta tocarlo.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

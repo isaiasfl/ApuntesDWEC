@@ -951,3 +951,7 @@ document.addEventListener("keyup", function (event) {
    - MDN. (s.f.). "Event." [https://developer.mozilla.org/en-US/docs/Web/API/Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)
 9. **Más información de JavaScript: :bookmark:**
    - GitHub. "Apuntes de GitHub generados por mí para el curso de DWEC." [https://github.com/isaiasfl/ApuntesDWEC](https://github.com/isaiasfl/ApuntesDWEC)
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

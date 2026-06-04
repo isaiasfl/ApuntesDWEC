@@ -252,26 +252,26 @@ En React, este patrón suele aparecer con `useEffect`, un loader del framework o
 
 ## 7. Traducción mental a React
 
-### Vanilla
+### Vanilla: añadir una tarea
 
 ```javascript
 estado.tareas = [...estado.tareas, nuevaTarea];
 render();
 ```
 
-### React
+### React: añadir una tarea
 
 ```jsx
 setTareas((tareasActuales) => [...tareasActuales, nuevaTarea]);
 ```
 
-### Vanilla
+### Vanilla: pintar una lista
 
 ```javascript
 app.innerHTML = tareas.map(crearHtmlTarea).join("");
 ```
 
-### React
+### React: pintar una lista
 
 ```jsx
 return tareas.map((tarea) => <Tarea key={tarea.id} tarea={tarea} />);
@@ -366,3 +366,7 @@ export function App() {
 - Sé pintar una interfaz desde un objeto de estado.
 - Sé explicar qué es un componente.
 - Sé diferenciar evento, estado, renderizado y efecto.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

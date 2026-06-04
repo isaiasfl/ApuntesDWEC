@@ -28,6 +28,9 @@ Esta auditoría no sustituye una revisión pedagógica completa unidad por unida
 - Actualizada unidad de Node/npm para incluir nvm, pnpm, Corepack y Vite actual.
 - Añadida página de diagramas Mermaid para explicar flujos de DOM, fetch, estado, event loop y puente a frameworks.
 - Añadida plantilla de pull request y configuración de issues.
+- Convertida la antigua `Unidad7/prueba.txt` en una unidad real: `Unidad7_Preparacion_React_Angular/20_Preparacion_React_Angular.md`.
+- Añadido `INDICE_GENERAL.md` para navegar todo el repo desde un único punto.
+- Añadido script local para comprobar enlaces Markdown internos principales.
 
 ## Comprobaciones técnicas realizadas
 
@@ -44,3 +47,7 @@ Esta auditoría no sustituye una revisión pedagógica completa unidad por unida
 - Crear más tests autocorregibles por tema: funciones, objetos, DOM y fetch.
 - Publicar una versión GitHub Pages o MkDocs para navegación web.
 - Integrar diagramas Mermaid dentro de unidades complejas: event loop, prototipos, DOM y fetch.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

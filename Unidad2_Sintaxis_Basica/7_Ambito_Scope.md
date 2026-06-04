@@ -179,3 +179,7 @@ function regularFunction() {
 const arrowFunction = regularFunction.call({ prop: "Hola" });
 arrowFunction(); // Imprime "Hola"
 ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

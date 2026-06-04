@@ -287,3 +287,7 @@ eventos.set("input", [escuchador3]);
 // Agregar un nuevo escuchador al evento 'click' .
 eventos.get("click").push(escuchador4);
 ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

@@ -141,3 +141,7 @@ document.querySelector("button").addEventListener("click", async () => {
   moduloDinamico.mostrarMensaje();
 });
 ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

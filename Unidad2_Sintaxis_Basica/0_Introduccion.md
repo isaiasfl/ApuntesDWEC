@@ -7,7 +7,7 @@
     - [La Guerra de Navegadores](#la-guerra-de-navegadores)
     - [Estándares y Evolución](#estándares-y-evolución)
     - [JavaScript en la Actualidad](#javascript-en-la-actualidad)
-    - [La Revolución ES6+](#la-revolución-es6)
+    - [La Revolución ES6+ y el ciclo anual](#la-revolución-es6-y-el-ciclo-anual)
   - [0.2 Características Modernas](#02-características-modernas)
     - [1. **Lenguaje Multi-paradigma Moderno**](#1-lenguaje-multi-paradigma-moderno)
     - [2. **Compilado e Interpretado (JIT)**](#2-compilado-e-interpretado-jit)
@@ -59,24 +59,27 @@ JavaScript es uno de los lenguajes de programación más populares y ampliamente
 - Hoy en día, JavaScript se encuentra en todas partes, no solo en navegadores web, sino también en servidores (Node.js), aplicaciones móviles (React Native), y más.
 - Es uno de los lenguajes más utilizados para el desarrollo web, permitiendo la creación de sitios web interactivos y dinámicos.
 
-### La Revolución ES6+
+### La Revolución ES6+ y el ciclo anual
 
-En 2015, JavaScript experimentó una transformación radical con la especificación **ES6 (ECMAScript 2015)**. Desde entonces, el lenguaje ha evolucionado con nuevas características cada año:
+En 2015, JavaScript experimentó una transformación radical con la especificación **ES6 (ECMAScript 2015)**. Desde ECMAScript 2016, el lenguaje sigue un ciclo de publicación anual coordinado por **TC39**, el comité técnico que mantiene la especificación ECMAScript.
 
-- **ES6 (2015)**: Classes, let/const, arrow functions, template literals, destructuring, modules, promises
-- **ES7 (2016)**: Array.prototype.includes(), exponentiation operator (\*\*)
-- **ES8 (2017)**: async/await, Object.values(), Object.entries(), string padding
-- **ES9 (2018)**: async iteration, object rest/spread, Promise.finally()
-- **ES10 (2019)**: Array.prototype.flat(), Array.prototype.flatMap(), Object.fromEntries()
-- **ES11 (2020)**: BigInt, optional chaining (?.), nullish coalescing (??)
-- **ES12 (2021)**: Logical assignment operators, numeric separators, String.prototype.replaceAll()
-- **ES13 (2022)**: Object.hasOwn(), Array.prototype.at(), error cause
-- **ES14 (2023)**: Array.prototype.findLast(), Array.prototype.findLastIndex()
-- **ES15 (2024)**: Decorators, Pipeline Operator, Records and Tuples (en evaluación)
+- **ES2015 (ES6)**: `class`, `let`, `const`, arrow functions, template literals, destructuring, módulos y promesas.
+- **ES2016**: `Array.prototype.includes()` y operador de exponenciación `**`.
+- **ES2017**: `async/await`, `Object.values()`, `Object.entries()` y string padding.
+- **ES2018**: iteración asíncrona, rest/spread en objetos y `Promise.prototype.finally()`.
+- **ES2019**: `Array.prototype.flat()`, `Array.prototype.flatMap()` y `Object.fromEntries()`.
+- **ES2020**: `BigInt`, optional chaining `?.` y nullish coalescing `??`.
+- **ES2021**: asignación lógica, separadores numéricos y `String.prototype.replaceAll()`.
+- **ES2022**: campos privados de clase, `Object.hasOwn()`, `Array.prototype.at()` y `Error.cause`.
+- **ES2023**: métodos de array por copia como `toSorted()`, `toReversed()`, `toSpliced()` y `findLast()`.
+- **ES2024 / ES2025**: mejoras incrementales del lenguaje y de APIs estándar, con especial atención a promesas, colecciones, expresiones regulares e iteradores.
+- **ES2026**: versión en proceso de ratificación durante 2026; la referencia más fiable es el borrador vivo de TC39 (`tc39.es/ecma262`) y la lista oficial de propuestas finalizadas.
+
+> **Idea importante para clase:** no se estudia JavaScript como una lista de versiones. Se estudian las capacidades modernas que ya están disponibles en navegadores actuales y en Node LTS.
 
 ## 0.2 Características Modernas
 
-JavaScript en 2025 es un lenguaje moderno, potente y versátil. Así es JavaScript hoy en día:
+JavaScript en 2026 es un lenguaje moderno, potente y versátil. Así es JavaScript hoy en día:
 
 #### 1. **Lenguaje Multi-paradigma Moderno**
 
@@ -115,7 +118,7 @@ JavaScript moderno utiliza compilación **Just-In-Time (JIT)** en los navegadore
 - **V8 (Chrome/Node.js)**: Compila JavaScript a código máquina nativo
 - **SpiderMonkey (Firefox)**: Motor optimizado para rendimiento
 - **JavaScriptCore (Safari)**: Compilación por niveles
-- **Chakra (Edge)**: Optimización dinámica
+- **V8 (Edge actual)**: Microsoft Edge moderno usa Chromium y, por tanto, V8.
 
 ```javascript
 // Código que se optimiza automáticamente
@@ -804,3 +807,7 @@ tsc
 TypeScript se compila a JavaScript estándar, por lo que puede ejecutarse en cualquier navegador o entorno Node.js.
 
 ---
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

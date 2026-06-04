@@ -239,3 +239,7 @@ console.log(arrayUnico); // Resultado: [1, 2, 3, 4, 5]
 - Los elementos en un conjunto deben ser únicos, por lo que no se permiten duplicados.
 - No hay un método `get()` para acceder a un elemento por valor; debes verificar su existencia usando `has()` y luego obtenerlo mediante un bucle o convertir el conjunto en un array.
 - Con matrices u otras estructuras tendríamos que establecer protocolos para verificar si ya existe un elemento antes de insertarlo. Con Set no haría falta.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

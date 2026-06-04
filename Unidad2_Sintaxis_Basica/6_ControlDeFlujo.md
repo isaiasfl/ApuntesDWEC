@@ -162,3 +162,7 @@ Se debe validar que el número que se pretende calcular su letra es entero y de 
 Programa para calcular el factorial de un número entero. Se debe de validar que es un número entero al que se le va a aplicar el factorial.
 
 ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

@@ -90,3 +90,7 @@ const persona = {
   amigos: ["Ana", "David", "Elena"],
 };
 ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

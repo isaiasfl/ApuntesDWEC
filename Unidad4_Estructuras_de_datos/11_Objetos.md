@@ -583,3 +583,7 @@ Usamos un `reviver` para convertir la cadena JSON en un objeto JavaScript y tran
 - Ambos métodos son esenciales para trabajar con la serialización y deserialización de datos en aplicaciones web y comunicaciones cliente-servidor.
 - `replacer` en `JSON.stringify()` permite personalizar la conversión.
 - Utiliza `JSON.stringify()` con `space` para dar formato legible a los datos JSON.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

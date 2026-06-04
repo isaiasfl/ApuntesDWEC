@@ -99,3 +99,7 @@ const arreglo = Array.from(cadena); // ["H", "o", "l", "a"]
 const numero = 42;
 const objeto = Object(numero); // Object { [[PrimitiveValue]]: 42 }
 ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

@@ -505,3 +505,7 @@ En este ejemplo, `fetch` se utiliza junto con `await` para realizar una solicitu
 6. Axios GitHub Repository. [Axios - Promise based HTTP client for the browser and node.js](https://github.com/axios/axios).
 
 7. JavaScript.info. [Fetch](https://javascript.info/fetch).
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

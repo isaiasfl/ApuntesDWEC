@@ -124,3 +124,7 @@ flowchart LR
 ```
 
 Angular tiende a separar más la arquitectura: componente, template, servicios y formularios.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

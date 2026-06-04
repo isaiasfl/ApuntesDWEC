@@ -55,3 +55,7 @@ El proyecto debe de cumplir las siguientes características:
 5. Es necesario el uso de promesas y `Fetch api`.
 
 _Nota: Mirar documentación y no usar versión 3.0(es de pago). Mejor usar versión 2.0 o 2.5._
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

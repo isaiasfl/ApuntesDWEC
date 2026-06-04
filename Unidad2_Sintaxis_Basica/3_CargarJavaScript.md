@@ -171,3 +171,7 @@ La etiqueta `<script>` en HTML tiene varios atributos que pueden afectar cómo s
    ```
 
 Es importante elegir la combinación adecuada de estos atributos según las necesidades de tu página y cómo deseas que se cargue y ejecute el código JavaScript. Por ejemplo, si necesitas que el script se ejecute tan pronto como esté disponible, puedes usar `async`. Si necesitas controlar el orden de ejecución, puedes usar `defer`.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

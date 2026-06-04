@@ -31,6 +31,7 @@ Este repositorio sirve como ruta de aprendizaje para dominar JavaScript moderno 
 - [Stack de aprendizaje](#stack-de-aprendizaje)
 - [Roadmap del alumno](#roadmap-del-alumno)
 - [Ruta recomendada de estudio](#ruta-recomendada-de-estudio)
+- [Índice general del material](#índice-general-del-material)
 - [Progreso por competencias](#progreso-por-competencias)
 - [Entorno recomendado: Node, nvm, npm y pnpm](#entorno-recomendado-node-nvm-npm-y-pnpm)
 - [Diagramas de aprendizaje](#diagramas-de-aprendizaje)
@@ -157,9 +158,21 @@ flowchart TD
 | Orden | Tema | Archivo |
 | --- | --- | --- |
 | 20 | Práctica puente hacia React 19 | [Practica_Puente_React_19.md](Ejercicios/Practica_Puente_React_19.md) |
-| 21 | Guía JS -> React / Angular | [RUTA_JS_REACT_ANGULAR.md](docs/RUTA_JS_REACT_ANGULAR.md) |
+| 21 | Unidad de preparación React / Angular | [20_Preparacion_React_Angular.md](Unidad7_Preparacion_React_Angular/20_Preparacion_React_Angular.md) |
+| 22 | Guía JS -> React / Angular | [RUTA_JS_REACT_ANGULAR.md](docs/RUTA_JS_REACT_ANGULAR.md) |
 
 Esta fase solo marca el camino. El desarrollo completo está separado en la guía específica para no cargar esta ruta principal.
+
+---
+
+## Índice general del material
+
+Para moverse por todo el repositorio sin perderse:
+
+- [Índice general completo](INDICE_GENERAL.md)
+- [Diagramas explicativos](docs/DIAGRAMAS.md)
+- [Banco ampliado de ejercicios](Ejercicios/Banco_Ejercicios_JavaScript_Avanzado.md)
+- [Ruta JS -> React / Angular](docs/RUTA_JS_REACT_ANGULAR.md)
 
 ---
 
@@ -340,6 +353,7 @@ ApuntesDWEC/
 ├── Unidad4_Estructuras_de_datos/
 ├── Unidad5_POO_basada_en_Prototipos/
 ├── Unidad6_DOM/
+├── Unidad7_Preparacion_React_Angular/
 ├── Ejercicios/
 │   └── autocorregibles/
 ├── docs/
@@ -348,6 +362,7 @@ ApuntesDWEC/
 ├── assets/
 ├── CITATION.cff
 ├── CONTRIBUTING.md
+├── INDICE_GENERAL.md
 ├── LICENSE
 └── README.md
 ```

@@ -261,3 +261,7 @@ function factorial(n) {
 
 console.log(factorial(5)); // Imprime: 120
 ```
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)

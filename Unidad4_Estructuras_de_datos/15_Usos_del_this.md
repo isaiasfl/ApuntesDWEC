@@ -232,3 +232,7 @@ MiConstructor.prototype.incrementar = function () {
 - Las funciones regulares pueden tener diferentes valores de `this` según cómo se llamen.
 - Las arrow functions heredan `this` del contexto en el que se definen, lo que puede ser útil para mantener la consistencia del contexto.
 - Para solucionar problemas de cambio de contexto, se pueden usar métodos como `bind`, `call` o `apply`.
+
+---
+
+[Volver al índice general](../INDICE_GENERAL.md)
