@@ -33,11 +33,16 @@ Esta auditoría no sustituye una revisión pedagógica completa unidad por unida
 - Añadido script local para comprobar enlaces Markdown internos principales.
 - Añadida guía de Clean Code aplicada a JavaScript.
 - Añadida auditoría Context7 para separar lo verificado de lo pendiente.
+- Añadida guía explícita de metodologías de programación.
+- Añadidos más ejercicios autocorregibles reales: `objects.test.js` y `functions.test.js`.
+- Añadido un autocorregible adicional centrado en estado y transformaciones.
 
 ## Comprobaciones técnicas realizadas
 
 - No hay bloques de código Markdown sin cerrar.
 - El test autocorregible de arrays tiene script en `package.json`.
+- Los autocorregibles ahora incluyen arrays, objetos y funciones.
+- Los autocorregibles ahora incluyen arrays, objetos, funciones y estado.
 - La estructura del README enlaza a documentos existentes o añadidos en esta iteración.
 
 ## Siguientes mejoras recomendadas

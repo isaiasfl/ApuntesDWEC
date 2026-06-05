@@ -6,7 +6,8 @@
   "description": "Apuntes DWEC de JavaScript moderno para preparar React y Angular.",
   "scripts": {
     "check:links": "node scripts/check-doc-links.js",
-    "test:ejercicios": "node Ejercicios/autocorregibles/arrays.test.js"
+    "test:autocorregibles": "node Ejercicios/autocorregibles/arrays.test.js && node Ejercicios/autocorregibles/objects.test.js && node Ejercicios/autocorregibles/functions.test.js && node Ejercicios/autocorregibles/state.test.js",
+    "test:ejercicios": "node Ejercicios/autocorregibles/arrays.test.js && node Ejercicios/autocorregibles/objects.test.js && node Ejercicios/autocorregibles/functions.test.js && node Ejercicios/autocorregibles/state.test.js"
   },
   "engines": {
     "node": ">=24"

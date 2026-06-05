@@ -35,6 +35,7 @@ Este repositorio sirve como ruta de aprendizaje para dominar JavaScript moderno 
 - [Progreso por competencias](#progreso-por-competencias)
 - [Entorno recomendado: Node, nvm, npm y pnpm](#entorno-recomendado-node-nvm-npm-y-pnpm)
 - [Diagramas de aprendizaje](#diagramas-de-aprendizaje)
+- [Metodologías de programación](#metodologías-de-programación)
 - [Clean Code aplicado a JavaScript](#clean-code-aplicado-a-javascript)
 - [Ejercicios](#ejercicios)
 - [Puente a React y Angular](#puente-a-react-y-angular)
@@ -192,6 +193,17 @@ Para moverse por todo el repositorio sin perderse:
 | Arquitectura | Separa estado, render, eventos y storage | Proyecto final vanilla |
 | Frameworks | Entiende componentes, props, estado y efectos | Puente React/Angular |
 
+### Trabajo por competencias
+
+Este repositorio no está pensado solo como una lista de temas. Está organizado para que cada bloque deje una evidencia concreta del aprendizaje.
+
+- Cada unidad introduce contenido.
+- Cada bloque de ejercicios obliga a aplicar ese contenido.
+- Cada guía de apoyo resume criterios que luego se ven en prácticas reales.
+- Cada competencia tiene una prueba visible en el propio material.
+
+El objetivo de esta parte es que el alumno y el profesor puedan ver rápido qué se sabe hacer y dónde está demostrado.
+
 ### Checklist de madurez
 
 - [ ] Leo y modifico código JavaScript sin depender de copiar ejemplos completos.
@@ -298,6 +310,27 @@ Más diagramas:
 
 ---
 
+## Metodologías de programación
+
+Esto conviene dejarlo explícito: antes de hablar de frameworks, el alumno debe saber qué forma de pensar está usando en cada solución.
+
+Guía específica:
+
+- [Metodologías de programación en JavaScript](docs/METODOLOGIAS_JS.md)
+
+Metodologías clave:
+
+- Imperativa: paso a paso, muy literal.
+- Declarativa: expresa el resultado deseado.
+- Funcional: favorece funciones puras y composición.
+- Orientada a objetos: modela entidades con datos y comportamiento.
+- Basada en eventos: reacciona a acciones del usuario o del sistema.
+- Reactiva: responde a cambios de estado o flujos de datos.
+- Modular: divide el problema en piezas pequeñas.
+- Basada en componentes: organiza la UI en bloques reutilizables.
+
+---
+
 ## Clean Code aplicado a JavaScript
 
 Antes de empezar con React o Angular, conviene que el alumno no solo “haga que funcione”, sino que escriba código fácil de leer, probar y mantener.
@@ -305,6 +338,15 @@ Antes de empezar con React o Angular, conviene que el alumno no solo “haga que
 Guía específica:
 
 - [Clean Code aplicado a JavaScript](docs/CLEAN_CODE_JAVASCRIPT.md)
+
+Fundamento rápido:
+
+- legibilidad;
+- separación de responsabilidades;
+- funciones pequeñas;
+- errores controlados;
+- datos predecibles;
+- pruebas sencillas.
 
 Reglas mínimas para las prácticas:
 
@@ -333,6 +375,7 @@ El repo incluye ejercicios por bloques:
 - [Práctica puente hacia React 19](Ejercicios/Practica_Puente_React_19.md)
 - [Banco ampliado de ejercicios](Ejercicios/Banco_Ejercicios_JavaScript_Avanzado.md)
 - [Ejercicios autocorregibles](Ejercicios/autocorregibles/README.md)
+- [Metodologías de programación](docs/METODOLOGIAS_JS.md)
 
 Proyecto recomendado de cierre:
 
@@ -346,6 +389,24 @@ Proyecto recomendado de cierre:
 - Estados visuales de carga y error.
 - Versión posterior en React 19 o Angular.
 
+### Ejercicios autocorregibles
+
+Los ejercicios autocorregibles están en:
+
+- `Ejercicios/autocorregibles/arrays.test.js`
+- `Ejercicios/autocorregibles/objects.test.js`
+- `Ejercicios/autocorregibles/functions.test.js`
+- `Ejercicios/autocorregibles/state.test.js`
+
+Ejecutar todos:
+
+```bash
+node Ejercicios/autocorregibles/arrays.test.js
+node Ejercicios/autocorregibles/objects.test.js
+node Ejercicios/autocorregibles/functions.test.js
+node Ejercicios/autocorregibles/state.test.js
+```
+
 ---
 
 ## Puente a React y Angular
@@ -354,6 +415,7 @@ La parte de frameworks está separada para que el README siga siendo una portada
 
 - [Guía JS -> React / Angular](docs/RUTA_JS_REACT_ANGULAR.md)
 - [Práctica puente hacia React 19](Ejercicios/Practica_Puente_React_19.md)
+- [Metodologías de programación](docs/METODOLOGIAS_JS.md)
 
 Resumen mental:
 

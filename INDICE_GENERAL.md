@@ -51,7 +51,9 @@ Este índice permite moverse por todo el material sin depender solo de la vista 
 
 - [Diagramas explicativos](docs/DIAGRAMAS.md)
 - [Ruta JS -> React / Angular](docs/RUTA_JS_REACT_ANGULAR.md)
+- [Metodologías de programación](docs/METODOLOGIAS_JS.md)
 - [Clean Code aplicado a JavaScript](docs/CLEAN_CODE_JAVASCRIPT.md)
+- [Competencias y evidencias](README.md#progreso-por-competencias)
 - [Auditoría inicial](docs/AUDITORIA_APUNTES.md)
 - [Auditoría Context7](docs/AUDITORIA_CONTEXT7.md)
 - [Contribución](CONTRIBUTING.md)
