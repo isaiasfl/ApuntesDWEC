@@ -59,13 +59,21 @@ El uso de `let` y `const` es preferido en ECMAScript 6 (ES6) para evitar problem
 
 En resumen:
 
-| Tipo  | Scope | Volver a Declarar | Reasignar | Hoisted | Binds this |
-| :---: | :---: | :---------------: | :-------: | :-----: | :--------: |
-|  var  |  No   |        Sí         |    Sí     |   Sí    |     Sí     |
-|  let  |  Sí   |        No         |    Sí     |   No    |     No     |
-| const |  No   |        No         |    No     |   No    |     No     |
+| Tipo  | Scope de bloque | Redeclarar | Reasignar |       Hoisting       |
+| :---: | :-------------: | :--------: | :-------: | :------------------: |
+|  var  |       No        |     Sí     |    Sí     | Sí (inicializa como `undefined`) |
+|  let  |       Sí        |     No     |    Sí     |   Sí (pero no se inicializa — TDZ)   |
+| const |       Sí        |     No     |    No     |   Sí (pero no se inicializa — TDZ)   |
 
-A partir de ECMAScript 2015, `let` y `const` se elevan (hoisting) pero no se inician lo que no provoca problemas con el hoisting o elevación.
+> **TDZ (Temporal Dead Zone / Zona Muerta Temporal):** `let` y `const` sí se elevan (hoisting), pero a diferencia de `var` no se inicializan con `undefined`. Permanecen en un estado "no inicializado" desde el inicio del bloque hasta que se ejecuta su declaración. Acceder a la variable durante ese intervalo lanza un `ReferenceError`. Por tanto no es que "no tengan hoisting", sino que el motor las registra pero las marca como inaccesibles hasta su inicialización.
+
+```javascript
+console.log(a); // undefined (var se eleva e inicializa como undefined)
+var a = 5;
+
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b = 10;
+```
 
 ## 1.2 Tipos de datos en JavaScript.💎
 
@@ -103,7 +111,7 @@ A partir de ES6 y versiones posteriores, los tipos de datos primitivos en JavaSc
    let x = 50;
    let y = x; // y es una copia de x
    x = 30;
-   console.log(y); // 10 (no cambia aunque x cambie)
+   console.log(y); // 50 (no cambia aunque x cambie)
    ```
 
 ### Tipos de datos no primitivos (objetos):

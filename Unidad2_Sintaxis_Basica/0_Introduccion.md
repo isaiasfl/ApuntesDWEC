@@ -169,7 +169,9 @@ let variable = 42;        // number
 variable = "Hola";        // string
 variable = [1, 2, 3];     // array
 variable = {nombre: "Isaías"}; // object
+```
 
+```typescript
 // TypeScript: tipado estático opcional
 let numero: number = 42;
 let texto: string = "Profesor Isaías FL";
@@ -344,6 +346,7 @@ async function cargarDatosParalelos() {
 // 4. Eventos del DOM (manejo de interacciones del usuario)
 document.addEventListener("DOMContentLoaded", () => {
   const boton = document.getElementById("cargarDatos");
+  if (!boton) return;
 
   boton.addEventListener("click", async () => {
     boton.disabled = true;
@@ -411,7 +414,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 2. Node.js (backend - servidor)
 const http = require("http");
-const fs = require("fs");
 
 const server = http.createServer((req, res) => {
   if (req.url === "/") {

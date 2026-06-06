@@ -125,7 +125,7 @@ En este ejemplo, la función `operacionCompleja` toma dos parámetros `a` y `b`,
 
 La ventaja de usar una función de flecha multilínea aquí es que nos permite escribir un código más limpio y legible al agrupar todas las operaciones relacionadas en un solo bloque de código.
 
-## 4.Diferencia Entre Parámetros y Argumentos en JavaScript
+## 4. Diferencia Entre Parámetros y Argumentos en JavaScript
 
 En JavaScript, los términos "parámetros" y "argumentos" se utilizan en el contexto de las funciones, pero se refieren a conceptos diferentes. Es importante comprender la diferencia entre ellos para escribir funciones efectivas y comprender cómo funcionan. A continuación, se proporciona una explicación de cada uno con ejemplos.
 
@@ -178,15 +178,27 @@ saludar(); // Imprime: ¡Hola, Usuario!
 saludar("Lorena"); // Imprime: ¡Hola, Lorena!
 ```
 
-Otra forma interesante sería con `||`.
-
-```javascript
-function mensaje(text) {
-  // si text es indefinida o falsa, la establece a 'vacío'
-  text = text || 'Bienvenido!!';
-  ...
-}
-```
+> **Nota histórica:** antes de ES6 se usaba el operador `||` para simular valores por defecto:
+> ```javascript
+> function mensaje(text) {
+>   text = text || "Bienvenido!!"; // ❌ problema: text = "" también se reemplaza
+> }
+> ```
+> Este patrón es frágil porque `0`, `""`, `false` y `null` son todos *falsy* y se sustituirían. Los parámetros por defecto de ES6+ evitan ese problema:
+> ```javascript
+> function mensaje(text = "Bienvenido!!") {
+>   console.log(text);
+> }
+> mensaje("");        // "" (respeta la cadena vacía)
+> mensaje(undefined); // "Bienvenido!!"
+> mensaje();          // "Bienvenido!!"
+> ```
+> Si necesitas distinguir `null`/`undefined` específicamente, usa el operador nullish coalescing `??` (ES2020):
+> ```javascript
+> function mensaje(text) {
+>   text = text ?? "Bienvenido!!"; // solo reemplaza null o undefined
+> }
+> ```
 
 ## 6. Rest parameters y operador spread
 
@@ -253,13 +265,14 @@ Una función recursiva es aquella que se llama a sí misma para resolver un prob
 
 ```javascript
 function factorial(n) {
-  if (n === 0 || n === 1) {
-    return 1;
-  }
+  if (n < 0) return undefined; // No existe factorial de números negativos
+  if (n === 0 || n === 1) return 1;
   return n * factorial(n - 1);
 }
 
-console.log(factorial(5)); // Imprime: 120
+console.log(factorial(5));  // Imprime: 120
+console.log(factorial(0));  // Imprime: 1
+console.log(factorial(-3)); // Imprime: undefined
 ```
 
 ---

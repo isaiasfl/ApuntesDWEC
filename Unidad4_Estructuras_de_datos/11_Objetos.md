@@ -41,6 +41,9 @@
       - [Ejemplo 4: Conversión básica](#ejemplo-4-conversión-básica)
       - [Ejemplo 5: Personalización con `reviver`](#ejemplo-5-personalización-con-reviver)
     - [Resumen](#resumen)
+  - [11.10 Clonado profundo moderno y `Object.groupBy()`](#1110-clonado-profundo-moderno-y-objectgroupby)
+    - [`structuredClone()` (ES2022+)](#structuredclone-es2022)
+    - [`Object.groupBy()` (ES2024)](#objectgroupby-es2024)
 
 ---
 
@@ -105,6 +108,8 @@ persona.cp = 18000;
 persona.profesion = "Desarrollador";
 ```
 
+> `Object.create(null)` crea un objeto **sin prototipo**, es decir, sin heredar de `Object.prototype`. Esto significa que no dispondrá de métodos como `toString()`, `hasOwnProperty()` o `valueOf()`. Se usa cuando necesitas un "diccionario puro" sin propiedades heredadas que interfieran.
+
 ### 11.1.5 Patrón Singleton
 
 Tomando los conceptos de las funciones autoinvocables de los clousures de Javascript (que veremos más adelante), podemos crear este patrón de programación `Singleton` en el cual el objeto sólo se instancia una única vez y así te aseguras que no se creen nuevas instancias.
@@ -118,7 +123,7 @@ const usuario1 = new (function PersonaSingleton() {
 
 // otra forma de hacerlo más despacio sería:
 
-Class Persona {
+class Persona {
   constructor (nombre,cp,profesion) {
     this.nom = nombre;
     this.cp = cp;
@@ -334,7 +339,7 @@ Si tienes propiedades anidadas en un objeto, también puedes extraerlas utilizan
 // Objeto con propiedades anidadas
 const producto = {
   nombre: "Portátil",
-  marca: "Asus"
+  marca: "Asus",
   detalles: {
     peso: "1.5 kg",
     precio: 950,
@@ -349,7 +354,7 @@ const {
 
 console.log(nombre); // Resultado: "Portátil"
 console.log(peso); // Resultado: "1.5 kg"
-console.log(precio); // Resultado: 900
+console.log(precio); // Resultado: 950
 ```
 
 ## 11.8 `Array.from()` en JavaScript
@@ -583,6 +588,50 @@ Usamos un `reviver` para convertir la cadena JSON en un objeto JavaScript y tran
 - Ambos métodos son esenciales para trabajar con la serialización y deserialización de datos en aplicaciones web y comunicaciones cliente-servidor.
 - `replacer` en `JSON.stringify()` permite personalizar la conversión.
 - Utiliza `JSON.stringify()` con `space` para dar formato legible a los datos JSON.
+- **Limitación:** `JSON.stringify()` no maneja referencias circulares, `undefined`, `Symbol`, ni funciones. Lanza `TypeError` con objetos circulares.
+
+## 11.10 Clonado profundo moderno y `Object.groupBy()`
+
+### `structuredClone()` (ES2022+)
+
+`structuredClone()` realiza un clonado profundo nativo, sin necesidad de `JSON.parse(JSON.stringify())` ni librerías externas. Soporta tipos complejos que JSON no maneja:
+
+```javascript
+const original = {
+  nombre: "Isaías",
+  fecha: new Date(),
+  datos: new Map([["clave", "valor"]]),
+  numeros: new Set([1, 2, 3]),
+};
+
+const copia = structuredClone(original);
+
+console.log(copia.fecha instanceof Date);  // true (JSON perdería el tipo)
+console.log(copia.nombre);                 // "Isaías"
+console.log(original.datos === copia.datos); // false (clonado real)
+```
+
+> `structuredClone()` maneja: objetos, arrays, `Date`, `Map`, `Set`, `RegExp`, `ArrayBuffer`, `Blob`, etc. No clona funciones ni símbolos.
+
+### `Object.groupBy()` (ES2024)
+
+Agrupa elementos de un array en un objeto según una función de clasificación:
+
+```javascript
+const productos = [
+  { nombre: "Laptop", categoria: "electrónica" },
+  { nombre: "Ratón", categoria: "electrónica" },
+  { nombre: "Mesa", categoria: "muebles" },
+];
+
+const agrupado = Object.groupBy(productos, (p) => p.categoria);
+// {
+//   electrónica: [{ nombre: "Laptop", ... }, { nombre: "Ratón", ... }],
+//   muebles: [{ nombre: "Mesa", ... }]
+// }
+```
+
+> Usa `Map.groupBy()` si necesitas claves que no sean strings o mantener orden de inserción.
 
 ---
 

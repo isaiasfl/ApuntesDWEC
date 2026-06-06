@@ -37,8 +37,14 @@ El valor de `this` en JavaScript es un concepto importante y puede cambiar de co
 Cuando `this` se utiliza en el contexto global (fuera de cualquier función), hace referencia al objeto global, que en los navegadores es `window`. Ejemplo:
 
 ```javascript
-console.log(this === window); // true
+console.log(this === window); // true (en navegador, script no estricto)
 ```
+
+> **`globalThis` (ES2020):** para acceder al objeto global de forma portable entre entornos (navegador, Node.js, Web Workers), usa `globalThis`:
+> ```javascript
+> console.log(globalThis === window);  // true en navegador
+> // En Node.js, globalThis === global
+> ```
 
 ### En funciones regulares
 

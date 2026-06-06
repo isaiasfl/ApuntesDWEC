@@ -13,7 +13,9 @@
     - [6. `keys()`](#6-keys)
     - [7. `values()`](#7-values)
     - [8. `entries()`](#8-entries)
-    - [9. `forEach(callback)`](#9-foreachcallback)
+    - [9. `forEach(callback)` (valor, clave)](#9-foreachcallback)
+    - [10. `Map.groupBy()` (ES2024)](#10-mapgroupby-es2024)
+    - [11. `WeakMap` — Map con claves débiles](#11-weakmap--map-con-claves-débiles)
   - [10.3 Conversión de `Map` a Otras Estructuras de Datos](#103-conversión-de-map-a-otras-estructuras-de-datos)
     - [1. `Map` a Array de Arrays](#1-map-a-array-de-arrays)
     - [2. `Map` a Array de Objetos](#2-map-a-array-de-objetos)
@@ -128,6 +130,41 @@ miMapa.forEach((valor, clave) => {
   console.log(`${clave}: ${valor}`);
 });
 ```
+
+> **Atención:** `Map.forEach()` recibe `(valor, clave, mapa)`, no `(clave, valor)`. Esto difiere de `Array.forEach((elemento, índice))` y de `Object.entries()` donde la clave suele ir primero. Es una fuente común de confusión.
+
+### 10. `Map.groupBy()` (ES2024)
+
+Agrupa elementos de un iterable según una función de clasificación, devolviendo un `Map`:
+
+```javascript
+const alumnos = [
+  { nombre: "Isaías", curso: "DWEC" },
+  { nombre: "Ana", curso: "DWEC" },
+  { nombre: "Luis", curso: "DIW" },
+];
+
+const porCurso = Map.groupBy(alumnos, (a) => a.curso);
+// Map(2) { "DWEC" => [{…}, {…}], "DIW" => [{…}] }
+```
+
+> Existe también `Object.groupBy()` que devuelve un objeto plano en lugar de un `Map`.
+
+### 11. `WeakMap` — Map con claves débiles
+
+`WeakMap` es una variante donde las claves deben ser objetos y no impiden que el recolector de basura los elimine. Ideal para metadatos asociados a objetos del DOM sin riesgo de memory leaks:
+
+```javascript
+const metadatos = new WeakMap();
+
+const boton = document.querySelector("button");
+metadatos.set(boton, { clicks: 0, creado: Date.now() });
+
+// Si boton se elimina del DOM y no hay otras referencias,
+// el GC puede liberar automáticamente su entrada en el WeakMap
+```
+
+`WeakMap` no tiene `.size`, `.keys()`, `.values()`, ni es iterable — solo `.get()`, `.set()`, `.has()`, `.delete()`.
 
 ## 10.3 Conversión de `Map` a Otras Estructuras de Datos
 

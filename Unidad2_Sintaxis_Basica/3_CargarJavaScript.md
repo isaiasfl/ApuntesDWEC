@@ -115,26 +115,40 @@ La etiqueta `<script>` en HTML tiene varios atributos que pueden afectar cómo s
    <script src="mi_script.js" defer></script>
    ```
 
-4. **`type`**: El atributo `type` se utiliza para especificar algunas opciones sobre el tipo de contenido del script.
+4. **`type`**: El atributo `type` se utiliza para especificar el tipo de contenido del script.
 
-- El valor común es indicar que el tipo es javascript con `"text/javascript"`.
+   - `type="text/javascript"` (valor por defecto, puede omitirse):
 
-  ```html
-  <script src="mi_script.js" type="text/javascript"></script>
-  <script type="module">
-    import { miFuncion } from "./mi-modulo.js";
-    miFuncion();
-  </script>
-  ```
+     ```html
+     <script src="mi_script.js" type="text/javascript"></script>
+     ```
 
-- También se puede utilizar para especificar otros tipos de scripts, como módulos ES6 con la opción `module`
+   - `type="module"` para usar módulos ES6 con `import`/`export`:
 
-  ```html
-  <script type="module">
-    import { miFuncion } from "./mi-modulo.js";
-    miFuncion();
-  </script>
-  ```
+     ```html
+     <script type="module">
+       import { miFuncion } from "./mi-modulo.js";
+       miFuncion();
+     </script>
+     ```
+
+   - `type="importmap"` (ES2023+) para controlar la resolución de módulos sin necesidad de bundlers:
+
+     ```html
+     <script type="importmap">
+       {
+         "imports": {
+           "lodash": "https://cdn.jsdelivr.net/npm/lodash-es@4/lodash.min.js",
+           "utils/": "/js/utils/"
+         }
+       }
+     </script>
+     <script type="module">
+       // Ahora puedes importar con bare specifiers
+       import _ from "lodash";
+       import { helper } from "utils/helpers.js";
+     </script>
+     ```
 
 5. **`nomodule`**
    - Utilizado para garantizar que los navegadores antiguos que no soportan módulos ES6 no ejecuten un script moderno.

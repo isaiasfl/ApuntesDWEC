@@ -45,6 +45,7 @@
     - [4.2. Métodos Estáticos](#42-métodos-estáticos)
       - [Ejemplo 1 static method](#ejemplo-1-static-method)
       - [Ejemplo 2 static method](#ejemplo-2-static-method)
+    - [4.2b. Bloques estáticos (ES2022)](#42b-bloques-estáticos-es2022)
     - [4.3. Herencia Entre Clases](#43-herencia-entre-clases)
       - [Ejemplo 1:](#ejemplo-1-1)
       - [Ejemplo 2:](#ejemplo-2-1)
@@ -55,7 +56,7 @@
       - [Métodos de Clase Protegidos](#métodos-de-clase-protegidos)
         - [Sintaxis](#sintaxis-4)
         - [Ejemplo](#ejemplo-1)
-      - [Métodos de Clase Privados (ECMAScript 2022 no permitido en todos los navegadores aún)](#métodos-de-clase-privados-ecmascript-2022-no-permitido-en-todos-los-navegadores-aún)
+      - [Métodos de Clase Privados (ES2022)](#métodos-de-clase-privados)
         - [Sintaxis](#sintaxis-5)
         - [Ejemplo](#ejemplo-2)
     - [4.5. Ventajas de Propiedades Protegidas y Métodos de Clase Protegidos](#45-ventajas-de-propiedades-protegidas-y-métodos-de-clase-protegidos)
@@ -290,7 +291,13 @@ Los objetos integrados de JavaScript, como `Array` o `String`, también utilizan
 ```javascript
 Array.prototype.duplicar = function () {
   return this.map((item) => item * 2);
+};
+
+const numeros = [1, 2, 3];
+console.log(numeros.duplicar()); // [2, 4, 6]
 ```
+
+> ⚠️ Extender prototipos nativos (`Array.prototype`, `String.prototype`, etc.) es una práctica **desaconsejada** en producción: puede causar conflictos con librerías externas o futuras versiones de JS. Se muestra aquí con fines didácticos.
 
 #### Ejemplo 2 String prototype
 
@@ -315,7 +322,7 @@ function Persona(nombre, edad) {
   this.edad = edad;
 }
 
-const juan = new Persona("Sara", 40);
+const sara = new Persona("Sara", 40);
 ```
 
 ### 3.2. Definición de Propiedades y Métodos de Instancia
@@ -635,6 +642,29 @@ class Matematicas {
 console.log(Matematicas.cuadrado(5)); // Salida: 25
 ```
 
+### 4.2b. Bloques estáticos (ES2022)
+
+Los bloques `static {}` permiten ejecutar lógica de inicialización compleja para la clase, más allá de simples asignaciones:
+
+```javascript
+class Configuracion {
+  static #datosPrivados = new Map();
+
+  // Bloque estático: se ejecuta una sola vez cuando la clase se define
+  static {
+    this.#datosPrivados.set("version", "2.0");
+    this.#datosPrivados.set("entorno", "producción");
+    console.log("Clase Configuracion inicializada");
+  }
+
+  static obtener(clave) {
+    return this.#datosPrivados.get(clave);
+  }
+}
+
+console.log(Configuracion.obtener("version")); // "2.0"
+```
+
 ### 4.3. Herencia Entre Clases
 
 #### Ejemplo de herencia entre `Animal` y `Perro`
@@ -852,12 +882,12 @@ class Pedido {
 const producto1 = { nombre: "Camiseta", precio: 20 };
 const producto2 = { nombre: "Pantalón", precio: 30 };
 
-const pedido = new Pedido()
+const total = new Pedido()
   .agregarProducto(producto1)
   .agregarProducto(producto2)
   .calcularTotal();
 
-console.log(pedido); // Salida: 50
+console.log(total); // Salida: 50
 ```
 
 ---

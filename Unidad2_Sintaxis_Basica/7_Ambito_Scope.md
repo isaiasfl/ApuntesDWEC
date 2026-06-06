@@ -9,11 +9,13 @@
   - [7.2. Uso de `this`](#72-uso-de-this)
     - [7.2.1 Objeto Global](#721-objeto-global)
     - [7.2.2 Métodos y `this`](#722-m%C3%A9todos-y-this)
-    - [7.2.3 Funciones Flecha](#723-funciones-flecha)
-    - [7.3. Ejemplos Prácticos](#73-ejemplos-pr%C3%A1cticos)
-      - [Ejemplo 1: Uso de `this` en el ámbito global](#ejemplo-1-uso-de-this-en-el-%C3%A1mbito-global)
-      - [Ejemplo 2: Uso de `this` en un método](#ejemplo-2-uso-de-this-en-un-m%C3%A9todo)
-      - [Ejemplo 3: Función flecha y `this`](#ejemplo-3-funci%C3%B3n-flecha-y-this)
+    - [7.2.3 Funciones Flecha y `this`](#723-funciones-flecha-y-this)
+    - [7.2.4 `strict mode` y `this`](#724-strict-mode-y-this)
+  - [7.3. Ejemplos Prácticos](#73-ejemplos-pr%C3%A1cticos)
+    - [Ejemplo 1: Closure contador](#ejemplo-1-closure-contador-%C3%A1mbito-l%C3%A9xico-en-acci%C3%B3n)
+    - [Ejemplo 2: `this` en event listeners](#ejemplo-2-this-en-event-listeners)
+    - [Ejemplo 3: TDZ](#ejemplo-3-tdz-temporal-dead-zone)
+    - [Ejemplo 4: `this` perdido y cómo solucionarlo](#ejemplo-4-this-perdido-y-c%C3%B3mo-solucionarlo)
 
 ---
 
@@ -125,59 +127,135 @@ const myObject = {
 myObject.greet(); // Imprime "Hola"
 ```
 
-### 7.2.3 Funciones Flecha
+### 7.2.3 Funciones Flecha y `this`
 
-Las funciones flecha (`=>`) tienen un comportamiento diferente en cuanto a `this`. En una función flecha, `this` se mantiene vinculado al contexto en el que se creó la función flecha, en lugar de cambiar según el contexto de ejecución.
-
-Ejemplo:
+Las funciones flecha (`=>`) **no tienen su propio `this`**. Heredan el `this` del ámbito léxico donde fueron definidas, lo que las hace ideales para callbacks dentro de métodos:
 
 ```javascript
-function regularFunction() {
-  return () => {
-    console.log(this.prop); // `this` se mantiene vinculado a la función regularFunction
-  };
-}
+const usuario = {
+  nombre: "Isaías",
+  asignaturas: ["DWEC", "DIW"],
 
-const arrowFunction = regularFunction.call({ prop: "Hola" });
-arrowFunction(); // Imprime "Hola"
-```
+  // Método con función tradicional
+  mostrarTradicional() {
+    // this = usuario (el objeto que llama al método)
+    this.asignaturas.forEach(function (asig) {
+      console.log(this.nombre, asig); // ❌ this.nombre = undefined
+      // Dentro de function(), this es el objeto global (o undefined en strict mode)
+    });
+  },
 
-### 7.3. Ejemplos Prácticos
-
->
-
-A continuación, se presentan algunos ejemplos prácticos que demuestran el ámbito y el uso de `this` en JavaScript:
-
-#### Ejemplo 1: Uso de `this` en el ámbito global
-
-```javascript
-console.log(this === window); // Verdadero en un navegador
-```
-
-#### Ejemplo 2: Uso de `this` en un método
-
-```javascript
-const myObject = {
-  prop: "Hola",
-  greet: function () {
-    console.log(this.prop);
+  // Método con arrow function
+  mostrarFlecha() {
+    this.asignaturas.forEach((asig) => {
+      console.log(this.nombre, asig); // ✅ this.nombre = "Isaías"
+      // Arrow hereda el this del método mostrarFlecha (que es usuario)
+    });
   },
 };
 
-myObject.greet(); // Imprime "Hola"
+usuario.mostrarFlecha();
+// Imprime: Isaías DWEC, Isaías DIW
 ```
 
-#### Ejemplo 3: Función flecha y `this`
+> **Regla práctica:** usa arrow functions para callbacks y métodos dentro de métodos. Usa funciones tradicionales (`function` o método abreviado) cuando necesites que `this` dependa de quién llame a la función.
+
+### 7.2.4 `strict mode` y `this`
+
+En **modo estricto** (`"use strict"`), `this` en una función tradicional no apunta al objeto global (`window`), sino que es `undefined`:
 
 ```javascript
-function regularFunction() {
-  return () => {
-    console.log(this.prop);
+"use strict";
+
+function mostrarThis() {
+  console.log(this); // undefined (no window)
+}
+
+// En un método de objeto, this sigue siendo el objeto
+const obj = {
+  nombre: "Hola",
+  mostrarThis() {
+    console.log(this); // { nombre: "Hola" }
+  },
+};
+obj.mostrarThis(); // ✅ correcto
+```
+
+> Los módulos ES (`type="module"`) y las clases siempre ejecutan en modo estricto automáticamente.
+
+### 7.3. Ejemplos Prácticos
+
+#### Ejemplo 1: Closure contador (ámbito léxico en acción)
+
+```javascript
+function crearContador(inicial = 0) {
+  let contador = inicial; // Variable privada dentro del closure
+
+  return {
+    incrementar: () => ++contador,
+    decrementar: () => --contador,
+    valor: () => contador,
   };
 }
 
-const arrowFunction = regularFunction.call({ prop: "Hola" });
-arrowFunction(); // Imprime "Hola"
+const c = crearContador(10);
+console.log(c.incrementar()); // 11
+console.log(c.incrementar()); // 12
+console.log(c.decrementar()); // 11
+console.log(c.valor());       // 11
+```
+
+#### Ejemplo 2: `this` en event listeners
+
+```javascript
+const boton = { texto: "Púlsame" };
+
+// ❌ función tradicional: this será el elemento DOM, no 'boton'
+document.querySelector("button")?.addEventListener("click", function () {
+  console.log(this.texto); // undefined (this = elemento <button>)
+});
+
+// ✅ arrow function: this es 'boton' (capturado del ámbito léxico)
+document.querySelector("button")?.addEventListener("click", () => {
+  console.log(boton.texto); // "Púlsame"
+});
+```
+
+#### Ejemplo 3: TDZ (Temporal Dead Zone)
+
+```javascript
+// var se eleva e inicializa con undefined → accesible
+console.log(a); // undefined
+var a = 5;
+
+// let/const se elevan pero NO se inicializan → ReferenceError
+try {
+  console.log(b); // ReferenceError: Cannot access 'b' before initialization
+} catch (e) {
+  console.log("Error capturado:", e.message);
+}
+let b = 10;
+console.log(b); // 10 (ahora sí)
+```
+
+#### Ejemplo 4: `this` perdido y cómo solucionarlo
+
+```javascript
+const usuario = {
+  nombre: "Isaías",
+  saludar() {
+    console.log(`Hola, soy ${this.nombre}`);
+  },
+};
+
+// ❌ Al pasar el método como callback, this se pierde
+setTimeout(usuario.saludar, 1000); // "Hola, soy undefined"
+
+// ✅ Solución 1: arrow wrapper
+setTimeout(() => usuario.saludar(), 1000); // "Hola, soy Isaías"
+
+// ✅ Solución 2: bind()
+setTimeout(usuario.saludar.bind(usuario), 1000); // "Hola, soy Isaías"
 ```
 
 ---

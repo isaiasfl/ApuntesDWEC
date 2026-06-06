@@ -9,6 +9,7 @@
     - [6.2.1. `for` Loop](#621-for-loop)
     - [6.2.2. `while` Loop](#622-while-loop)
     - [6.2.3. `do...while` Loop](#623-dowhile-loop)
+    - [6.2.4. `for...of` Loop (ES6)](#624-forof-loop-es6)
   - [6.3. Estructuras de Control Avanzadas](#63-estructuras-de-control-avanzadas)
     - [6.3.1. `switch` Statement](#631-switch-statement)
     - [6.3.2. `break` y `continue`](#632-break-y-continue)
@@ -108,6 +109,27 @@ do {
 } while (x > 0);
 ```
 
+### 6.2.4. `for...of` Loop (ES6)
+
+El bucle `for...of` itera sobre los **valores** de un iterable (arrays, strings, Map, Set, etc.). Es la forma moderna y recomendada para recorrer arrays:
+
+```javascript
+const frutas = ["manzana", "pera", "uva"];
+
+for (const fruta of frutas) {
+  console.log(fruta);
+}
+// Imprime: manzana, pera, uva
+
+// También funciona con strings
+for (const letra of "Hola") {
+  console.log(letra);
+}
+// Imprime: H, o, l, a
+```
+
+> `for...of` obtiene directamente el **valor** de cada elemento, a diferencia de `for...in` que itera sobre las **claves** (índices). Para arrays, usa siempre `for...of`.
+
 ## 6.3. Estructuras de Control Avanzadas
 
 ### 6.3.1. `switch` Statement
@@ -151,7 +173,7 @@ Calcular la letra del Documento Nacional de Identidad (DNI) sabiendo que es un p
 
 El array de letras es el siguiente:
 
-letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'];
 
 Se debe validar que el número que se pretende calcular su letra es entero y de la longitud correcta.
 ```

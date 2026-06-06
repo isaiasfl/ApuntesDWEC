@@ -8,6 +8,9 @@
   - [12.5. Módulos con Exportaciones Nombradas y Por Defecto](#125-módulos-con-exportaciones-nombradas-y-por-defecto)
   - [12.6. Reexportación y Agregación de Módulos](#126-reexportación-y-agregación-de-módulos)
   - [12.7. Cargar Módulos Dinámicamente](#127-cargar-módulos-dinámicamente)
+  - [12.8. `import.meta` y Top-level await](#128-importmeta-y-top-level-await)
+    - [`import.meta`](#importmeta)
+    - [Top-level await (ES2022)](#top-level-await-es2022)
 
 ---
 
@@ -36,6 +39,18 @@ import { nombre, edad, saludar } from "./miModulo.js";
 console.log(nombre); // Imprime "Juan"
 console.log(edad); // Imprime 30
 console.log(saludar()); // Imprime "Hola, soy Juan y tengo 30 años."
+```
+
+**Importación de espacio de nombres (`import * as`)**:
+
+Cuando un módulo exporta muchos elementos, puedes importarlos todos bajo un namespace:
+
+```javascript
+import * as MiModulo from "./miModulo.js";
+
+console.log(MiModulo.nombre);   // "Juan"
+console.log(MiModulo.edad);     // 30
+console.log(MiModulo.saludar()); // "Hola, soy Juan y tengo 30 años."
 ```
 
 > **NOTA:**
@@ -141,6 +156,36 @@ document.querySelector("button").addEventListener("click", async () => {
   moduloDinamico.mostrarMensaje();
 });
 ```
+
+> `import()` devuelve una promesa. Envuelve la llamada en `try/catch` para manejar errores si el módulo no se encuentra.
+
+## 12.8. `import.meta` y Top-level await
+
+### `import.meta`
+
+El objeto `import.meta` expone metadatos del módulo actual. El más usado es `import.meta.url`:
+
+```javascript
+console.log(import.meta.url); // "file:///ruta/al/modulo.js" o "https://..."
+
+// Útil para resolver rutas relativas al módulo actual
+const rutaBase = new URL(".", import.meta.url).href;
+```
+
+### Top-level await (ES2022)
+
+En módulos ES puedes usar `await` en el nivel superior, sin necesidad de envolverlo en una `async function`:
+
+```javascript
+// En un archivo .mjs o con type="module"
+const config = await fetch("/api/config").then((r) => r.json());
+console.log("Configuración cargada:", config);
+
+// El módulo no termina de cargarse hasta que se resuelve el await
+export { config };
+```
+
+> Solo funciona en módulos ES (`type="module"` o extensión `.mjs`). En scripts comunes (`<script>` sin type) no está permitido.
 
 ---
 

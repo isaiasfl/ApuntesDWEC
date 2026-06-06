@@ -17,8 +17,9 @@
     - [Eliminar Todos los Elementos de un Conjunto](#eliminar-todos-los-elementos-de-un-conjunto)
   - [Usar Objetos y Tipos no Primitivos en un Conjunto](#usar-objetos-y-tipos-no-primitivos-en-un-conjunto)
   - [Iterar Usando el Método `forEach()`](#iterar-usando-el-método-foreach)
-  - [9.11 Uso de Conjuntos en Conjunción con Arrays](#911-uso-de-conjuntos-en-conjunción-con-arrays)
-  - [9.12 Resumen: Limitaciones de los Conjuntos ⏱](#912-resumen-limitaciones-de-los-conjuntos-)
+  - [9.11 Métodos nativos de conjuntos (ES2025)](#911-métodos-nativos-de-conjuntos-es2025)
+  - [9.12 Uso de Conjuntos en Conjunción con Arrays](#912-uso-de-conjuntos-en-conjunción-con-arrays)
+  - [9.13 Resumen: Limitaciones de los Conjuntos ⏱](#913-resumen-limitaciones-de-los-conjuntos-)
 
 ---
 
@@ -211,7 +212,7 @@ Puedes iterar a través de un conjunto utilizando el método `forEach()`:
 ```javascript
 const conjunto = new Set([1, 2, 3]);
 
-conjunto.forEach(function (valor, valor2, conjunto) {
+conjunto.forEach(function (valor, mismoValor, conjunto) {
   console.log(valor);
 });
 
@@ -221,7 +222,37 @@ conjunto.forEach(function (valor, valor2, conjunto) {
 // 3
 ```
 
-## 9.11 Uso de Conjuntos en Conjunción con Arrays
+> En `Set.forEach()`, el callback recibe `(valor, valor, conjunto)`: los dos primeros parámetros son el mismo valor (por compatibilidad de firma con `Map.forEach()`). Usa solo el primero.
+
+## 9.11 Métodos nativos de conjuntos (ES2025)
+
+Desde 2025, `Set` incorpora métodos nativos para operaciones de conjunto, mucho más legibles que las versiones manuales:
+
+```javascript
+const a = new Set([1, 2, 3, 4]);
+const b = new Set([3, 4, 5, 6]);
+
+// Unión
+console.log(a.union(b));             // Set {1, 2, 3, 4, 5, 6}
+
+// Intersección
+console.log(a.intersection(b));      // Set {3, 4}
+
+// Diferencia
+console.log(a.difference(b));        // Set {1, 2}
+
+// Diferencia simétrica
+console.log(a.symmetricDifference(b)); // Set {1, 2, 5, 6}
+
+// Comprobaciones booleanas
+console.log(a.isSubsetOf(b));        // false
+console.log(a.isSupersetOf(b));      // false
+console.log(a.isDisjointFrom(b));    // false (comparten 3, 4)
+```
+
+> **Compatibilidad:** disponible en Node 24+, Chrome 122+, Firefox 127+, Safari 17+. Para navegadores más antiguos, usa las versiones manuales de 9.9.
+
+## 9.12 Uso de Conjuntos en Conjunción con Arrays
 
 Los conjuntos son útiles cuando necesitas garantizar la unicidad de elementos en un array. Puedes usar un conjunto para eliminar duplicados de un array y luego convertirlo nuevamente en un array:
 
@@ -233,7 +264,7 @@ const arrayUnico = [...conjuntoUnico];
 console.log(arrayUnico); // Resultado: [1, 2, 3, 4, 5]
 ```
 
-## 9.12 Resumen: Limitaciones de los Conjuntos ⏱
+## 9.13 Resumen: Limitaciones de los Conjuntos ⏱
 
 - Los conjuntos no admiten índices para acceder a elementos específicos, a diferencia de los arrays.
 - Los elementos en un conjunto deben ser únicos, por lo que no se permiten duplicados.

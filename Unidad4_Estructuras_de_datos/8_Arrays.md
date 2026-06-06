@@ -19,6 +19,9 @@
     - [viii. `reduce()`](#viii-reduce)
     - [ix. `sort()`](#ix-sort)
     - [x. `forEach()`](#x-foreach)
+    - [xi. `at()` (ES2022)](#xi-at-es2022)
+    - [xii. `findLast()` y `findLastIndex()` (ES2023)](#xii-findlast-y-findlastindex-es2023)
+    - [xiii. Métodos inmutables (ES2023)](#xiii-métodos-inmutables-es2023)
   - [8.5 Arrays Multidimensionales](#85-arrays-multidimensionales)
     - [Ejemplos de Dificultad Media](#ejemplos-de-dificultad-media)
       - [Ejemplo 1: Filtrar Números Pares](#ejemplo-1-filtrar-números-pares)
@@ -186,7 +189,7 @@ const mayoresDeEdad = edades.filter((edad) => edad >= 18); // [25, 18, 30, 40]
 
 ### viii. `reduce()`
 
-`reduce(función, valorInicial)`: Aplica una función acumulativa a los elementos del array, retornando un único valor acumulado. Aquí, además del índice y de la referencia a sí mismo, tenemos un acumulador (prevValue), el valor actual (currValue) y el valor inicial (initialValue).
+`reduce(función, valorInicial)`: Aplica una función acumulativa a los elementos del array, retornando un único valor acumulado. La función callback recibe `(acumulador, valorActual, índice, array)`. El `valorInicial` (opcional) se pasa como **segundo argumento a `reduce()`**, no al callback. Si se omite, el primer elemento del array se usa como acumulador inicial y la iteración empieza desde el segundo elemento.
 
 ```javascript
 const initialValue = 0;
@@ -199,9 +202,11 @@ const suma = numeros.reduce(
 
 ```javascript
 const numeros = [5, 10, 15];
-const suma = numeros.reduce((acumulador, numero) => acumulador + numero, 10); // 40
-const suma = numeros.reduce((acumulador, numero) => acumulador + numero); // 30
+const sumaConInicial = numeros.reduce((acumulador, numero) => acumulador + numero, 10); // 40
+const sumaSinInicial = numeros.reduce((acumulador, numero) => acumulador + numero); // 30
 ```
+
+> ⚠️ Si llamas a `reduce()` sin valor inicial sobre un **array vacío**, lanza `TypeError`. Usa siempre un valor inicial cuando el array pueda estar vacío.
 
 ### ix. `sort()`
 
@@ -236,6 +241,50 @@ Primero ordenamos las letras alfabéticamente y luego invertimos el orden usando
 const frutas = ["manzana", "plátano", "naranja"];
 frutas.forEach((fruta) => console.log(fruta));
 ```
+
+### xi. `at()` (ES2022)
+
+Permite acceder a elementos desde el final usando índices negativos, más legible que `arr[arr.length - 1]`:
+
+```javascript
+const frutas = ["manzana", "plátano", "naranja"];
+console.log(frutas.at(0));   // "manzana"
+console.log(frutas.at(-1));  // "naranja" (último elemento)
+console.log(frutas.at(-2));  // "plátano"
+```
+
+### xii. `findLast()` y `findLastIndex()` (ES2023)
+
+Como `find()` y `findIndex()`, pero recorren el array de derecha a izquierda:
+
+```javascript
+const numeros = [5, 12, 8, 130, 44];
+console.log(numeros.findLast((n) => n > 10));     // 44
+console.log(numeros.findLastIndex((n) => n > 10)); // 4
+```
+
+### xiii. Métodos inmutables (ES2023)
+
+`toSorted()`, `toReversed()`, `toSpliced()` y `with()` son versiones que **no modifican el array original**, devolviendo una copia:
+
+```javascript
+const original = [3, 1, 2];
+
+// toSorted() — ordena sin mutar
+const ordenado = original.toSorted(); // [1, 2, 3]
+console.log(original);                // [3, 1, 2] (intacto)
+
+// toReversed() — invierte sin mutar
+const invertido = original.toReversed(); // [2, 1, 3]
+
+// toSpliced(start, deleteCount, ...items) — spliced inmutable
+const reemplazado = original.toSpliced(0, 1, 99); // [99, 1, 2]
+
+// with(index, value) — reemplaza un elemento sin mutar
+const cambiado = original.with(1, 42); // [3, 42, 2]
+```
+
+> Estos métodos son preferibles a `sort()`, `reverse()` y `splice()` cuando necesitas preservar el array original (patrón funcional / estado inmutable).
 
 ## 8.5 Arrays Multidimensionales
 
@@ -372,7 +421,9 @@ for (const indice in frutas) {
 
 1. Itera sobre las propiedades enumerables, incluyendo las propiedades agregadas al prototipo del array.
 2. Los índices del array se manejan como cadenas en lugar de números.
-3. No garantiza un orden específico en la iteración.
+3. Aunque desde ES2015 los índices numéricos se iteran en orden ascendente, `for...in` no está diseñado para arrays y puede incluir propiedades heredadas.
+
+> **Recomendación:** para arrays usa siempre `for...of` o `forEach()`. Reserva `for...in` exclusivamente para objetos planos.
 
 ### 8.7.2 Usando `for...of`
 
