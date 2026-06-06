@@ -27,6 +27,8 @@
       - [3.2 Métodos para Recorrer el DOM](#32-métodos-para-recorrer-el-dom)
         - [3.2.1 parentNode, nextSibling y previousSibling](#321-parentnode-nextsibling-y-previoussibling)
         - [3.2.2 firstChild y lastChild](#322-firstchild-y-lastchild)
+    - [3.3 Métodos modernos de manipulación (ES6+)](#33-métodos-modernos-de-manipulación-es6)
+    - [3.4 Observadores del DOM](#34-observadores-del-dom)
     - [4. Estilos y Medición](#4-estilos-y-medición)
       - [4.1 Cambio de Propiedades CSS](#41-cambio-de-propiedades-css)
         - [4.1.1 Acceder a Propiedades CSS](#411-acceder-a-propiedades-css)
@@ -401,7 +403,72 @@ console.log(primerHijo.textContent); // Contenido del primer hijo
 console.log(ultimoHijo.textContent); // Contenido del último hijo
 ```
 
-Claro, aquí tienes el punto 4 sobre "Estilos y Medición" en el formato de Markdown con ejemplos detallados en JavaScript ES6 o posterior:
+### 3.3 Métodos modernos de manipulación (ES6+)
+
+A partir de ES6, el DOM incorpora métodos más expresivos que `appendChild` e `insertBefore`:
+
+```javascript
+const contenedor = document.getElementById("contenedor");
+
+// append() — añade uno o varios nodos/texto al final (más flexible que appendChild)
+contenedor.append("Texto suelto", document.createElement("hr"));
+
+// prepend() — añade al principio
+contenedor.prepend(document.createElement("header"));
+
+// before() / after() — inserta fuera del elemento, antes o después
+contenedor.before(document.createElement("nav"));
+contenedor.after(document.createElement("footer"));
+
+// replaceWith() — reemplaza el propio elemento por otro
+const nuevo = document.createElement("section");
+contenedor.replaceWith(nuevo);
+
+// remove() — elimina el elemento del DOM sin necesidad del padre
+contenedor.remove(); // equivalente a contenedor.parentNode?.removeChild(contenedor)
+
+// insertAdjacentHTML(posición, html) — inserta HTML sin serializar/deserializar el elemento
+contenedor.insertAdjacentHTML("beforeend", "<p>Insertado eficientemente</p>");
+// Posiciones: "beforebegin", "afterbegin", "beforeend", "afterend"
+
+// closest(selector) — busca el ancestro más cercano que coincida con el selector
+const formulario = document.querySelector("input").closest("form");
+
+// matches(selector) — comprueba si el elemento coincide con el selector CSS
+if (contenedor.matches(".activo")) { /* ... */ }
+
+// toggleAttribute() — alterna un atributo booleano
+contenedor.toggleAttribute("hidden");
+```
+
+### 3.4 Observadores del DOM
+
+`MutationObserver` detecta cambios en el DOM (atributos, hijos, contenido):
+
+```javascript
+const observer = new MutationObserver((mutations) => {
+  mutations.forEach((m) => {
+    console.log(`Cambio: ${m.type} en`, m.target);
+  });
+});
+
+observer.observe(document.getElementById("lista"), {
+  childList: true,  // detectar nodos añadidos/eliminados
+  attributes: true,  // detectar cambios de atributos
+  subtree: true,     // observar también descendientes
+});
+```
+
+`ResizeObserver` detecta cambios de tamaño (más moderno y eficiente que window.resize):
+
+```javascript
+const resizeObserver = new ResizeObserver((entries) => {
+  for (const entry of entries) {
+    console.log(`Ancho: ${entry.contentRect.width}`);
+  }
+});
+resizeObserver.observe(document.getElementById("sidebar"));
+```
 
 ### 4. Estilos y Medición
 
@@ -475,8 +542,6 @@ const colorTexto = estilos.color;
 const tamañoFuente = estilos.fontSize;
 console.log(`Color de texto: ${colorTexto}, Tamaño de fuente: ${tamañoFuente}`);
 ```
-
-Por supuesto, aquí están los puntos 5 y 6, "Manipulación de Formularios" y "Manipulación de Atributos de Datos", con ejemplos más extensos:
 
 ### 5. Manipulación de Formularios
 
@@ -605,8 +670,6 @@ const usuario = elemento.dataset.usuario;
 const rol = elemento.dataset.rol;
 console.log(`Usuario: ${usuario}, Rol: ${rol}`);
 ```
-
-Por supuesto, aquí tienes el punto 7, "Trabajo con Imágenes", con detalles, explicaciones y ejemplos adicionales:
 
 ### 7. Trabajo con Imágenes
 
@@ -947,7 +1010,7 @@ document.addEventListener("keyup", function (event) {
    - MDN. (s.f.). "Working with images." [https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
 
 8. **Manipulación de Eventos:**
-   - MDN. (s.f.). "Introduction to events." [https://developer.mozilla.org/en-US/docs/Web/Events](https://developer.mozilla.org/en-US/docs/Web/Events)
+   - MDN. (s.f.). "Introduction to events." [https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
    - MDN. (s.f.). "Event." [https://developer.mozilla.org/en-US/docs/Web/API/Event](https://developer.mozilla.org/en-US/docs/Web/API/Event)
 9. **Más información de JavaScript: :bookmark:**
    - GitHub. "Apuntes de GitHub generados por mí para el curso de DWEC." [https://github.com/isaiasfl/ApuntesDWEC](https://github.com/isaiasfl/ApuntesDWEC)

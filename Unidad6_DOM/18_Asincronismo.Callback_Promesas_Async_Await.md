@@ -19,6 +19,8 @@
     - [3.3 Encadenamiento de Promesas](#33-encadenamiento-de-promesas)
     - [3.4 Manejo de Errores con Promesas](#34-manejo-de-errores-con-promesas)
     - [3.5 Promesas en Paralelo](#35-promesas-en-paralelo)
+    - [3.6 Combinadores modernos de Promesas (ES2020+)](#36-combinadores-modernos-de-promesas-es2020)
+    - [3.7 El Event Loop: microtareas vs macrotareas](#37-el-event-loop-microtareas-vs-macrotareas)
   - [4. Async/Await: Simplificando el Uso de Promesas](#4-asyncawait-simplificando-el-uso-de-promesas)
     - [Otros Ejemplos:](#otros-ejemplos)
       - [1. Uso Básico:](#1-uso-básico)
@@ -303,28 +305,6 @@ En este ejemplo, el bloque `finally` se ejecutará siempre, independientemente d
 
 Estos métodos permiten estructurar y manejar de manera más efectiva el flujo de ejecución y los errores al trabajar con Promesas en JavaScript.
 
-```javascript
-const miPromesa = new Promise((resolve, reject) => {
-  // Simula una operación asincrónica
-  setTimeout(() => {
-    const exito = true; // Cambia a false para simular un rechazo
-    if (exito) {
-      resolve("La Promesa se ha cumplido.");
-    } else {
-      reject("La Promesa ha sido rechazada.");
-    }
-  }, 2000);
-});
-
-miPromesa
-  .then((resultado) => {
-    console.log("Éxito:", resultado);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  });
-```
-
 ### 3.3 Encadenamiento de Promesas
 
 Un beneficio clave de las Promesas es que puedes encadenar múltiples operaciones asincrónicas en secuencia. Esto mejora la legibilidad del código:
@@ -371,6 +351,69 @@ Promise.all([promesa1, promesa2, promesa3])
     console.error("Algo salió mal:", error);
   });
 ```
+
+### 3.6 Combinadores modernos de Promesas (ES2020+)
+
+**`Promise.allSettled()` (ES2020):** espera a que TODAS las promesas terminen (éxito o fracaso). Nunca falla — siempre devuelve el resultado de cada una:
+
+```javascript
+const resultados = await Promise.allSettled([
+  fetch("/api/usuarios").then((r) => r.json()),
+  fetch("/api/productos").then((r) => r.json()),
+  Promise.reject("Error simulado"),
+]);
+
+// [{ status: "fulfilled", value: [...] }, { status: "fulfilled", value: [...] }, { status: "rejected", reason: "Error simulado" }]
+```
+
+**`Promise.any()` (ES2021):** se resuelve con la primera promesa exitosa. Solo falla si TODAS son rechazadas:
+
+```javascript
+const masRapida = await Promise.any([
+  fetch("https://api1.example.com").then((r) => r.json()),
+  fetch("https://api2.example.com").then((r) => r.json()),
+]);
+// Usa la respuesta del servidor que responda primero
+```
+
+**`Promise.race()`:** se resuelve/rechaza con la primera promesa que termine (éxito o fracaso):
+
+```javascript
+const resultado = await Promise.race([
+  fetch("/api/datos"),
+  new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), 5000)),
+]);
+// Si la API no responde en 5 segundos, lanza error de timeout
+```
+
+**`Promise.withResolvers()` (ES2024):** crea una promesa y expone sus funciones `resolve`/`reject` externamente, útil para patrones avanzados:
+
+```javascript
+const { promise, resolve, reject } = Promise.withResolvers();
+
+// Puedes pasar resolve/reject a otro código sin anidar todo dentro del constructor
+setTimeout(() => resolve("Listo"), 1000);
+const resultado = await promise; // "Listo" al cabo de 1s
+```
+
+### 3.7 El Event Loop: microtareas vs macrotareas
+
+Entender el orden de ejecución es clave para depurar asincronía:
+
+```javascript
+console.log("1. Síncrono");
+
+setTimeout(() => console.log("2. Macrotarea (setTimeout)"), 0);
+
+Promise.resolve().then(() => console.log("3. Microtarea (Promise.then)"));
+
+console.log("4. Síncrono");
+
+// Orden real: 1, 4, 3, 2
+// Las microtareas (Promise.then/catch/finally) se ejecutan ANTES que las macrotareas (setTimeout, setInterval, I/O)
+```
+
+> **Regla:** código síncrono → microtareas (Promises, queueMicrotask) → macrotareas (setTimeout, eventos, fetch callback).
 
 ## 4. Async/Await: Simplificando el Uso de Promesas
 

@@ -34,6 +34,7 @@
           - [Encabezados CORS Comunes](#encabezados-cors-comunes)
           - [Ejemplo de Encabezados CORS en una Respuesta](#ejemplo-de-encabezados-cors-en-una-respuesta)
           - [Ejemplo de Solicitud CORS desde JavaScript](#ejemplo-de-solicitud-cors-desde-javascript)
+        - [AbortController: cancelar peticiones fetch](#abortcontroller-cancelar-peticiones-fetch)
         - [Ventajas de la Fetch API](#ventajas-de-la-fetch-api)
         - [Desventajas de la Fetch API](#desventajas-de-la-fetch-api)
     - [LocalStorage y SessionStorage API](#localstorage-y-sessionstorage-api)
@@ -259,21 +260,23 @@ const response = await fetch(url, options);
 
 #### Body
 
-El cuerpo de la solicitud HTTP se puede especificar mediante el objeto `options` del método `fetch()`. El objeto `options` tiene un campo `body` que es un objeto que contiene el cuerpo de la solicitud.
-
-El cuerpo de la solicitud puede ser una cadena, un objeto o un array. Si el cuerpo de la solicitud es una cadena, se codificará en formato `application/x-www-form-urlencoded`. Si el cuerpo de la solicitud es un objeto, se codificará en formato `application/json`. Si el cuerpo de la solicitud es un array, se codificará en formato `application/octet-stream`.
-
-Por ejemplo, para especificar un cuerpo de solicitud con el valor `{"name": "Isaías FL"}`, se puede utilizar el siguiente código:
+El cuerpo de la solicitud HTTP se especifica mediante el campo `body` del objeto `options`. **Debe ser un string, FormData, Blob, ArrayBuffer o URLSearchParams.** Si envías datos JSON, debes usar `JSON.stringify()`:
 
 ```JavaScript
+// ✅ Correcto: stringificar manualmente + indicar Content-Type
 const options = {
-  body: {
-  name: "Isaías FL"
-}
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ name: "Isaías FL" }),
 };
+
+// ❌ Incorrecto: pasar un objeto plano envía "[object Object]", no JSON
+// body: { name: "Isaías FL" }  ← NUNCA hagas esto
 
 const response = await fetch(url, options);
 ```
+
+> Pasar un objeto plano como `body` **no** produce JSON. El motor lo convierte a string con `.toString()` → `"[object Object]"`. Siempre usa `JSON.stringify()` para cuerpos JSON y establece el header `Content-Type: application/json`.
 
 #### Opciones adicionales
 
@@ -435,20 +438,42 @@ fetch("https://api.example.com/data", {
 
 CORS es esencial para la seguridad en la web moderna al permitir que los servidores controlen qué dominios pueden acceder a sus recursos, evitando así posibles amenazas de seguridad.
 
+##### AbortController: cancelar peticiones fetch
+
+`AbortController` permite abortar una petición `fetch` (u otras operaciones asíncronas). Esencial para evitar peticiones obsoletas en búsquedas, navegación SPA o al desmontar componentes:
+
+```javascript
+const controller = new AbortController();
+
+// Iniciar petición vinculada al controller
+fetch("https://api.example.com/data", { signal: controller.signal })
+  .then((r) => r.json())
+  .then((data) => console.log("Datos:", data))
+  .catch((err) => {
+    if (err.name === "AbortError") {
+      console.log("Petición cancelada por el usuario");
+    } else {
+      console.error("Error:", err);
+    }
+  });
+
+// Cancelar la petición después de 3 segundos si no ha respondido
+setTimeout(() => controller.abort(), 3000);
+
+// También se puede cancelar con un botón o al cambiar de página
+botonCancelar.addEventListener("click", () => controller.abort());
+```
+
+> En React/Angular es habitual abortar peticiones al desmontar el componente o al iniciar una nueva búsqueda mientras la anterior sigue en vuelo.
+
 ##### Ventajas de la Fetch API
 
-La Fetch API ofrece una serie de ventajas sobre otras APIs de solicitudes HTTP, como XMLHttpRequest:
+- Sintaxis más limpia basada en promesas frente al antiguo `XMLHttpRequest`.
+- Soporta `async/await` de forma nativa.
+- API unificada para `Request` y `Response`.
+- Amplio soporte en todos los navegadores modernos desde 2017.
 
-- Es más sencilla de utilizar: La Fetch API tiene una API más sencilla y fácil de entender que XMLHttpRequest.
-- Es más flexible: La Fetch API admite una mayor variedad de opciones que XMLHttpRequest.
-- Es más eficiente: La Fetch API es más eficiente que XMLHttpRequest, ya que utiliza un modelo de promesas.
-
-##### Desventajas de la Fetch API
-
-La Fetch API también tiene algunas desventajas, como:
-
-- No es compatible con todos los navegadores: La Fetch API no es compatible con todos los navegadores, por lo que es necesario utilizar un polyfill para los navegadores antiguos.
-- No es tan potente como XMLHttpRequest: La Fetch API no es tan potente como XMLHttpRequest, ya que no admite algunas características avanzadas, como la transferencia de archivos.
+> Fetch está disponible en todos los navegadores actuales (Chrome 42+, Firefox 39+, Safari 10.1+, Edge 14+). No necesita polyfills salvo para Node.js < 18 o navegadores obsoletos.
 
 ### LocalStorage y SessionStorage API
 
