@@ -138,7 +138,7 @@ flowchart TD
 | 11 | Objetos | [11_Objetos.md](Unidad4_Estructuras_de_datos/11_Objetos.md) |
 | 12 | Módulos ES | [12_Modulos.md](Unidad4_Estructuras_de_datos/12_Modulos.md) |
 | 13 | npm, pnpm, Node y Vite | [13_NPM.md](Unidad4_Estructuras_de_datos/13_NPM.md) |
-| 14 | localStorage | [14_LocalStorage.md](Unidad4_Estructuras_de_datos/14_LocalStorage.md) |
+| 14 | localStorage, sessionStorage, cookies y autenticación JWT | [14_LocalStorage.md](Unidad4_Estructuras_de_datos/14_LocalStorage.md) |
 | 15 | `this` en profundidad | [15_Usos_del_this.md](Unidad4_Estructuras_de_datos/15_Usos_del_this.md) |
 
 ### Fase 3: programación orientada a objetos
